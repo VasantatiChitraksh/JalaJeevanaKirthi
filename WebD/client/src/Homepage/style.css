@@ -1,19 +1,18 @@
 .image-holder {
-    width: 100%; /* Make it full width */
-    max-height: 300px; /* Set a max height for the image holder */
-    overflow: hidden; /* Hide any overflow */
-    display: flex; /* Use flexbox to center the image */
-    justify-content: center; /* Center the image horizontally */
-    align-items: center; /* Center the image vertically */
-    margin-top: 80px; /* Space from topbar */
+    width: 100%; 
+    max-height: 300px; 
+    overflow: hidden; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 80px; 
 }
 
 .image {
-    max-height: 100%; /* Maintain aspect ratio */
-    max-width: 100%; /* Maintain aspect ratio */
+    max-height: 100%; 
+    max-width: 100%; 
     height: 100px; 
 }
-
 
 .topbar {
     position: fixed;
@@ -53,15 +52,13 @@ html, body {
     align-items: center;
     position: relative;
     overflow-x: hidden;
-    transition: background-color 0.5s; /* For smooth darkening effect */
+    transition: background-color 0.5s; 
 }
 
 .background {
-    min-height: 100vh; /* Ensure background covers full viewport */
+    min-height: 100vh; 
     background-color: rgba(38, 174, 232, 0.971);
 }
-
-.about-section {
 .about-section {
     margin-top: 80px;
     margin-left: 110px;
@@ -167,7 +164,7 @@ html, body {
     height: auto; 
     animation: float 5s ease-in-out infinite; 
 }
-
+/* 
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
     40% { transform: translateY(-15px); }
@@ -184,4 +181,4 @@ html, body {
     0% { transform: translateY(0); }
     50% { transform: translateY(5px); }
     100% { transform: translateY(0); }
-}
+} */
