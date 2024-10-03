@@ -31,13 +31,3 @@ body {
     background-color: white;
     color: black;
 }
-
-.footer {
-    width: 100vw;
-    height: 30px;
-    background-color: darkblue;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    position: relative;
-}
