@@ -1,8 +1,54 @@
+.image-holder {
+    width: 100%; /* Make it full width */
+    max-height: 300px; /* Set a max height for the image holder */
+    overflow: hidden; /* Hide any overflow */
+    display: flex; /* Use flexbox to center the image */
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+    margin-top: 80px; /* Space from topbar */
+}
+
+.image {
+    max-height: 100%; /* Maintain aspect ratio */
+    max-width: 100%; /* Maintain aspect ratio */
+    height: 100px; 
+}
+
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    color: black;
+    height: 56px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    color: darkblue;
+    margin-left: 10px;
+    margin-right: 350px;
+}
+
+.logo-icon {
+    height: 40px;
+    width: 40px;
+    margin-left: 10px;
+}
+
+.topbar-button {
+    margin-left: 30px;
+    background-color: white;
+    color: black;
+}
 
 html, body {
     min-height: 100vh;
     width: 100%;
-    display: flex; /* Changed to flex for proper layout */
+    display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
@@ -16,6 +62,9 @@ html, body {
 }
 
 .about-section {
+.about-section {
+    margin-top: 80px;
+    margin-left: 110px;
     width: 80%;
     height: 400px;
     background-color: white;

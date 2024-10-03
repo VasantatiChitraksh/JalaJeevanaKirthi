@@ -1,13 +1,14 @@
 // src/App.jsx
+
 import React from 'react';
-import Home from './Homepage/home.jsx';  // Import with capital `H`
+import Home from './Homepage/home.jsx';  // Import Home component
 
 function App() {
   return (
     <>
-      <Home />  {/* Use `Home` as a React component */}
+      <Home />
     </>
   );
 }
 
-export default App;
+export default App; // Export the App component
