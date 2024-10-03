@@ -1,0 +1,43 @@
+body {
+    background-color: rgba(105, 238, 245, 0.971);
+}
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    color: black;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    color: darkblue;
+    margin-left: 10px;
+    margin-right: 350px;
+}
+
+.logo-icon {
+    height: 40px;
+    width: 40px;
+    margin-left: 10px;
+}
+
+.topbar-button {
+    margin-left: 30px;
+    background-color: white;
+    color: black;
+}
+
+.footer {
+    width: 100vw;
+    height: 30px;
+    background-color: darkblue;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+}

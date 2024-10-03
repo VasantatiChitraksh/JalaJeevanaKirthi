@@ -1,13 +1,15 @@
 // src/App.jsx
+
 import React from 'react';
-import Home from './Homepage/home.jsx';  // Import with capital `H`
+import Home from './Homepage/home.jsx';  // Import Home component
+import Layout from './Homepage/layout.jsx'; // Import Layout component
 
 function App() {
   return (
     <>
-      <Home />  {/* Use `Home` as a React component */}
+      <Layout /> {/* Render Layout component */}
     </>
   );
 }
 
-export default App;
+export default App; // Export the App component
