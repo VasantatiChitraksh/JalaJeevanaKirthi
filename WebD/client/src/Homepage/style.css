@@ -1,6 +1,19 @@
-body {
-    background-color: rgba(105, 238, 245, 0.971);
+.image-holder {
+    width: 100%; /* Make it full width */
+    max-height: 300px; /* Set a max height for the image holder */
+    overflow: hidden; /* Hide any overflow */
+    display: flex; /* Use flexbox to center the image */
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+    margin-top: 80px; /* Space from topbar */
 }
+
+.image {
+    max-height: 100%; /* Maintain aspect ratio */
+    max-width: 100%; /* Maintain aspect ratio */
+    height: 100px; 
+}
+
 
 .topbar {
     position: fixed;
@@ -9,7 +22,7 @@ body {
     right: 0;
     background-color: white;
     color: black;
-    height: 3.5rem;
+    height: 56px;
     display: flex;
     align-items: center;
 }
@@ -30,4 +43,73 @@ body {
     margin-left: 30px;
     background-color: white;
     color: black;
+}
+
+html, body {
+    min-height: 100vh;
+    background-color: rgba(38, 174, 232, 0.971);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.about-section {
+    margin-top: 80px;
+    margin-left: 110px;
+    width: 80%;
+    height: 400px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.about-section h2 {
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+    color: black;
+}
+
+.icons-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.icon-box {
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}
+
+.footer-section {
+    background-color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-section p {
+    margin: 0;
+    color: black;
+    width: 100vw;
 }
