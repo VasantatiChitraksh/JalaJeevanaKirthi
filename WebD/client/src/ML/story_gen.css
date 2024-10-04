@@ -1,0 +1,121 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a; /* Dark background */
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Navigation bar */
+  .nav-bar {
+    background-color: #333; /* Darker gray for the nav bar */
+    padding: 10px;
+    border-bottom: 1px solid #444; /* Border for distinction */
+    width: 100%; /* Ensuring the navigation spans the entire width */
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  
+  .nav-bar ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start; /* Align links to the left */
+    width: 100%;
+  }
+  
+  .nav-bar li {
+    padding: 0 20px;
+    font-size: 18px;
+  }
+  
+  .nav-bar a {
+    text-decoration: none;
+    color: white; /* White text */
+  }
+  
+  .nav-bar a:hover {
+    color: #f0f0f0; /* Slight hover effect for links */
+  }
+  
+  .right {
+    margin-left: auto; /* Only 'Login' should be on the right */
+  }
+  
+  /* Centering content */
+  .content {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    flex-direction: column;
+    gap: 20px;
+    height: 100vh;
+    padding-top: 60px; /* To account for fixed header */
+  }
+  
+  /* Option list and individual option styles */
+  .option-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .option {
+    display: flex;
+    align-items: center;
+    background-color: #777; /* Light gray for contrast */
+    width: 450px;
+    height: 120px;
+    border-radius: 30px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .option:hover {
+    background-color: #aaa; /* Lighten on hover */
+    transform: scale(1.03); /* Slight scale effect */
+  }
+  
+  .circle {
+    background-color: white;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  .option span {
+    font-size: 24px;
+    color: #333; /* Darker text color */
+  }
+  
+  /* Chat bot button */
+  .chat-bot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #777;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .chat-bot:hover {
+    background-color: #aaa; /* Lighten on hover */
+  }
+  
