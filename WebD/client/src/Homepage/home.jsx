@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
 import logo from '../assets/LOGO.jpg';
+import fish from '../assets/fish.png'
 
 function Home() {
     const images = [
@@ -74,6 +75,9 @@ function Home() {
                 <button className="topbar-button">RolePlay</button>
                 <button className="topbar-button">Login</button>
             </div>
+            <div className="spacer">
+
+            </div>
             <div className='waves'></div>
             <div className="image-holder">
                 <img className="image" src={images[currentIndex]} alt={`Image ${currentIndex + 1}`} />
@@ -82,7 +86,9 @@ function Home() {
                 <h2>About Us</h2>
                 <p>We have started to do this to save marine life and stuff</p>
             </div>
-            <div className='fishes'></div>
+            <div className='fishes'>
+                <img className="fish-icon" src={fish} alt="Fish" />
+            </div>
             <div className="icons-section">
                 <div className="icon-box"><p>Icon 1</p></div>
                 <div className="icon-box"><p>Icon 2</p></div>
@@ -91,7 +97,6 @@ function Home() {
             <div className='scuba'></div>
             <div className='sub'></div>
             <div className='whale'></div>
-            
             <footer className="footer-section">
                 <p>@ 2024 Your Company. All rights reserved</p>
             </footer>
