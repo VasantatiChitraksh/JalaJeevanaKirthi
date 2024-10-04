@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
 import logo from '../assets/LOGO.jpg';
-import fish from '../assets/fish.png'
+import fish from '../assets/fish.png';
+import whale from '../assets/whale.png';
+import scuba from '../assets/scuba.png';
+import sub from '../assets/submarine.png';
 
 function Home() {
     const images = [
@@ -78,25 +81,34 @@ function Home() {
             <div className="spacer">
 
             </div>
-            <div className='waves'></div>
             <div className="image-holder">
                 <img className="image" src={images[currentIndex]} alt={`Image ${currentIndex + 1}`} />
             </div>
+            <div className='fishes'>
+                <img className="fish-icon" src={fish} alt="Fish" />
+                <img className="fish-icon" src={fish} alt="Fish" />
+            </div>
+            <div className="spacer"></div>
             <div className="about-section">
                 <h2>About Us</h2>
                 <p>We have started to do this to save marine life and stuff</p>
             </div>
-            <div className='fishes'>
-                <img className="fish-icon" src={fish} alt="Fish" />
+            <div className='scuba'>
+                <img className='scuba-icon' src={scuba} alt="ScubaDivers" />
+            </div>
+            <div className='sub'>
+                <img className='sub-icon' src={sub} alt="Submarine" />
             </div>
             <div className="icons-section">
                 <div className="icon-box"><p>Icon 1</p></div>
+                <div className='spacer2'></div>
                 <div className="icon-box"><p>Icon 2</p></div>
+                <div className='spacer2'></div>
                 <div className="icon-box"><p>Icon 3</p></div>
             </div>
-            <div className='scuba'></div>
-            <div className='sub'></div>
-            <div className='whale'></div>
+            <div className='whale'>
+                <img className="whale-icon" src={whale} alt="Whale" />
+            </div>
             <footer className="footer-section">
                 <p>@ 2024 Your Company. All rights reserved</p>
             </footer>
