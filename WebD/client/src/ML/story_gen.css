@@ -15,7 +15,14 @@
     justify-content: center;
     align-items: center;
   }
-  
+  .story-gen {
+    width: 100%; /* Full width container */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    flex-direction: column;
+  }
+
   /* Navigation bar */
   .nav-bar {
     background-color: #333; /* Darker gray for the nav bar */
@@ -59,10 +66,15 @@
     align-items: center;     /* Center vertically */
     flex-direction: column;
     gap: 20px;
-    height: 100vh;
-    padding-top: 60px; /* To account for fixed header */
+    transition: transform 0.3s ease; /* Smooth animation when moving content */
+    height: 80vh; /* Set height to properly center the content */
   }
   
+  /* When the box is open, move content and chat-bot to the left */
+  .box-open .content {
+    transform: translateX(-25vw); /* Move content and Chat Bot to the left */
+  }
+
   /* Option list and individual option styles */
   .option-list {
     display: flex;
@@ -74,7 +86,7 @@
     display: flex;
     align-items: center;
     background-color: #777; /* Light gray for contrast */
-    width: 450px;
+    width: 30vw;
     height: 120px;
     border-radius: 30px;
     padding: 10px;
@@ -103,8 +115,8 @@
   /* Chat bot button */
   .chat-bot {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 2vh;
+    right: 1vw;
     background-color: #777;
     border: none;
     border-radius: 15px;
@@ -112,10 +124,31 @@
     font-size: 16px;
     color: #333;
     cursor: pointer;
-    transition: background-color 0.3s ease;
   }
   
+
   .chat-bot:hover {
     background-color: #aaa; /* Lighten on hover */
   }
-  
+
+
+  .side-box {
+    position: fixed;
+    right: 10px;
+    top: 60px;
+    width: 50%;
+    height: calc(100vh - 120px);
+    background-color: #444;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    color: white;
+    transition: width 0.3s ease;
+  }
+
+.side-box h2{
+  font-size: 24px;
+  color: white;
+  margin-bottom: 20px;
+}

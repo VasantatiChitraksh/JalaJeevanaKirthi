@@ -1,11 +1,11 @@
 // src/App.jsx
 import React from 'react';
-import StoryGen from './ML/story_gen.jsx'; 
+import StoryGen from './Weather/weather.jsx'; 
 
 function App() {
   return (
     <>
-      <StoryGen />
+      <WeatherPage />
     </>
   );
 }
