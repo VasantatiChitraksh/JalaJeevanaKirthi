@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { FaRegUserCircle,FaLock } from "react-icons/fa";
-import './Sign in.css';
+import './signin.css';
 
 const Signin = () => {
     return (
