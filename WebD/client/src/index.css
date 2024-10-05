@@ -43,14 +43,14 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #6200ea;
+  background-color:white;
   cursor: pointer;
   box-shadow: none0 4px 8px rgba(0,0,0,0.2);
   transition: box-shadow 0.25s;
 }
 button:hover {
   box-shadow: 0 6px 12px rgba(0 ,0 ,0 ,0.2);
-  background-color: aqua;
+  background-color:white;
   transform:translateY(-2px);
 }
 button:focus,
