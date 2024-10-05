@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { FaRegUserCircle,FaLock } from "react-icons/fa";
 import './Login.css';
 
-const Login = () => {
+function Login () {
     return (
         <div className = 'Super'>
             <form action = "">
