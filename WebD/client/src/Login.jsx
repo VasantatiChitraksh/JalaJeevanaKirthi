@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { FaRegUserCircle,FaLock } from "react-icons/fa";
+import { BiLogoGmail } from "react-icons/bi";
 import './Login.css';
 
 function Login () {
@@ -9,8 +10,8 @@ function Login () {
             <form action = "">
                <h1>Login Form</h1>
                <div className = 'input'>
-                  <input type = 'text' placeholder='UserName' required />
-                  <FaRegUserCircle className="Icon" />
+                  <input type = 'text' placeholder='G-Mail' required />
+                  <BiLogoGmail className="Icon" />
                </div>
                <div className = 'input'>
                   <input type = 'text' placeholder='Password' required />
@@ -28,6 +29,6 @@ function Login () {
          </div>
 
     );
-};
+}
 
-export default Login
+export default Login;

@@ -13,6 +13,10 @@ const Signin = () => {
                   <FaRegUserCircle className="Icon" />
                </div>
                <div className = 'input'>
+                  <input type = 'text' placeholder='G-Mail' required />
+                  <BiLogoGmail className="Icon" />
+               </div>
+               <div className = 'input'>
                   <input type = 'text' placeholder='Password' required />
                   <FaLock    className="Icon" />
                </div>
@@ -21,10 +25,11 @@ const Signin = () => {
                   <FaLock    className="Icon" />
                </div>
                
-               <button type ="submit">Signin</button>    
+                  
                <div>
                    <p>already have an account ? <a href="#">Login</a></p>
                </div>
+               <button type ="submit">Signin</button> 
             </form>
          </div>
 
