@@ -1,0 +1,300 @@
+.image-holder-whole {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.image-holder {
+    width: 60%; 
+    height: 300px; 
+    overflow: hidden; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+    position: relative; /* Positioning context for text */
+}
+
+.text{
+    color: white;
+}
+
+@keyframes imageFloat {
+    0%{
+        transform: translateX(0px);
+    }
+    25%{
+        transform: translateX(10px);
+    }
+    50%{
+        transform: translateX(0px);
+    }
+    75%{
+        transform: translateX(-10px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+@keyframes appear{
+    from{
+        opacity: 0;
+        clip-path: inset(100% 100% 0 0);
+    }
+    to{
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+    }
+}
+.image {
+    height: 400px;
+    width: 800px;
+    animation: imageFloat 8s linear infinite;
+}
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    color: black;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+.logo {
+    color: darkblue;
+    margin-left: 10px;
+    margin-right: 300px;
+}
+
+.logo-icon {
+    height: 40px;
+    width: 40px;
+    margin-left: 10px;
+    border-radius: 1.5rem;
+}
+
+.topbar-button {
+    margin-left: 25px;
+    background-color: white;
+    color: black;
+    opacity: 0.5;
+}
+
+.topbar-button:hover{
+    opacity: 1;
+    border-color: white;
+}
+
+.spacer{
+    height: 100px;
+}
+.spacer2{
+    width: 30px;
+}
+.spacer3{
+    width: 100px;
+}
+
+html, body {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+    transition: background-color 0.5s;
+}
+
+.background {
+    min-height: 100vh; 
+    background-color: rgba(38, 174, 232, 0.971);
+}
+
+.about-section {
+    margin-top: 80px;
+    margin-left: 150px;
+    width: 80%;
+    height: 400px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 40px;
+    text-align: center;
+    background-image: url('../assets/Coral.png');
+    background-size: cover;
+    animation: float 4s linear infinite, appear 1s linear;
+}
+
+.about-section h2 {
+    font-size: 28px;
+    color: #0027ad;
+}
+
+.about-section p {
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #000000;
+}
+
+.icons-section {
+    display: flex;
+    justify-content: center;
+    height: 350px;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+@keyframes float {
+    0%{
+        transform: translateY(0px);
+    }
+    25%{
+        transform: translateY(10px);
+    }
+    50%{
+        transform: translateY(0px);
+    }
+    75%{
+        transform: translateY(-10px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+.icon-box {
+    width: 250px;
+    height: 400px;
+    background-color: #fff;
+    background-image: url('../assets/design1.png');
+    background-size: 112%;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    animation: float 4s linear infinite, appear 2s linear;
+}
+.icon-box h2{
+    text-align: center;
+}
+.icon-box p{
+    text-align: center;
+}
+.footer-section {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    padding: 20px;
+    width: 100vw;
+    padding-left: 2%;
+}
+
+.profiles{
+    display: flex;
+}
+.footer-section p {
+    margin: 0;
+    align-items: baseline;
+    justify-content: center;
+    text-align: center;
+    color: black;
+}
+.footer-section h3{
+    color: black;
+    text-align: center;
+}
+.footer-section img{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.whale{
+    position: fixed;
+    opacity: 80%;
+    bottom: 180px;
+    width: 30px;
+    height: 70px;
+    animation: swim 4s linear 1;
+}
+
+@keyframes swim{
+    0%{
+        left: -10%;
+    }
+    100%{
+        left: 110%;
+    }
+}
+.fishes{
+    position: absolute;
+    display: flex;
+    opacity: 75%;
+    width: 30px;
+    height: 200px;
+    animation: swim 3s linear infinite;
+}
+
+.fishes img{
+    width: auto;
+    height: 150px;
+}
+.whale img{
+    width: auto;
+    height: 200px;
+}
+.scuba img{
+    width: 200px;
+    height: 150px;
+}
+.scuba {
+    position: absolute;
+    opacity: 75%;
+    top: 40%;
+    width: auto; 
+    height: auto; 
+    animation: float 5s ease-in-out infinite;
+}
+.sub img{
+    width: auto;
+    height: 150px;
+}
+.sub {
+    position: absolute; 
+    bottom: 33%;
+    right: 40%;
+    width: 100px; 
+    height: 150px; 
+    opacity: 75%;
+    animation: float 4s ease-in-out infinite; 
+}
+.creator{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    color: black;
+    background-image: url('../assets/cv.jpg');
+    background-size: contain;  
+}
+
+.social-media-icons{
+    position: absolute;
+    bottom: 125px;
+    right: 10px;
+}
+
+.social-media-icons a {
+    margin-right: 30px;
+}
