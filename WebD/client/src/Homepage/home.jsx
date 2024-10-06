@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './style.css';
 import logo from '../assets/LOGO.jpg';
 import fish from '../assets/fish.png';
-import coral from '../assets/Coral.png'
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import coral from '../assets/Coral.png';
 import whale from '../assets/whale.png';
 import scuba from '../assets/scuba.png';
 import sub from '../assets/submarine.png';
@@ -122,7 +121,15 @@ function Home() {
             </div>
             <div className="about-section">
                 <h2>About Us</h2>
-                <p>We have started to do this to save marine life and stuff</p>
+                <p>At Jala Jeevana Kirthi, we believe that every individual has the power to make a significant impact on our planet. Our mission is to inspire and empower people to reduce ocean pollution through engaging and immersive role-playing experiences.
+
+How We Work:
+
+By placing users in a variety of real-life scenarios, we aim to foster a deeper understanding of the consequences of human actions on our oceans. Our interactive platform allows users to take on different roles, exploring the potential outcomes of their choices. Through these immersive experiences, we hope to cultivate a sense of responsibility and inspire positive change.
+
+Our Motto: "Small Actions, Big Impact."
+
+We believe that even the smallest actions can have a profound effect on our environment. Our motto, "Small Actions, Big Impact," reflects our commitment to empowering individuals to make a difference. By making informed choices and taking steps to reduce their environmental footprint, users can contribute to a healthier and more sustainable future for our oceans.</p>
             </div>
             <div className='scuba'>
                 <img className='scuba-icon' src={scuba} alt="ScubaDivers" />
@@ -132,12 +139,19 @@ function Home() {
             </div>
             <div className="icons-section">
                 <div className="icon-box">
-                    <p>Icon 1</p>
+                    <h2>Chat with AI</h2>
+                    <p><br></br>We use the power of AI to make your experience better explore our chatbot and roleplay features to dive into the world of marine life and learn the lifecyle of marine life and also the consequences of actions on it. Ask and learn more about the sea from our Chatbot</p>
                     </div>
-                <div className='spacer2'></div>
-                <div className="icon-box"><p>Icon 2</p></div>
-                <div className='spacer2'></div>
-                <div className="icon-box"><p>Icon 3</p></div>
+                <div className='spacer3'></div>
+                <div className="icon-box">
+                    <h2>Learn While Playing</h2>
+                    <p><br></br>Try our fun game to learn more about the fishes and thier orgins, also you can check the market price of some species if you planning to go on a hunt. You can also explore and find out which species of fish and endangering.</p>
+                    </div>
+                <div className='spacer3'></div>
+                <div className="icon-box">
+                    <h2>Contribute to Community</h2>
+                    <p>Also please read the blogs written by other marine enthuaists and participate in forums. Share valuable information to help the marine industry by writing blogging or uploapding datasets or files, research papers or your findings.</p>
+                </div>
             </div>
             <div className='whale'>
                 <img className="whale-icon" src={whale} alt="Whale" />
@@ -148,6 +162,7 @@ function Home() {
                 <h3>Meet the Developers!!</h3>
                 <div className='profiles'>
                 <img className='flogo' src={logo}/>
+                <div className='spacer2' />
                 <div className='creator'>
                 
                 </div>
