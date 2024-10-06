@@ -4,11 +4,13 @@ import App from './components/App/App.jsx'
 import './index.css'
 import Login from './components/Login/Login.jsx'
 import Signin from './components/Signin/Signin.jsx'
+import Chat from './components/chat/chat.jsx'
 import { FaSignInAlt } from 'react-icons/fa'
-import Chat from './chat/chat.jsx'
+import StoryGen from './ML/story_gen.jsx'
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Signin />
+    <StoryGen/>
   </StrictMode>,
 )
