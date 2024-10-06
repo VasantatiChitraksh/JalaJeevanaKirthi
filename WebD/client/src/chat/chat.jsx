@@ -47,36 +47,38 @@ function Chat() {
     };
 
     return (
-        <div className='chatbox'>
-            <div className="header">AI Assistant</div>
-            <div className="body">
-                {messages.map((message, index) => (
-                    <div 
-                        key={index} 
-                        className={`message ${message.user ? 'user' : 'bot'}`}
-                    >
-                        <div>{message.msg}</div>
-                        <div>
-                            <span>{message.time}</span>
-                            <span className='time-author'> {message.user ? "You" : "Bot"}</span>
+        <>
+            <div className='chatbox'>
+                <div className="header">AI Assistant</div>
+                <div className="body">
+                    {messages.map((message, index) => (
+                        <div 
+                            key={index} 
+                            className={`message ${message.user ? 'user' : 'bot'}`}
+                        >
+                            <div>{message.msg}</div>
+                            <div>
+                                <span>{message.time}</span>
+                                <span className='time-author'> {message.user ? "You" : "Bot"}</span>
+                            </div>
                         </div>
-                    </div>
-                ))}
-                <div ref={messagesEndRef}/>
+                    ))}
+                    <div ref={messagesEndRef}/>
+                </div>
+                <div className="footer">
+                    <input
+                        className='msg-box'
+                        type="text"
+                        placeholder="Enter query..."
+                        value={query}
+                        onChange={(event) => setQuery(event.target.value)}
+                    />
+                    <button className="send-msg" onClick={sendMessage}>
+                        <FaPaperPlane color="white" />
+                    </button>
+                </div>
             </div>
-            <div className="footer">
-                <input
-                    className='msg-box'
-                    type="text"
-                    placeholder="Enter query..."
-                    value={query}
-                    onChange={(event) => setQuery(event.target.value)}
-                />
-                <button className="send-msg" onClick={sendMessage}>
-                    <FaPaperPlane color="white" />
-                </button>
-            </div>
-        </div>
+        </>
     );
 }
 

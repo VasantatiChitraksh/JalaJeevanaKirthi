@@ -1,9 +1,11 @@
-import React from "react";
+import{ React, useState} from "react";
 import ReactDOM from "react-dom";
-import { FaRegUserCircle,FaLock } from "react-icons/fa";
+import { FaRegUserCircle,FaLock, FaComment } from "react-icons/fa";
+import Chat from "./chat/chat";
 import './Login.css';
 
 function Login(){
+
     return (
         <div className = 'Super'>
             <form action = "">
