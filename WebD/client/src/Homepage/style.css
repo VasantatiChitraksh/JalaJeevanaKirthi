@@ -127,7 +127,7 @@ html, body {
 .about-section p {
     font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
-    color: #4a90e2;
+    color: #000000;
 }
 
 .icons-section {
@@ -162,7 +162,6 @@ html, body {
     background-color: #fff;
     background-image: url('../assets/design1.png');
     background-size: 112%;
-    display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -172,7 +171,12 @@ html, body {
     color: black;
     animation: float 4s linear infinite, appear 2s linear;
 }
-
+.icon-box h2{
+    text-align: center;
+}
+.icon-box p{
+    text-align: center;
+}
 .footer-section {
     background-color: rgb(255, 255, 255);
     width: 100%;
