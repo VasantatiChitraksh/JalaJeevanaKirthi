@@ -114,9 +114,6 @@ function Home() {
             <div className="spacer">
 
             </div>
-            <div className="image-holder">
-                <img className="image" src={images[currentIndex]} alt={`Image ${currentIndex + 1}`} />
-            </div>
             <div className='fishes'>
                 <img className="fish-icon" src={fish} alt="Fish" />
                 <img className="fish-icon" src={fish} alt="Fish" />
@@ -173,6 +170,9 @@ function Home() {
                 
                 </div>
                 <div className='spacer2'></div>
+                </div>
+                <div className="social-media-icons">
+                    <a href = "#"></a>
                 </div>
                 <p>@ 2024 Your Company. All rights reserved</p>
             </footer>
