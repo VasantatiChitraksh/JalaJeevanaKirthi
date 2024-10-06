@@ -9,20 +9,20 @@ function Login () {
         <div className = 'Super'>
             <form action = "">
                <h1>Login Form</h1>
-               <div className = 'input'>
+               <div className = 'input-place'>
                   <input type = 'text' placeholder='G-Mail' required />
                   <BiLogoGmail className="Icon" />
                </div>
-               <div className = 'input'>
+               <div className = 'input-place'>
                   <input type = 'text' placeholder='Password' required />
                   <FaLock    className="Icon" />
                </div>
                <div className="Remember-me"> 
-                    <label><input type  = "checkbox"/> Rememebr me </label>
+                    <label><input type  = "checkbox"/> Rememebr me |</label>
                     <a href="#">Forget Password?</a>
                </div>
                <button type ="submit">Login</button>    
-               <div>
+               <div className="signin link">
                    <p>Dont have an account ? <a href="#">Register</a></p>
                </div>
             </form>
