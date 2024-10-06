@@ -28,6 +28,7 @@
     border-radius: 0 0 10px 10px;
     display: flex;
     flex-direction: column;
+    align-items: stretch;
 }
 
 .message {
@@ -38,27 +39,28 @@
     border-radius: 10px;
     background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* width: 40%; */
     max-width: 60%;
-    align-items: start;
+    align-items: flex-start;
 }
 
 .message.user {
     background-color: #007BFF;
     color: white;
-    align-content: end;
+    align-self: flex-end;
 }
 
 .message.bot {
     background-color: #e6e6e6;
     color: black;
-    align-content: start;
+    align-self: flex-start;
 }
 
 .message div:last-child {
     align-items: end;
     font-size: 0.8rem;
     color: #555;
-    margin-top: 5px;
+    margin-top: 3px;
 }
 
 .footer {
@@ -90,6 +92,10 @@
 
 .send-msg:hover {
     background-color: #0056b3;
+}
+
+.send-msg:active {
+    background-color: #004085;
 }
 
 .body::-webkit-scrollbar {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { FaPaperPlane } from 'react-icons/fa';
 import io from 'socket.io-client';
 import './chat.css';
@@ -9,6 +9,7 @@ function Chat() {
     const [messages, setMessages] = useState([]);
     const [query, setQuery] = useState('');
     const [room, setRoom] = useState('');
+    const messagesEndRef = useRef(null);
 
     useEffect(() => {
         socket.on('connect', () => {
@@ -27,11 +28,17 @@ function Chat() {
         };
     }, []);
 
+    useEffect(() => {
+        if (messagesEndRef.current) {
+            messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+    }, [messages]);
+
     const sendMessage = () => {
         if (query !== "") {
             const msgData = {
                 msg: query,
-                time: new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes(),
+                time: new Date().toLocaleTimeString(),
             };
 
             socket.emit("ask_query", { room, msg: msgData });
@@ -51,10 +58,11 @@ function Chat() {
                         <div>{message.msg}</div>
                         <div>
                             <span>{message.time}</span>
-                            <span> &nbsp;{message.user ? "You" : "Bot"}</span>
+                            <span className='time-author'> {message.user ? "You" : "Bot"}</span>
                         </div>
                     </div>
                 ))}
+                <div ref={messagesEndRef}/>
             </div>
             <div className="footer">
                 <input
