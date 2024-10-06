@@ -5,6 +5,7 @@ import './index.css'
 import Login from './components/Login/Login.jsx'
 import Signin from './components/Signin/Signin.jsx'
 import { FaSignInAlt } from 'react-icons/fa'
+import Chat from './chat/chat.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
