@@ -8,6 +8,8 @@ import whale from '../assets/whale.png';
 import scuba from '../assets/scuba.png';
 import sub from '../assets/submarine.png';
 import card from '../assets/design1.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faInstagram, faTwitter} from '@fortawesome/free-brands-svg-icons';
 
 function Home() {
     const images = [
@@ -17,15 +19,15 @@ function Home() {
     ]
 
     const headings = [
-        'This is the first image',
-        'This is the second image',
-        'This is the third image'
+        'Coral reefs conservation',
+        'Marine biodiveristy',
+        'Saving Our Oceans'
     ]
 
     const paragraph = [
-        'First paragraph',
-        'Second paragraph',
-        'Third paragraph'
+        'They are a vital part of our ecosystem but they are threatened by climate change,pollution and various other reasons.Protecting these are necessary for maintaining biodiversity and even essential for our survival',
+        'Oceans play a vital role in regulating temperature of Earth by absorbing carbon-di-oxide and heat.This natural process helps mitigate climate change impacts. Understanding and protecting this function is crucial for maintaining global climate stability.',
+        'Our oceans cover over 70% of the Earth’s surface and are essential for regulating climate and supporting diverse ecosystems. However, they face threats from pollution, overfishing, and climate change. By reducing plastic use and supporting sustainable practices, we can help protect these vital resources. Together, we can ensure our oceans remain healthy for future generations.'
     ]
     
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -94,8 +96,8 @@ function Home() {
             <div className="spacer"></div>
             <div className='waves'></div>
             <div className="image-holder-whole">
-    <button className="nav-button" onClick={handleLeftClick}>&lt;</button>
-    <div 
+            <button className="nav-button" onClick={handleLeftClick}>&lt;</button>
+            <div 
         className="image-holder" 
         style={{ 
             backgroundImage: `url(${images[currentIndex]})`, 
@@ -175,8 +177,18 @@ function Home() {
                     <a href = "#"></a>
                 </div>
                 <p>@ 2024 Your Company. All rights reserved</p>
+                <div className="social-media-icons">
+                <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <FontAwesomeIcon icon={faFacebook} size="2x" />
+                </a>
+                <a href="https://instagram.com/yourpage" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <FontAwesomeIcon icon={faInstagram} size="2x" />
+                </a>
+                <a href="https://twitter.com/yourpage" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                <FontAwesomeIcon icon={faTwitter} size="2x" />
+                </a>
+      </div>
             </footer>
-
         </div>
     );
 }

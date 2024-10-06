@@ -5,6 +5,22 @@
     margin: 20px 0;
 }
 
+.image-holder {
+    width: 60%; 
+    height: 300px; 
+    overflow: hidden; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+    position: relative; /* Positioning context for text */
+}
+
+.text{
+    color: white;
+}
 
 @keyframes imageFloat {
     0%{
@@ -263,4 +279,14 @@ html, body {
     width: 100px;
     color: black;
     background-color: black;
+}
+
+.social-media-icons{
+    position: absolute;
+    bottom: 125px;
+    right: 10px;
+}
+
+.social-media-icons a {
+    margin-right: 30px;
 }
