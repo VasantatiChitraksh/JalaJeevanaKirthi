@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './style.css';
 import logo from '../assets/LOGO.jpg';
 import fish from '../assets/fish.png';
-import coral from '../assets/Coral.png'
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import coral from '../assets/Coral.png';
 import whale from '../assets/whale.png';
 import scuba from '../assets/scuba.png';
 import sub from '../assets/submarine.png';
@@ -132,9 +131,9 @@ function Home() {
                 <div className="icon-box">
                     <p>Icon 1</p>
                     </div>
-                <div className='spacer2'></div>
+                <div className='spacer3'></div>
                 <div className="icon-box"><p>Icon 2</p></div>
-                <div className='spacer2'></div>
+                <div className='spacer3'></div>
                 <div className="icon-box"><p>Icon 3</p></div>
             </div>
             <div className='whale'>
@@ -146,6 +145,7 @@ function Home() {
                 <h3>Meet the Developers!!</h3>
                 <div className='profiles'>
                 <img className='flogo' src={logo}/>
+                <div className='spacer2' />
                 <div className='creator'>
                 
                 </div>

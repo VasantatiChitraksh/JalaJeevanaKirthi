@@ -83,6 +83,9 @@
 .spacer2{
     width: 30px;
 }
+.spacer3{
+    width: 100px;
+}
 
 html, body {
     min-height: 100vh;
@@ -239,8 +242,8 @@ html, body {
 .scuba {
     position: absolute;
     opacity: 75%;
-    top: 50%;
-    width: 100px; 
+    top: 40%;
+    width: auto; 
     height: auto; 
     animation: float 5s ease-in-out infinite;
 }
@@ -250,17 +253,18 @@ html, body {
 }
 .sub {
     position: absolute; 
-    bottom: 25%;
-    right: 15%;
+    bottom: 33%;
+    right: 40%;
     width: 100px; 
     height: 150px; 
     opacity: 75%;
-    animation: float 4s linear infinite; 
+    animation: float 4s ease-in-out infinite; 
 }
 .creator{
     border-radius: 50%;
     height: 100px;
     width: 100px;
     color: black;
-    background-color: black;
+    background-image: url('../assets/cv.jpg');
+    background-size: contain;  
 }
