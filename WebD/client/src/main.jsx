@@ -5,10 +5,6 @@ import './index.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-<<<<<<< HEAD
     <App/>
-=======
-    <App />
->>>>>>> parent of 40aa08b (Merge branch 'main' into chitraksh)
   </StrictMode>,
 )
