@@ -10,7 +10,14 @@ const app = express();
 
 app.use(express.json())
 app.use(cors());
+
+app.use(cors({
+    origin: "http://localhost:5173", // Frontend URL
+    credentials: true, // Allow credentials (cookies, tokens)
+}));
+
 app.use(cookieParser())
+
 app.use('/auth', UserRouter)
 
 mongoose.connect('mongodb+srv://jjkweb:ug2team3@cluster0.b3naz.mongodb.net/authtication') .then(() => console.log('Connected to MongoDB'))
