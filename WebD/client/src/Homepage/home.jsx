@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './style.css';
 import logo from '../assets/LOGO.jpg';
 import fish from '../assets/fish.png';
-import scuba from '../assets/scuba.png';
 import coral from '../assets/Coral.png'
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import whale from '../assets/whale.png';
+import scuba from '../assets/scuba.png';
+import sub from '../assets/submarine.png';
+import card from '../assets/design1.png';
 
 function Home() {
     const images = [
@@ -108,23 +111,70 @@ function Home() {
     <button className="nav-button" onClick={handleRightClick}>&gt;</button>
 </div>
 
+            <div className="spacer">
+
+            </div>
+            <div className="image-holder">
+                <img className="image" src={images[currentIndex]} alt={`Image ${currentIndex + 1}`} />
+            </div>
+            <div className='fishes'>
+                <img className="fish-icon" src={fish} alt="Fish" />
+                <img className="fish-icon" src={fish} alt="Fish" />
+            </div>
             <div className="about-section">
                 <h2>About Us</h2>
                 <p>We have started to do this to save marine life and stuff</p>
             </div>
-            <div className='fishes'>
-                <img className="fish-icon" src={fish} alt="Fish" />
+            <div className='scuba'>
+                <img className='scuba-icon' src={scuba} alt="ScubaDivers" />
+            </div>
+            <div className='sub'>
+                <img className='sub-icon' src={sub} alt="Submarine" />
             </div>
             <div className="icons-section">
-                <div className="icon-box"><p>Icon 1</p></div>
+                <div className="icon-box">
+                    <p>Icon 1</p>
+                    </div>
+                <div className='spacer2'></div>
                 <div className="icon-box"><p>Icon 2</p></div>
+                <div className='spacer2'></div>
                 <div className="icon-box"><p>Icon 3</p></div>
             </div>
-            <div className='scuba'></div>
-            <div className='sub'></div>
-            <div className='whale'></div>
+            <div className='whale'>
+                <img className="whale-icon" src={whale} alt="Whale" />
+            </div>
+            <div className='spacer2' />
+            <div className='spacer' />
             <footer className="footer-section">
-                <p>© 2024 Your Company. All rights reserved</p>
+                <h3>Meet the Developers!!</h3>
+                <div className='profiles'>
+                <img className='flogo' src={logo}/>
+                <div className='creator'>
+                
+                </div>
+                <div className='spacer2'></div>
+                <div className='creator'>
+                
+                </div>
+                <div className='spacer2'></div>
+                <div className='creator'>
+                
+                </div>
+                <div className='spacer2'></div>
+                <div className='creator'>
+                
+                </div>
+                <div className='spacer2'></div>
+                <div className='creator'>
+                
+                </div>
+                <div className='spacer2'></div>
+                <div className='creator'>
+                
+                </div>
+                <div className='spacer2'></div>
+                </div>
+                <p>@ 2024 Your Company. All rights reserved</p>
             </footer>
 
         </div>
