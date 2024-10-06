@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
 import logo from '../assets/LOGO.jpg';
-import fish from '../assets/fish.png'
+import fish from '../assets/fish.png';
+import scuba from '../assets/scuba.png';
+import coral from '../assets/Coral.png'
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function Home() {
     const images = [
@@ -10,17 +13,28 @@ function Home() {
         'data:image/jpeg;base64,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'
     ]
 
+    const headings = [
+        'This is the first image',
+        'This is the second image',
+        'This is the third image'
+    ]
+
+    const paragraph = [
+        'First paragraph',
+        'Second paragraph',
+        'Third paragraph'
+    ]
+    
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 3000); 
+    const handleLeftClick = () => {
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    };
 
-        return () => clearInterval(interval);
-    }, [images.length]); 
+    const handleRightClick = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    };
 
-    
     useEffect(() => {
         const handleScroll = () => {
             const scrollTop = window.scrollY;
@@ -44,12 +58,10 @@ function Home() {
         };
     }, []);
 
-    
     useEffect(() => {
         const handleFooterScroll = () => {
             const footer = document.querySelector('footer');
             const footerPosition = footer.getBoundingClientRect();
-
             if (footerPosition.top < window.innerHeight) {
                 document.querySelector('.whale').style.display = 'block';
             } else {
@@ -73,15 +85,29 @@ function Home() {
                 <button className="topbar-button">About Us</button>
                 <button className="topbar-button">Blogs</button>
                 <button className="topbar-button">RolePlay</button>
+                <button className="topbar-button">Forms</button>
                 <button className="topbar-button">Login</button>
             </div>
-            <div className="spacer">
-
-            </div>
+            <div className="spacer"></div>
             <div className='waves'></div>
-            <div className="image-holder">
-                <img className="image" src={images[currentIndex]} alt={`Image ${currentIndex + 1}`} />
-            </div>
+            <div className="image-holder-whole">
+    <button className="nav-button" onClick={handleLeftClick}>&lt;</button>
+    <div 
+        className="image-holder" 
+        style={{ 
+            backgroundImage: `url(${images[currentIndex]})`, 
+            backgroundSize: 'cover', 
+            backgroundPosition: 'center' 
+        }}
+    >
+        <div className="text">
+            <h1>{headings[currentIndex]}</h1>
+            <p>{paragraph[currentIndex]}</p>
+        </div>
+    </div>
+    <button className="nav-button" onClick={handleRightClick}>&gt;</button>
+</div>
+
             <div className="about-section">
                 <h2>About Us</h2>
                 <p>We have started to do this to save marine life and stuff</p>
@@ -98,8 +124,9 @@ function Home() {
             <div className='sub'></div>
             <div className='whale'></div>
             <footer className="footer-section">
-                <p>@ 2024 Your Company. All rights reserved</p>
+                <p>© 2024 Your Company. All rights reserved</p>
             </footer>
+
         </div>
     );
 }

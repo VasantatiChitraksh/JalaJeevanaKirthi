@@ -1,34 +1,74 @@
-.image-holder {
-    width: 100%; 
-    max-height: 300px; 
-    overflow: hidden; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+.image-holder-whole {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
 }
 
-@keyframes imageFloat {
-    0%{
-        transform: translateX(0px);
-    }
-    25%{
-        transform: translateX(10px);
-    }
-    50%{
-        transform: translateX(0px);
-    }
-    75%{
-        transform: translateX(-10px);
-    }
-    100%{
-        transform: translateX(0px);
-    }
+.image-holder {
+    width: 60%; 
+    height: 300px; 
+    overflow: hidden; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    position: relative;
+}
+
+.text {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.nav-button {
+    background-color: rgba(255, 25, 25, 0.8);
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    opacity: 0.7;
+    height: 50px;
+}
+
+.nav-button:hover {
+    background-color: rgba(255, 25, 25, 1);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.left{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.right{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+.image-holder-whole{
+    display: flex;
 }
 
 .image {
     height: 400px;
     width: 800px;
-    animation: imageFloat 4s linear infinite;
 }
 
 .topbar {
@@ -47,7 +87,7 @@
 .logo {
     color: darkblue;
     margin-left: 10px;
-    margin-right: 350px;
+    margin-right: 300px;
 }
 
 .logo-icon {
@@ -57,9 +97,15 @@
 }
 
 .topbar-button {
-    margin-left: 30px;
+    margin-left: 25px;
     background-color: white;
     color: black;
+    opacity: 0.5;
+}
+
+.topbar-button:hover{
+    opacity: 1;
+    border-color: white;
 }
 
 .spacer{
@@ -81,6 +127,7 @@ html, body {
     min-height: 100vh; 
     background-color: rgba(38, 174, 232, 0.971);
 }
+
 .about-section {
     margin-top: 80px;
     margin-left: 110px;
@@ -92,16 +139,19 @@ html, body {
     border-radius: 10px;
     margin-bottom: 40px;
     text-align: center;
+    background-image: url('../assets/Coral.png');
+    background-size: cover;
 }
 
 .about-section h2 {
-    margin-bottom: 20px;
+    font-size: 28px;
+    color: #0027ad;
 }
 
 .about-section p {
     font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
-    color: black;
+    color: #4a90e2;
 }
 
 .icons-section {
@@ -182,20 +232,12 @@ html, body {
     bottom: 120px;
     width: 30px;
     height: 30px;
-    animation: swim 2s linear infinite;
+    animation: swim 3s linear infinite;
 }
 
 .fishes img{
     width: 90px;
     height: 90px;
-}
-
-.scuba {
-    position: absolute;
-    background-image: url('../assets/submarine.png'); 
-    width: 100px; 
-    height: auto; 
-    animation: float 5s ease-in-out infinite;
 }
 
 .waves {
@@ -207,13 +249,21 @@ html, body {
     animation: wave-animation 2s ease-in-out infinite; 
 }
 
-.sub {
-    position: absolute; 
-    background-image: url('../assets/submarine.png'); 
-    width: 100px; 
-    height: auto; 
-    animation: float 5s ease-in-out infinite; 
+.nav-button {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
+
+.nav-button:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
 /* 
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
