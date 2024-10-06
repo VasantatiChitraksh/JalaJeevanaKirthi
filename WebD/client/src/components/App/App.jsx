@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import './App.css'
-import Login from '../Login/Login.jsx'
-import Signin from '../Signin/Signin.jsx';
+import WeatherPage from './Weather/weather.jsx'
 
 function App() {
 
   return (
-      <Signin/>
+      <WeatherPage/>
   );
 }
 export default App
