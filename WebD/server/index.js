@@ -1,18 +1,30 @@
 import express from 'express';
-import http from 'http';
+import { createServer } from 'http';
+const app = express();
 import cors from 'cors';
 import { Server } from 'socket.io';
+import mongoose from 'mongoose';
+import { UserRouter } from './routes/user.js';
+import cookieParser from 'cookie-parser'
+
+app.use(express.json())
+app.use(cors());
+app.use(cookieParser())
+app.use('/auth', UserRouter)
+
+mongoose.connect('mongodb://localhost:27017/authentication') .then(() => console.log('Connected to MongoDB'))
+.catch(err => console.error('MongoDB connection error:', err));
 
 const app = express();
 
-app.use(cors());
 
-const server = http.createServer(app);
+const server = createServer(app);
 
 const io = new Server(server, {
     cors: { 
         origin: "http://localhost:5173", 
-        methods: ["GET", "POST"]
+        methods: ["GET", "POST"],
+        credentials: true
     },
 });
 
@@ -50,7 +62,6 @@ io.on('connection', (socket) => {
         delete rooms[room];
     });
 });
-
-server.listen(3001, () => {
-    console.log('Server running on port 3001');
-});
+server.listen(3001, ()=>{
+    console.log('server running at 3001');
+})

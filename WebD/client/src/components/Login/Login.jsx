@@ -1,31 +1,63 @@
 import React from "react";
-import { FaRegUserCircle, FaLock } from "react-icons/fa";
-import './Login.css';
+import { FaMailBulk, FaLock } from "react-icons/fa";
+import "./Login.css";
+import { Link,useNavigate } from "react-router-dom";
+import  Axios  from "axios";
+import { useState } from "react";
 
 function Login() {
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+
+  const navigate = useNavigate();
+  
+  Axios.defaults.withCredentials = true;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    Axios.post("http://localhost:3001/auth/login", { email, password })
+      .then((response) => {
+        if (response.data.status) {
+          navigate("/home");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    }
+
     return (
-        <div className='Super'>
-            <form action="">
-                <h1>Login Form</h1>
-                <div className='input'>
-                    <input type='text' placeholder='Username' required />
-                    <FaRegUserCircle className="Icon" />
-                </div>
-                <div className='input'>
-                    <input type='password' placeholder='Password' required />
-                    <FaLock className="Icon" />
-                </div>
-                <div className="Remember-me">
-                    <label><input type="checkbox" /> Remember me </label>
-                    <a href="#">Forget Password?</a>
-                </div>
-                <button type="submit">Login</button>
-                <div>
-                    <p>Don't have an account? <a href="#">Register</a></p>
-                </div>
-            </form>
-        </div>
+      <div className="Super">
+        <form action=""  onSubmit={handleSubmit}>
+          <h1>Login</h1>
+          <div className="input">
+            <FaMailBulk className="Icon" color="purple" />
+            <input
+              type="E-mail"
+              placeholder="e-mail"
+              autoComplete="off"
+              required
+              onChange={(e) => setemail(e.target.value)}
+            />
+          </div>
+          <div className="input">
+            <FaLock className="Icon" color="purple" />
+            <input
+              type="text"
+              placeholder="Password"
+              required
+              onChange={(e) => setpassword(e.target.value)}
+            />
+          </div>
+          <button type="submit">Login</button>
+          <div>
+            <p>
+              Don't have an account?{" "}
+              <Link to ="/signup">Register</Link>
+            </p>
+          </div>
+        </form>
+      </div>
     );
-}
+  };
 
 export default Login;

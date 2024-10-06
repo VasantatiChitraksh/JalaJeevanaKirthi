@@ -11,6 +11,5 @@ import StoryGen from './ML/story_gen.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <StoryGen/>
   </StrictMode>,
 )
