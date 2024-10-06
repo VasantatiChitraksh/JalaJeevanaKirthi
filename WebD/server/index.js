@@ -5,9 +5,11 @@ import cors from 'cors';
 import { Server } from 'socket.io';
 import mongoose from 'mongoose';
 import { UserRouter } from './routes/user.js';
+import cookieParser from 'cookie-parser'
 
 app.use(express.json())
 app.use(cors());
+app.use(cookieParser())
 app.use('/auth', UserRouter)
 
 mongoose.connect('mongodb://localhost:27017/authentication') .then(() => console.log('Connected to MongoDB'))
@@ -20,7 +22,8 @@ const server = createServer(app);
 const io = new Server(server, {
     cors: { 
         origin: "http://localhost:5173", 
-        methods: ["GET", "POST"]
+        methods: ["GET", "POST"],
+        credentials: true
     },
 });
 

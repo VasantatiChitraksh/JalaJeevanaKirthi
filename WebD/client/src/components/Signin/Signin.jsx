@@ -4,17 +4,22 @@ import {FaRegUserCircle,FaLock,FaMailBulk,} from "react-icons/fa";
 import "./Signin.css";
 import { useState } from "react";
 import Axios from "axios"
+import { Link,useNavigate } from "react-router-dom";
 
 const Signin = () => {
   const [username, setusername] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
 
+  const navigate = useNavigate()
+
   const handleSubmit = (e) => {
    e.preventDefault()
    Axios.post('http://localhost:3001/auth/signup',
        {username , email, password}).then(response => {
-         console.log(response)
+         if (response.data.status){
+            navigate('/login')
+         }        
        } ).catch(err => {
          console.log(err)
        })
@@ -53,10 +58,10 @@ const Signin = () => {
           />
         </div>
 
-        <button type="submit">Signin</button>
+        <button type="submit">signup</button>
         <div>
           <p>
-            already have an account ? <a href="#">Login</a>
+            already have an account ? <Link to="/login">login</Link>
           </p>
         </div>
       </form>
