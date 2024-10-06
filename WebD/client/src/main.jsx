@@ -9,6 +9,6 @@ import Chat from './chat/chat.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Signin />
+  <App/>
   </StrictMode>,
 )

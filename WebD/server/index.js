@@ -1,14 +1,21 @@
-import express from('express');
-const http = require('http');
+import express from 'express';
+import { createServer } from 'http';
 const app = express();
-const cors = require('cors');
-const { Server } = require('socket.io');
+import cors from 'cors';
+import { Server } from 'socket.io';
+import mongoose from 'mongoose';
+import { UserRouter } from './routes/user.js';
 
-
-
+app.use(express.json())
 app.use(cors());
+app.use('/auth', UserRouter)
 
-const server = http.createServer(app);
+mongoose.connect('mongodb://localhost:27017/authentication') .then(() => console.log('Connected to MongoDB'))
+.catch(err => console.error('MongoDB connection error:', err));
+
+
+
+const server = createServer(app);
 
 const io = new Server(server, {
     cors: { 
@@ -53,5 +60,5 @@ io.on('connection', (socket)=>{
 })
 
 server.listen(3001, ()=>{
-    console.log('server running');
+    console.log('server running at 3001');
 })
