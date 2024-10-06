@@ -1,11 +1,12 @@
 import express from 'express';
 import { createServer } from 'http';
-const app = express();
 import cors from 'cors';
 import { Server } from 'socket.io';
 import mongoose from 'mongoose';
 import { UserRouter } from './routes/user.js';
 import cookieParser from 'cookie-parser'
+
+const app = express();
 
 app.use(express.json())
 app.use(cors());
@@ -15,7 +16,7 @@ app.use('/auth', UserRouter)
 mongoose.connect('mongodb+srv://jjkweb:ug2team3@cluster0.b3naz.mongodb.net/authtication') .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.error('MongoDB connection error:', err));
 
-const app = express();
+
 
 
 const server = createServer(app);
