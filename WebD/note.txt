@@ -1,0 +1,21 @@
+whenever the chat button is required paste the following code in that file:
+
+---also add the dependencies useState, FaComment, React--
+
+
+   const [isChatOpen, setIsChatOpen] = useState(false);
+
+   const toggleChat = () => {
+      setIsChatOpen(prevState => !prevState);
+   };
+
+
+   return(
+    <>
+        <button className="chat-icon" onClick={toggleChat}>
+            <FaComment size={30} color="#007BFF" />
+        </button>
+
+        {isChatOpen && <Chat toggleChat={toggleChat} />}
+    <>
+   )
