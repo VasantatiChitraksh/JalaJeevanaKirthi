@@ -12,7 +12,7 @@ app.use(cors());
 app.use(cookieParser())
 app.use('/auth', UserRouter)
 
-mongoose.connect('mongodb://localhost:27017/authentication') .then(() => console.log('Connected to MongoDB'))
+mongoose.connect('mongodb+srv://jjkweb:ug2team3@cluster0.b3naz.mongodb.net/authtication') .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.error('MongoDB connection error:', err));
 
 
