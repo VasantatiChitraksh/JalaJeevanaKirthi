@@ -5,6 +5,7 @@ import fish from '../assets/fish.png';
 import whale from '../assets/whale.png';
 import scuba from '../assets/scuba.png';
 import sub from '../assets/submarine.png';
+import card from '../assets/design1.png';
 
 function Home() {
     const images = [
@@ -88,7 +89,6 @@ function Home() {
                 <img className="fish-icon" src={fish} alt="Fish" />
                 <img className="fish-icon" src={fish} alt="Fish" />
             </div>
-            <div className="spacer"></div>
             <div className="about-section">
                 <h2>About Us</h2>
                 <p>We have started to do this to save marine life and stuff</p>
@@ -100,7 +100,9 @@ function Home() {
                 <img className='sub-icon' src={sub} alt="Submarine" />
             </div>
             <div className="icons-section">
-                <div className="icon-box"><p>Icon 1</p></div>
+                <div className="icon-box">
+                    <p>Icon 1</p>
+                    </div>
                 <div className='spacer2'></div>
                 <div className="icon-box"><p>Icon 2</p></div>
                 <div className='spacer2'></div>
@@ -109,7 +111,37 @@ function Home() {
             <div className='whale'>
                 <img className="whale-icon" src={whale} alt="Whale" />
             </div>
+            <div className='spacer2' />
+            <div className='spacer' />
             <footer className="footer-section">
+                <h3>Meet the Developers!!</h3>
+                <div className='profiles'>
+                <img className='flogo' src={logo}/>
+                <div className='creator'>
+                
+                </div>
+                <div className='spacer2'></div>
+                <div className='creator'>
+                
+                </div>
+                <div className='spacer2'></div>
+                <div className='creator'>
+                
+                </div>
+                <div className='spacer2'></div>
+                <div className='creator'>
+                
+                </div>
+                <div className='spacer2'></div>
+                <div className='creator'>
+                
+                </div>
+                <div className='spacer2'></div>
+                <div className='creator'>
+                
+                </div>
+                <div className='spacer2'></div>
+                </div>
                 <p>@ 2024 Your Company. All rights reserved</p>
             </footer>
         </div>

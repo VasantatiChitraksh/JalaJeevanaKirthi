@@ -147,8 +147,10 @@ html, body {
 
 .icon-box {
     width: 250px;
-    height: 300px;
+    height: 400px;
     background-color: #fff;
+    background-image: url('../assets/design1.png');
+    background-size: 112%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -161,27 +163,40 @@ html, body {
 }
 
 .footer-section {
-    background-color: #f1f1f1;
+    background-color: rgb(255, 255, 255);
     width: 100%;
     padding: 20px;
     width: 100vw;
-    text-align: center;
+    padding-left: 2%;
 }
 
+.profiles{
+    display: flex;
+}
 .footer-section p {
     margin: 0;
+    align-items: baseline;
+    justify-content: center;
+    text-align: center;
     color: black;
 }
+.footer-section h3{
+    color: black;
+    text-align: center;
+}
+.footer-section img{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
 
-.whale {
-    display: none; 
+.whale{
     position: fixed;
-    bottom: 10px; 
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px; 
-    z-index: 10; 
-    animation: bounce 2s infinite; 
+    opacity: 80%;
+    bottom: 180px;
+    width: 30px;
+    height: 70px;
+    animation: swim 4s linear 1;
 }
 
 @keyframes swim{
@@ -200,14 +215,7 @@ html, body {
     height: 200px;
     animation: swim 3s linear infinite;
 }
-.whale{
-    position: absolute;
-    opacity: 80%;
-    bottom: 180px;
-    width: 30px;
-    height: 70px;
-    animation: swim 6s linear infinite;
-}
+
 .fishes img{
     width: auto;
     height: 150px;
@@ -240,4 +248,11 @@ html, body {
     height: 150px; 
     opacity: 75%;
     animation: float 4s linear infinite; 
+}
+.creator{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    color: black;
+    background-color: black;
 }
