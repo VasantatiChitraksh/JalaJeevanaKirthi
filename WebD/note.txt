@@ -1,6 +1,6 @@
 whenever the chat button is required paste the following code in that file:
 
----also add the dependencies useState, FaComment, React
+---also add the dependencies useState, FaComment, React--
 
 
    const [isChatOpen, setIsChatOpen] = useState(false);
