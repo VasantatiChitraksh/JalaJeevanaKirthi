@@ -14,7 +14,14 @@ function chat(){
         return ()=>{
             socket.off('chat_update');
         }
-    })
+    });
+
+
+    return (
+        <div>
+        
+        </div>
+    )
 
 }
 

@@ -31,4 +31,4 @@ const Signin = () => {
     );
 };
 
-export default Login
+export default Signin
