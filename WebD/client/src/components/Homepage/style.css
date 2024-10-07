@@ -13,9 +13,9 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
-    position: relative; /* Positioning context for text */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
 .text{
@@ -130,7 +130,7 @@ html, body {
     border-radius: 10px;
     margin-bottom: 40px;
     text-align: center;
-    background-image: url('../assets/Coral.png');
+    background-image: url('../../assets/Coral.png');
     background-size: cover;
     animation: float 4s linear infinite, appear 1s linear;
 }
@@ -176,7 +176,7 @@ html, body {
     width: 250px;
     height: 400px;
     background-color: #fff;
-    background-image: url('../assets/design1.png');
+    background-image: url('../../assets/design1.png');
     background-size: 112%;
     justify-content: center;
     align-items: center;
@@ -285,7 +285,7 @@ html, body {
     height: 100px;
     width: 100px;
     color: black;
-    background-image: url('../assets/cv.jpg');
+    background-image: url('../../assets/cv.jpg');
     background-size: contain;  
 }
 

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
-import logo from '../assets/LOGO.jpg';
-import fish from '../assets/fish.png';
-import coral from '../assets/Coral.png';
-import whale from '../assets/whale.png';
-import scuba from '../assets/scuba.png';
-import sub from '../assets/submarine.png';
-import card from '../assets/design1.png';
+import logo from '../../assets/LOGO.jpg';
+import fish from '../../assets/fish.png';
+import coral from '../../assets/Coral.png';
+import whale from '../../assets/whale.png';
+import scuba from '../../assets/scuba.png';
+import sub from '../../assets/submarine.png';
+import card from '../../assets/design1.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faTwitter} from '@fortawesome/free-brands-svg-icons';
 
