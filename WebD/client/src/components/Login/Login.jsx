@@ -11,10 +11,10 @@ function Login() {
 
   const navigate = useNavigate();
   
-  Axios.defaults.withCredentials = true;
+  Axios.defaults.withCredentials=true;
   const handleSubmit = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:3001/auth/login", { email, password })
+    Axios.post('http://localhost:3001/auth/login', { email, password },)
       .then((response) => {
         if (response.data.status) {
           navigate("/home");

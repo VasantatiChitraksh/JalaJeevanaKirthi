@@ -15,10 +15,12 @@ const Signin = () => {
 
   const handleSubmit = (e) => {
    e.preventDefault()
+   console.log("sucess")
    Axios.post('http://localhost:3001/auth/signup',
        {username , email, password}).then(response => {
          if (response.data.status){
-            navigate('/login')
+            console.log("sucess")
+            navigate('/home')
          }        
        } ).catch(err => {
          console.log(err)
