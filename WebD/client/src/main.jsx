@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './components/App/App.jsx'
+import Home from '../src/Homepage/home.jsx';
 import './index.css'
 import Login from './components/Login/Login.jsx'
 import Signin from './components/Signin/Signin.jsx'
@@ -11,6 +11,6 @@ import StoryGen from './ML/story_gen.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App/>
+    <Home/>
   </StrictMode>,
 )
