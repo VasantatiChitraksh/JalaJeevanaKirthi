@@ -1,0 +1,321 @@
+:root {
+    font-size: 16px;
+}
+
+.image-holder-whole {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1.25rem 0;
+}
+
+.image-holder {
+    width: 60%;
+    height: 18.75rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 0.625rem;
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.text {
+    color: white;
+}
+
+@keyframes imageFloat {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(0.625rem);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    75% {
+        transform: translateX(-0.625rem);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        clip-path: inset(100% 100% 0 0);
+    }
+    to {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.image {
+    height: 25rem;
+    width: 50rem;
+    animation: imageFloat 8s linear infinite;
+}
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    color: black;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+.logo {
+    color: darkblue;
+    margin-left: 0.625rem;
+    margin-right: 18.75rem;
+}
+
+.logo-icon {
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-left: 0.625rem;
+    border-radius: 1.5rem;
+}
+
+.topbar-button {
+    margin-left: 1.5625rem;
+    background-color: white;
+    color: black;
+    opacity: 0.5;
+}
+
+.topbar-button:hover {
+    opacity: 1;
+    border-color: white;
+}
+
+.spacer {
+    height: 6.25rem;
+}
+
+.spacer2 {
+    width: 1.875rem;
+}
+
+.spacer3 {
+    width: 6.25rem;
+}
+
+html, body {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+    transition: background-color 0.5s;
+}
+
+.background {
+    min-height: 100vh;
+    background-color: rgba(38, 174, 232, 0.971);
+}
+
+.about-section {
+    margin-top: 5rem;
+    margin-left: 9.375rem;
+    width: 80%;
+    height: 25rem;
+    background-color: white;
+    padding: 1.25rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.625rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    background-image: url('../../assets/Coral.png');
+    background-size: cover;
+    animation: float 4s linear infinite, appear 1s linear;
+}
+
+.about-section h2 {
+    font-size: 1.75rem;
+    color: #0027ad;
+}
+
+.about-section p {
+    font-size: 1.125rem;
+    font-family: 'Times New Roman', Times, serif;
+    color: #000000;
+}
+
+.icons-section {
+    display: flex;
+    justify-content: center;
+    height: 21.875rem;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(0.625rem);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(-0.625rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.icon-box {
+    width: 15.625rem;
+    height: 25rem;
+    background-color: #fff;
+    background-image: url('../../assets/design1.png');
+    background-size: 112%;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.625rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: black;
+    animation: float 4s linear infinite, appear 2s linear;
+}
+
+.icon-box h2 {
+    text-align: center;
+}
+
+.icon-box p {
+    text-align: center;
+}
+
+.footer-section {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    padding: 1.25rem;
+    width: 100vw;
+    padding-left: 2%;
+}
+
+.profiles {
+    display: flex;
+}
+
+.footer-section p {
+    margin: 0;
+    align-items: baseline;
+    justify-content: center;
+    text-align: center;
+    color: black;
+}
+
+.footer-section h3 {
+    color: black;
+    text-align: center;
+}
+
+.footer-section img {
+    height: 9.375rem;
+    width: 9.375rem;
+    border-radius: 50%;
+}
+
+.whale {
+    position: fixed;
+    opacity: 80%;
+    bottom: 11.25rem;
+    width: 1.875rem;
+    height: 4.375rem;
+    animation: swim 4s linear 1;
+}
+
+@keyframes swim {
+    0% {
+        left: -10%;
+    }
+    100% {
+        left: 110%;
+    }
+}
+
+.fishes {
+    position: absolute;
+    display: flex;
+    opacity: 75%;
+    width: 1.875rem;
+    height: 12.5rem;
+    animation: swim 3s linear infinite;
+}
+
+.fishes img {
+    width: auto;
+    height: 9.375rem;
+}
+
+.whale img {
+    width: auto;
+    height: 12.5rem;
+}
+
+.scuba img {
+    width: 12.5rem;
+    height: 9.375rem;
+}
+
+.scuba {
+    position: absolute;
+    opacity: 75%;
+    top: 40%;
+    width: auto;
+    height: auto;
+    animation: float 5s ease-in-out infinite;
+}
+
+.sub img {
+    width: auto;
+    height: 9.375rem;
+}
+
+.sub {
+    position: absolute;
+    bottom: 20.625rem;
+    right: 25rem;
+    width: 6.25rem;
+    height: 9.375rem;
+    opacity: 75%;
+    animation: float 4s ease-in-out infinite;
+}
+
+.creator {
+    border-radius: 50%;
+    height: 6.25rem;
+    width: 6.25rem;
+    color: black;
+    background-image: url('../../assets/cv.jpg');
+    background-size: contain;
+}
+
+.social-media-icons {
+    position: absolute;
+    bottom: 7.8125rem;
+    right: 0.625rem;
+}
+
+.social-media-icons a {
+    margin-right: 1.875rem;
+}
