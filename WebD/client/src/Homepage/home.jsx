@@ -187,11 +187,9 @@ We believe that even the smallest actions can have a profound effect on our envi
                 
                 </div>
                 <div className='spacer2'></div>
-                </div>
                 <div className="social-media-icons">
                     <a href = "#"></a>
                 </div>
-                <p>@ 2024 Your Company. All rights reserved</p>
                 <div className="social-media-icons">
                 <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <FontAwesomeIcon icon={faFacebook} size="2x" />
@@ -203,6 +201,9 @@ We believe that even the smallest actions can have a profound effect on our envi
                 <FontAwesomeIcon icon={faTwitter} size="2x" />
                 </a>
       </div>
+                </div>
+                
+      <p>@ 2024 Your Company. All rights reserved</p>
             </footer>
         </div>
     );
