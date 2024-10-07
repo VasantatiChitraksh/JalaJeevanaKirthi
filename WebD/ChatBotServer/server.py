@@ -10,16 +10,24 @@ import chromadb
 from concurrent.futures import ThreadPoolExecutor
 from flask import Flask, request, jsonify
 from pyngrok import ngrok
-
+import os
+from dotenv import load_dotenv
 import torch
+import huggingface_hub
+
+load_dotenv()
+
+# Get tokens from environment variables
+huggingface_token = os.getenv("HUGGINGFACE_TOKEN")
+ngrok_token = os.getenv("NGROK_AUTH_TOKEN")
+
 print(torch.cuda.is_available())  # This should return True if GPU is available
 print(torch.cuda.device_count())  # This shows the number of GPUs available
 print(torch.cuda.current_device())  # This shows the index of the current GPU
 print(torch.cuda.get_device_name(0))  # This prints the name of your GPU
 
 
-import huggingface_hub
-huggingface_hub.login('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')
+huggingface_hub.login(huggingface_token)
 
 model_name = "meta-llama/Llama-3.2-3B"
 
@@ -119,7 +127,7 @@ def server_multiple_pdfs(pdfs):
 pdf1 = PdfReader('./testing_pdf.pdf')
 server_multiple_pdfs([pdf1])
 
-ngrok.set_auth_token("2l5jeNkFj6bxckYshUA36YYMTEk_2zhyVjuCejoN3yFrq1qUp")
+ngrok.set_auth_token(ngrok_token)
 
 
 app = Flask(_name_)
