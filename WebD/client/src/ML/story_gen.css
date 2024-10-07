@@ -7,7 +7,7 @@
   
   body {
     font-family: Arial, sans-serif;
-    background-color: #1a1a1a; /* Dark background */
+    background: linear-gradient(to bottom, #66ccff, #003366); 
     color: white;
     height: 100vh;
     display: flex;
@@ -25,7 +25,7 @@
 
   /* Navigation bar */
   .nav-bar {
-    background-color: #333; /* Darker gray for the nav bar */
+    background-color: #003366; /* Darker gray for the nav bar */
     padding: 10px;
     border-bottom: 1px solid #444; /* Border for distinction */
     width: 100%; /* Ensuring the navigation spans the entire width */
@@ -48,11 +48,11 @@
   
   .nav-bar a {
     text-decoration: none;
-    color: white; /* White text */
+    color: #cceeff;
   }
   
   .nav-bar a:hover {
-    color: #f0f0f0; /* Slight hover effect for links */
+    color: #ffffff;
   }
   
   .right {
@@ -85,7 +85,7 @@
   .option {
     display: flex;
     align-items: center;
-    background-color: #777; /* Light gray for contrast */
+    background-color: #0099cc; /* Light marine blue */; 
     width: 30vw;
     height: 120px;
     border-radius: 30px;
@@ -95,7 +95,7 @@
   }
   
   .option:hover {
-    background-color: #aaa; /* Lighten on hover */
+    background-color: #00bfff;
     transform: scale(1.03); /* Slight scale effect */
   }
   
@@ -109,7 +109,7 @@
   
   .option span {
     font-size: 24px;
-    color: #333; /* Darker text color */
+    color: #ffffff;/* White text */
   }
   
   /* Chat bot button */
@@ -117,18 +117,18 @@
     position: fixed;
     bottom: 2vh;
     right: 1vw;
-    background-color: #777;
+    background-color: #0099cc;
     border: none;
     border-radius: 15px;
     padding: 10px 20px;
     font-size: 16px;
-    color: #333;
+    color: #ffffff;
     cursor: pointer;
   }
   
 
   .chat-bot:hover {
-    background-color: #aaa; /* Lighten on hover */
+    background-color: #00bfff; /* Lighten on hover */
   }
 
 
@@ -138,7 +138,7 @@
     top: 60px;
     width: 50%;
     height: calc(100vh - 120px);
-    background-color: #444;
+    background-color: #004080; /* Deep ocean blue */
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 30px;
@@ -149,6 +149,6 @@
 
 .side-box h2{
   font-size: 24px;
-  color: white;
+  color: #cceeff;
   margin-bottom: 20px;
 }

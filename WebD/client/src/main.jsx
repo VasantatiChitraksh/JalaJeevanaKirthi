@@ -1,10 +1,12 @@
-import WeatherPage from './Weather/weather.jsx'
-import Chat from './components/chat/chat.jsx'
+
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
+import StoryGen from './ML/story_gen.jsx'
+
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <WeatherPage />
+    <StoryGen/>
   </StrictMode>,
 )
