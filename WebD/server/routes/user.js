@@ -28,31 +28,30 @@ router.post('/signup', async(req, res) => {
 
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
-
     const user = await User.findOne({ email });
 
     if (!user) {
-        return res.json({ message: "User is not registered" });
+        return res.json({ status: false, message: "User is not registered" });
     }
 
-    const validpasswoed = await bcrypt.compare(password,user.password)
-    if (!validpasswoed){
-         return res.json({message: "password incorrect"})
+    const validpasswoed = await bcrypt.compare(password, user.password);
+    if (!validpasswoed) {
+        return res.json({ status: false, message: "Password incorrect" });
     }
 
     // Generate JWT token
-    const token = jwt.sign({ username: user.username }, 'jwttokenker', { expiresIn: '5h' })
-    // Set cookie options to allow credentials to be passed securely
+    const token = jwt.sign({ username: user.username }, 'jwttokenker', { expiresIn: '5h' });
+
+    // Set cookie
     res.cookie('token', token, {
-        httpOnly: true,    // Cookie can only be accessed by the server (for security)
-        maxAge: 18000000,   // Cookie expiry time (30 minutes)
-        sameSite: 'None',  // Allows cross-site cookies
-        secure: true       // Send only over HTTPS (for production)
+        httpOnly: true,    
+        maxAge: 18000000,   
+        sameSite: 'None',  
+        secure: true,       
     });
 
-    // Return success response
+    console.log({ status: true, message: "Login successful" }); // Log this
     return res.json({ status: true, message: "Login successful" });
 });
-
 
 export {router as UserRouter}
