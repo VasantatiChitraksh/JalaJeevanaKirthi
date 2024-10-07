@@ -10,11 +10,12 @@ import axios from 'axios';
 const app = express();
 
 app.use(express.json());
-app.use(cors());
 
 app.use(cors({
-    origin: "http://localhost:5173", // Frontend URL
-    credentials: true, // Allow credentials (cookies, tokens)
+    origin: "http://localhost:5173",  // Frontend URL
+    credentials: true,  // Allow credentials (cookies, tokens)
+    methods: ['GET', 'POST', 'OPTIONS'],  // Allow necessary methods
+    allowedHeaders: ['Content-Type', 'Authorization'],  // Ensure all headers are allowed
 }));
 
 app.use(cookieParser())
