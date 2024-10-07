@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
-import logo from '../assets/LOGO.jpg';
-import fish from '../assets/fish.png';
-import coral from '../assets/Coral.png';
-import whale from '../assets/whale.png';
-import scuba from '../assets/scuba.png';
-import sub from '../assets/submarine.png';
-import card from '../assets/design1.png';
+import logo from '../../assets/LOGO.jpg';
+import fish from '../../assets/fish.png';
+import coral from '../../assets/Coral.png';
+import whale from '../../assets/whale.png';
+import scuba from '../../assets/scuba.png';
+import sub from '../../assets/submarine.png';
+import card from '../../assets/design1.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faTwitter} from '@fortawesome/free-brands-svg-icons';
 
@@ -187,9 +187,11 @@ We believe that even the smallest actions can have a profound effect on our envi
                 
                 </div>
                 <div className='spacer2'></div>
+                </div>
                 <div className="social-media-icons">
                     <a href = "#"></a>
                 </div>
+                <p>@ 2024 Your Company. All rights reserved</p>
                 <div className="social-media-icons">
                 <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <FontAwesomeIcon icon={faFacebook} size="2x" />
@@ -201,9 +203,6 @@ We believe that even the smallest actions can have a profound effect on our envi
                 <FontAwesomeIcon icon={faTwitter} size="2x" />
                 </a>
       </div>
-                </div>
-                
-      <p>@ 2024 Your Company. All rights reserved</p>
             </footer>
         </div>
     );

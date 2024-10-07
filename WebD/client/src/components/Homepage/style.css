@@ -1,16 +1,19 @@
+:root {
+    font-size: 16px;
+}
+
 .image-holder-whole {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 73rem;
-    margin-left: 4rem;
+    margin: 1.25rem 0;
 }
 
 .image-holder {
-    width: 60%; 
-    height: 20rem; 
-    overflow: hidden; 
-    display: flex; 
+    width: 60%;
+    height: 18.75rem;
+    overflow: hidden;
+    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -19,37 +22,39 @@
     position: relative;
 }
 
-.text{
+.text {
     color: white;
 }
 
 @keyframes imageFloat {
-    0%{
+    0% {
         transform: translateX(0);
     }
-    25%{
+    25% {
         transform: translateX(0.625rem);
     }
-    50%{
+    50% {
         transform: translateX(0);
     }
-    75%{
+    75% {
         transform: translateX(-0.625rem);
     }
-    100%{
+    100% {
         transform: translateX(0);
     }
 }
-@keyframes appear{
-    from{
+
+@keyframes appear {
+    from {
         opacity: 0;
         clip-path: inset(100% 100% 0 0);
     }
-    to{
+    to {
         opacity: 1;
         clip-path: inset(0 0 0 0);
     }
 }
+
 .image {
     height: 25rem;
     width: 50rem;
@@ -89,22 +94,24 @@
     opacity: 0.5;
 }
 
-.topbar-button:hover{
+.topbar-button:hover {
     opacity: 1;
     border-color: white;
 }
 
-.spacer{
-    height: 2rem;
-}
-.spacer2{
-    width: 1.875rem;
-}
-.spacer3{
-    width: 5.5rem;
+.spacer {
+    height: 6.25rem;
 }
 
-/* html, body {
+.spacer2 {
+    width: 1.875rem;
+}
+
+.spacer3 {
+    width: 6.25rem;
+}
+
+html, body {
     min-height: 100vh;
     width: 100%;
     display: flex;
@@ -113,24 +120,25 @@
     position: relative;
     overflow-x: hidden;
     transition: background-color 0.5s;
-} */
+}
 
 .background {
-    min-height: 100vh; 
+    min-height: 100vh;
     background-color: rgba(38, 174, 232, 0.971);
 }
 
 .about-section {
     margin-top: 5rem;
-    margin-left: 10rem;
+    margin-left: 9.375rem;
     width: 80%;
     height: 25rem;
     background-color: white;
+    padding: 1.25rem;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     border-radius: 0.625rem;
     margin-bottom: 2.5rem;
     text-align: center;
-    background-image: url('../assets/Coral.png');
+    background-image: url('../../assets/Coral.png');
     background-size: cover;
     animation: float 4s linear infinite, appear 1s linear;
 }
@@ -155,19 +163,19 @@
 }
 
 @keyframes float {
-    0%{
+    0% {
         transform: translateY(0);
     }
-    25%{
+    25% {
         transform: translateY(0.625rem);
     }
-    50%{
+    50% {
         transform: translateY(0);
     }
-    75%{
+    75% {
         transform: translateY(-0.625rem);
     }
-    100%{
+    100% {
         transform: translateY(0);
     }
 }
@@ -176,7 +184,7 @@
     width: 15.625rem;
     height: 25rem;
     background-color: #fff;
-    background-image: url('../assets/design1.png');
+    background-image: url('../../assets/design1.png');
     background-size: 112%;
     justify-content: center;
     align-items: center;
@@ -187,12 +195,15 @@
     color: black;
     animation: float 4s linear infinite, appear 2s linear;
 }
-.icon-box h2{
+
+.icon-box h2 {
     text-align: center;
 }
-.icon-box p{
+
+.icon-box p {
     text-align: center;
 }
+
 .footer-section {
     background-color: rgb(255, 255, 255);
     width: 100%;
@@ -201,9 +212,10 @@
     padding-left: 2%;
 }
 
-.profiles{
+.profiles {
     display: flex;
 }
+
 .footer-section p {
     margin: 0;
     align-items: baseline;
@@ -211,34 +223,37 @@
     text-align: center;
     color: black;
 }
-.footer-section h3{
+
+.footer-section h3 {
     color: black;
     text-align: center;
 }
-.footer-section img{
+
+.footer-section img {
     height: 9.375rem;
     width: 9.375rem;
     border-radius: 50%;
 }
 
-.whale{
-    position: relative;
+.whale {
+    position: fixed;
     opacity: 80%;
-    bottom: 30%;
+    bottom: 11.25rem;
     width: 1.875rem;
     height: 4.375rem;
     animation: swim 4s linear 1;
 }
 
-@keyframes swim{
-    0%{
+@keyframes swim {
+    0% {
         left: -10%;
     }
-    100%{
+    100% {
         left: 110%;
     }
 }
-.fishes{
+
+.fishes {
     position: absolute;
     display: flex;
     opacity: 75%;
@@ -247,51 +262,56 @@
     animation: swim 3s linear infinite;
 }
 
-.fishes img{
+.fishes img {
     width: auto;
     height: 9.375rem;
 }
-.whale img{
+
+.whale img {
     width: auto;
     height: 12.5rem;
 }
-.scuba img{
+
+.scuba img {
     width: 12.5rem;
     height: 9.375rem;
 }
+
 .scuba {
     position: absolute;
     opacity: 75%;
-    bottom: -40%;
-    width: auto; 
-    height: auto; 
+    top: 40%;
+    width: auto;
+    height: auto;
     animation: float 5s ease-in-out infinite;
 }
-.sub img{
+
+.sub img {
     width: auto;
     height: 9.375rem;
 }
+
 .sub {
-    position: absolute; 
-    right: 45%;
-    bottom: -65%;
-    width: 6.25rem; 
-    height: 1.5rem; 
+    position: absolute;
+    bottom: 20.625rem;
+    right: 25rem;
+    width: 6.25rem;
+    height: 9.375rem;
     opacity: 75%;
-    animation: float 4s ease-in-out infinite; 
+    animation: float 4s ease-in-out infinite;
 }
-.creator{
+
+.creator {
     border-radius: 50%;
     height: 6.25rem;
     width: 6.25rem;
     color: black;
-    background-image: url('../assets/cv.jpg');
-    background-size: contain;  
+    background-image: url('../../assets/cv.jpg');
+    background-size: contain;
 }
 
-.social-media-icons{
-    margin-top: 1.5rem;
-    margin-left: 7rem;
+.social-media-icons {
+    position: absolute;
     bottom: 7.8125rem;
     right: 0.625rem;
 }
