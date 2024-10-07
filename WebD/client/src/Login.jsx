@@ -9,12 +9,13 @@ function Login () {
         <div className = 'Super'>
             <form action = "">
                <h1>Login Form</h1>
+              
                <div className = 'input-place'>
-                  <input type = 'text' placeholder='G-Mail' required />
+                  <input type = 'email' placeholder='G-Mail' required />
                   <BiLogoGmail className="Icon" />
                </div>
                <div className = 'input-place'>
-                  <input type = 'text' placeholder='Password' required />
+                  <input type = 'password' placeholder='Password' required />
                   <FaLock    className="Icon" />
                </div>
                <div className="Remember-me"> 
