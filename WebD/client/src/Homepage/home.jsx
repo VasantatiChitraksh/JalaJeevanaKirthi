@@ -95,9 +95,7 @@ function Home() {
                 <button className="topbar-button">Blogs</button>
                 <button className="topbar-button">RolePlay</button>
                 <button className="topbar-button">Forms</button>
-                <button className="topbar-button"  onClick={handleOnclick}>
-                    Login
-                    </button>
+                <button className="topbar-button"  onClick={handleOnclick}>Login</button>
             </div>
             <div className="spacer"></div>
             <div className='waves'></div>

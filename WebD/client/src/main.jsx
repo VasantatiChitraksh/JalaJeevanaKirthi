@@ -15,7 +15,8 @@ createRoot(document.getElementById('root')).render(
       <Routes> {/* Use Routes for defining multiple Route paths */}
         <Route path='/signup' element={<Signin />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/home' element={ <> <Home />  <Chat/></>} />
+        <Route path='/home' element={  <Home/>} />
+        <Route path='/chat' element={<Chat/>}/>
       </Routes>
     </BrowserRouter>
     
