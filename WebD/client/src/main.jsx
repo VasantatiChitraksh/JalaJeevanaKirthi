@@ -10,7 +10,7 @@ import StoryGen from './ML/story_gen.jsx';
 import Forgotpassword from './components/Forgotpassword/Forgotpassword.jsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Resetpassword from './components/Resetpassword/Resetpassword.jsx';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
