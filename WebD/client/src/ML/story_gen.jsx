@@ -37,13 +37,13 @@ const StoryGen = () => {
       <nav className="nav-bar">
         <ul>
           <li>
-            <a href="/" target="_blank" rel="noopener noreferrer">Home</a>
+            <a href="/" >Home</a>
           </li>
           <li>
-            <a href="https://example.com/blogs" target="_blank" rel="noopener noreferrer">Blogs</a>
+            <a href="https://example.com/blogs" >Blogs</a>
           </li>
           <li className="right">
-            <a href="/login" target="_blank" rel="noopener noreferrer">Login</a>
+            <a href="/login" >Login</a>
           </li>
         </ul>
       </nav>
