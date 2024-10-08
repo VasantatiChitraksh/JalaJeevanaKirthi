@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './style.css';
 import logo from '../assets/LOGO.jpg';
 import fish from '../assets/fish.png';
+import { Link,Navigate,useNavigate } from "react-router-dom";
 import coral from '../assets/Coral.png';
 import whale from '../assets/whale.png';
 import scuba from '../assets/scuba.png';
@@ -79,6 +80,10 @@ function Home() {
             window.removeEventListener('scroll', handleFooterScroll); 
         };
     }, []);
+    const navigate = useNavigate();
+    const handleOnclick = (e) => {
+           navigate('/login')
+        }
 
     return (
         <div className='background'>
@@ -90,7 +95,7 @@ function Home() {
                 <button className="topbar-button">Blogs</button>
                 <button className="topbar-button">RolePlay</button>
                 <button className="topbar-button">Forms</button>
-                <button className="topbar-button">Login</button>
+                <button className="topbar-button"  onClick={handleOnclick}>Login</button>
             </div>
             <div className="spacer"></div>
             <div className='waves'></div>
