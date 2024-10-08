@@ -299,3 +299,10 @@
 .social-media-icons a {
     margin-right: 1.875rem;
 }
+.chatbot{
+    position: fixed;
+    bottom: -10%;
+    background-color: black;
+    opacity: 80%;
+    color:black;
+}
