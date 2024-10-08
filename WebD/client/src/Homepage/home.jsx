@@ -186,27 +186,27 @@ We believe that even the smallest actions can have a profound effect on our envi
                 <div className='profiles'>
                 <img className='flogo' src={logo}/>
                 <div className='spacer2' />
-                <div className='creator'>
+                <div className='creator1'>
                 
                 </div>
                 <div className='spacer2'></div>
-                <div className='creator'>
+                <div className='creator2'>
                 
                 </div>
                 <div className='spacer2'></div>
-                <div className='creator'>
+                <div className='creator3'>
                 
                 </div>
                 <div className='spacer2'></div>
-                <div className='creator'>
+                <div className='creator4'>
                 
                 </div>
                 <div className='spacer2'></div>
-                <div className='creator'>
+                <div className='creator5'>
                 
                 </div>
                 <div className='spacer2'></div>
-                <div className='creator'>
+                <div className='creator6'>
                 
                 </div>
                 <div className='spacer2'></div>

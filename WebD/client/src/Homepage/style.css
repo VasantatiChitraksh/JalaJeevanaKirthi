@@ -280,13 +280,53 @@
     opacity: 75%;
     animation: float 4s ease-in-out infinite; 
 }
-.creator{
+.creator1{
     border-radius: 50%;
     height: 6.25rem;
     width: 6.25rem;
     color: black;
     background-image: url('../assets/cv.jpg');
     background-size: contain;  
+}
+.creator2{
+    border-radius: 50%;
+    height: 6.25rem;
+    width: 6.25rem;
+    color: black;
+    background-image: url('../assets/Dhyanam.jpg');
+    background-size: contain;  
+}
+.creator3{
+    border-radius: 50%;
+    height: 6.25rem;
+    width: 6.25rem;
+    color: black;
+    background-image: url('../assets/bhanu.jpg');
+    background-size: cover;  
+}
+.creator4{
+    border-radius: 50%;
+    height: 6.25rem;
+    width: 6.25rem;
+    color: black;
+    background-image: url('../assets/AnirudhArrepu.jpg');
+    background-size: cover;  
+}
+.creator5{
+    border-radius: 50%;
+    height: 6.25rem;
+    width: 6.25rem;
+    color: black;
+    background-image: url('../assets/charan.jpg');
+    background-size: cover;  
+}
+.creator6{
+    border-radius: 50%;
+    height: 6.25rem;
+    width: 6.25rem;
+    color: black;
+    background-image: url('../assets/Ashish.jpg');
+    background-size: cover;  
 }
 
 .social-media-icons{
