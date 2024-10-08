@@ -16,6 +16,15 @@ whenever the chat button is required paste the following code in that file:
             <FaComment size={30} color="#007BFF" />
         </button>
 
-        {isChatOpen && <Chat toggleChat={toggleChat} />}
+        <div className="chatbot">
+
+            {isChatOpen && <Chat toggleChat={toggleChat} />}
+        <div/>
     <>
    )
+
+
+---in style.css---
+.chatbot{
+    position: fixed
+}
