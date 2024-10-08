@@ -301,8 +301,11 @@
 }
 .chatbot{
     position: fixed;
-    bottom: -10%;
-    background-color: black;
+    top: 78%;
+    right: 3%;
+    color: #000000;
+    font-weight: bold;
+    border-radius: 25%;
+    background-color: coral;
     opacity: 80%;
-    color:black;
 }
