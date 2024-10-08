@@ -83,6 +83,7 @@ io.on('connection', (socket) => {
 
                 try {
                     const response = JSON.parse(data);
+                    const reply = response.answer;
                     let botResponse = {
                         msg: response.answer,
                         time: new Date().toLocaleTimeString(),
