@@ -209,16 +209,37 @@ We believe that even the smallest actions can have a profound effect on our envi
                     <a href = "#"></a>
                 </div>
                 <div className="social-media-icons">
-                <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <FontAwesomeIcon icon={faFacebook} size="2x" />
-                </a>
-                <a href="https://instagram.com/yourpage" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <FontAwesomeIcon icon={faInstagram} size="2x" />
-                </a>
-                <a href="https://twitter.com/yourpage" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                <FontAwesomeIcon icon={faTwitter} size="2x" />
-                </a>
-      </div>
+    <a 
+        href="#" 
+        onClick={(e) => { 
+            e.preventDefault(); 
+            console.log('Facebook icon clicked'); 
+        }} 
+        aria-label="Facebook"
+    >
+        <FontAwesomeIcon icon={faFacebook} size="2x" />
+    </a>
+    <a 
+        href="#" 
+        onClick={(e) => { 
+            e.preventDefault(); 
+            console.log('Instagram icon clicked'); 
+        }} 
+        aria-label="Instagram"
+    >
+        <FontAwesomeIcon icon={faInstagram} size="2x" />
+    </a>
+    <a 
+        href="#" 
+        onClick={(e) => { 
+            e.preventDefault(); 
+            console.log('Twitter icon clicked'); 
+        }} 
+        aria-label="Twitter"
+    >
+        <FontAwesomeIcon icon={faTwitter} size="2x" />
+    </a>
+</div>
                 </div>
                 
       <p>@ 2024 Your Company. All rights reserved</p>
