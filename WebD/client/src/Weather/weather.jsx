@@ -3,7 +3,6 @@ import './weather.css';
 
 const WeatherPage = () => {
   const [weatherData, setWeatherData] = useState(null);
-<<<<<<< Updated upstream
   const [forecastData, setForecastData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -12,22 +11,10 @@ const WeatherPage = () => {
   const apiKey = "2ec3a97355749a6fa01994b0ae075387"; // Free version API key
   const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   const forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
-=======
-  const [loading, setLoading] = useState(true);
-
-  // Tomorrow.io API Key (Replace with your key)
-  const apiKey = "YOUR_TOMORROW_IO_API_KEY";  
-  const lat = 12.434967;  // Latitude for the region
-  const lon = 80.129019;  // Longitude for the region
-
-  // Tomorrow.io API URL for weather data (limited to free tier)
-  const tomorrowApiUrl = 'https://api.tomorrow.io/v4/weather/forecast?location=42.3478,-71.0466&apikey=y6FLuaBi9yGBrZz6ci5e3TlImZoOBS0V';
->>>>>>> Stashed changes
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-<<<<<<< Updated upstream
         const weatherResponse = await fetch(weatherApiUrl);
         const forecastResponse = await fetch(forecastApiUrl);
 
@@ -40,17 +27,6 @@ const WeatherPage = () => {
 
         setWeatherData(weatherData);
         setForecastData(forecastData);
-=======
-        const response = await fetch(tomorrowApiUrl);
-        const data = await response.json();
-        const { timelines } = data;
-
-        // Assuming the first timeline in the response is the hourly timeline
-        const hourlyData = timelines[0].intervals;
-        const dailyData = timelines[1].intervals;
-        
-        setWeatherData({ hourlyData, dailyData });
->>>>>>> Stashed changes
         setLoading(false);
       } catch (error) {
         setError(error.message);
@@ -58,23 +34,17 @@ const WeatherPage = () => {
       }
     };
 
-<<<<<<< Updated upstream
     fetchData();
   }, [weatherApiUrl, forecastApiUrl]);
 
   const handleCityChange = (event) => {
     setCity(event.target.value);
   };
-=======
-    fetchWeatherData();
-  }, [tomorrowApiUrl]);
->>>>>>> Stashed changes
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
-<<<<<<< Updated upstream
   if (error) {
     return <div>Error fetching weather data: {error}</div>;
   }
@@ -82,15 +52,6 @@ const WeatherPage = () => {
   if (!weatherData || !forecastData) {
     return <div>No data available.</div>;
   }
-=======
-  // Display error if data is not found
-  if (!weatherData) {
-    return <div>Error fetching weather data.</div>;
-  }
-
-  // Extract hourly and daily data
-  const { hourlyData, dailyData } = weatherData;
->>>>>>> Stashed changes
 
   const { main, weather, wind, name } = weatherData;
 
@@ -138,7 +99,6 @@ const WeatherPage = () => {
   });
 
   return (
-<<<<<<< Updated upstream
     <div className="weather-page">
       {/* Navigation bar */}
       <nav className="nav-bar">
@@ -188,48 +148,11 @@ const WeatherPage = () => {
                 <p><strong>{forecast.description}</strong></p>
                 <p>Temp: {forecast.temp} °C</p>
                 <p>Wind: {forecast.windSpeed} m/s, {forecast.windDeg}°</p>
-=======
-    <div className="WeatherPage">
-      {/* Main Section */}
-      <div className="main-section">
-        
-        {/* Today's Weather Overview */}
-        <div className="weather-overview">
-          <h2>Today's Weather</h2>
-          <div className="weather-info">
-            <div className="temperature">
-              <h1>{dailyData[0].values.temperature}°C</h1>
-            </div>
-            <div className="conditions">
-              <div className="condition">
-                <span className="icon">🌬️</span>
-                <p>Wind Speed: {dailyData[0].values.windSpeed} m/s</p>
-              </div>
-              <div className="condition">
-                <span className="icon">🌧️</span>
-                <p>Humidity: {dailyData[0].values.humidity}%</p>                
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Hourly Forecast (for next 48 hours) */}
-        <div className="hourly-forecast">
-          <h2>Hourly Forecast (Next 48 Hours)</h2>
-          <div className="forecast-cards">
-            {hourlyData.slice(0, 48).map((hour, index) => (
-              <div key={index} className="forecast-card">
-                <p>{new Date(hour.startTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
-                <span className="icon">☀️</span>
-                <p>{hour.values.temperature}°C</p>
-                <p>Wind Speed: {hour.values.windSpeed} m/s</p>
->>>>>>> Stashed changes
               </div>
             ))}
           </div>
         </div>
 
-<<<<<<< Updated upstream
         {/* Daily forecast display */}
         <div className="forecast-section">
           <h2>5-Day Weather Forecast</h2>
@@ -237,23 +160,6 @@ const WeatherPage = () => {
             {dailyForecastItems}
           </div>
         </div>
-=======
-        {/* 5-Day Forecast */}
-        <div className="weekly-forecast">
-          <h2>5-Day Forecast</h2>
-          <div className="forecast-cards">
-            {dailyData.slice(0, 5).map((day, index) => (
-              <div key={index} className="forecast-card">
-                <p>{new Date(day.startTime).toLocaleDateString("en-US", { weekday: 'short' })}</p>
-                <span className="icon">🌤️</span>
-                <p>{day.values.temperature}°C</p>
-                <p>Wind: {day.values.windSpeed} m/s</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
->>>>>>> Stashed changes
       </div>
     </div>
   );

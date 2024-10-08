@@ -46,27 +46,10 @@ body {
   font-size: 18px;
 }
 
-<<<<<<< HEAD
-  .side-box {
-    position: fixed;
-    right: 10px;
-    top: 60px;
-    width: 50%;
-    height: calc(100vh - 120px);
-    background-color: #004080; /* Deep ocean blue */
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 30px;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-    color: white;
-    transition: width 0.3s ease;
-  }
-=======
 .nav-bar a {
   text-decoration: none;
   color: white; /* White text */
 }
->>>>>>> 5ce876e0a6084e0f858d71b2423073ea0db88128
 
 .nav-bar a:hover {
   color: #f0f0f0; /* Slight hover effect for links */
