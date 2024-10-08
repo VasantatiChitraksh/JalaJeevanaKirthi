@@ -31,9 +31,10 @@ const Forgotpassword = () => {
   return (
     <div className="Super">
       <form action="" onSubmit={handleSubmit}>
-        <h1>Sign in </h1>
+        <h1>Forgot Password </h1>
         <div className="input">
-          <FaMailBulk className="Icon" color="purple" />
+          <FaMailBulk className="Icon" color="wheat"  />
+          
           <input
             type="E-mail"
             placeholder="e-mail"
@@ -41,8 +42,9 @@ const Forgotpassword = () => {
             required
             onChange={(e) => setemail(e.target.value)}
           />
+          
         </div>
-        <button type="submit">Send</button>
+        <button type="submit" >Send</button>
       </form>
     </div>
   )
