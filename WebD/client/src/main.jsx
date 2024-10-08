@@ -7,10 +7,10 @@ import Signin from './components/Signin/Signin.jsx';
 import Chat from './components/chat/chat.jsx';
 import { FaSignInAlt } from 'react-icons/fa';
 import StoryGen from './ML/story_gen.jsx';
+import WeatherPage from './Weather/weather.jsx';
 import Forgotpassword from './components/Forgotpassword/Forgotpassword.jsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Resetpassword from './components/Resetpassword/Resetpassword.jsx';
-// import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -18,11 +18,12 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path='/signup' element={<Signin />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/home' element={  <Home/>} />
+        <Route path='/' element={  <Home/>} />
         <Route path='/chat' element={<Chat/>}/>
         <Route path='/forgotpassword' element={<Forgotpassword/>}/>
         <Route path='/resetpassword/:token' element={<Resetpassword/>}/>
-
+        <Route path='/weather' element={<WeatherPage/>}/>
+        <Route path='/roleplay' element={<StoryGen/>}/>
       </Routes>
     </BrowserRouter>
     

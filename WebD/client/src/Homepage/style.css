@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 73rem;
+    margin-top: 60rem;
     margin-left: 4rem;
 }
 
@@ -298,4 +298,20 @@
 
 .social-media-icons a {
     margin-right: 1.875rem;
+}
+.chatbot{
+    position: fixed;
+    top: 78%;
+    right: 3%;
+    color: #000000;
+    font-weight: bold;
+    border-radius: 25%;
+    background-color: coral;
+    opacity: 80%;
+}
+.chat{
+    position: fixed;
+    top: 10%;
+    right: 3%;
+    justify-content: right;
 }
