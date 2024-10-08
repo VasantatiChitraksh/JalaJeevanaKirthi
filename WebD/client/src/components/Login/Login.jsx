@@ -37,7 +37,7 @@ function Login() {
       <form onSubmit={handleSubmit}>
         <h1>Login</h1>
         <div className="input">
-          <FaMailBulk className="Icon" color="purple" />
+          <FaMailBulk className="Icon" color="wheat" />
           <input
             type="email"
             placeholder="e-mail"
@@ -49,7 +49,7 @@ function Login() {
           />
         </div>
         <div className="input">
-          <FaLock className="Icon" color="purple" />
+          <FaLock className="Icon" color="wheat" />
           <input
             type="password"
             placeholder="Password"
