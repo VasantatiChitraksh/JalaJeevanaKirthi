@@ -33,7 +33,7 @@ const Resetpassword = () => {
       <form action="" onSubmit={handleSubmit}>
         <h1>Reset password </h1>
         <div className="input">
-          <FaLock className="Icon" color="purple" />
+          <FaLock className="Icon" color="wheat" />
           <input
             type="password"
             placeholder=" set Password"

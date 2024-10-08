@@ -34,7 +34,7 @@ const Signin = () => {
       <form action="" onSubmit={handleSubmit}>
         <h1>Sign in </h1>
         <div className="input">
-          <FaRegUserCircle className="Icon" color="purple" />
+          <FaRegUserCircle className="Icon" color="wheat" />
           <input
             type="text"
             placeholder="UserName"
@@ -45,7 +45,7 @@ const Signin = () => {
           />
         </div>
         <div className="input">
-          <FaMailBulk className="Icon" color="purple" />
+          <FaMailBulk className="Icon" color="wheat" />
           <input
             type="e-mail"
             placeholder="e-mail"
@@ -57,7 +57,7 @@ const Signin = () => {
           />
         </div>
         <div className="input">
-          <FaLock className="Icon" color="purple" />
+          <FaLock className="Icon" color="wheat" />
           <input
             type="text"
             placeholder="Password"
