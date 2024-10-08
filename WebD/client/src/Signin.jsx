@@ -13,15 +13,15 @@ function Signin () {
                   <FaRegUserCircle className="Icon" />
                </div>
                <div className = 'input-box'>
-                  <input type = 'text' placeholder='G-Mail' required />
+                  <input type = 'email' placeholder='G-Mail' required />
                   <BiLogoGmail className="Icon" />
                </div>
                <div className = 'input-box'>
-                  <input type = 'text' placeholder='Password' required />
+                  <input type = 'password' placeholder='Password' required />
                   <FaLock    className="Icon" />
                </div>
                <div className = 'input-box'>
-                  <input type = 'text' placeholder='re-Enter Password' required />
+                  <input type = 'password' placeholder='re-Enter Password' required />
                   <FaLock    className="Icon" />
                </div>
                
