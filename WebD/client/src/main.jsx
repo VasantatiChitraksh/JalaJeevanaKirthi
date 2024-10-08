@@ -18,7 +18,7 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path='/signup' element={<Signin />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/home' element={  <Home/>} />
+        <Route path='/' element={  <Home/>} />
         <Route path='/chat' element={<Chat/>}/>
         <Route path='/forgotpassword' element={<Forgotpassword/>}/>
         <Route path='/resetpassword/:token' element={<Resetpassword/>}/>
