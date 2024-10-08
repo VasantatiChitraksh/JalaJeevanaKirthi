@@ -29,10 +29,11 @@ body {
   align-items: center;
   width: 100vw; /* Ensure full width */
   height: 100%; /* Ensure the container is at least the full height of the viewport */
-  padding-top: 10vh; /* Adjust for the fixed navbar */
+  padding-top: 20vh; /* Adjust for the fixed navbar */
   padding-left: 2vw; /* Add padding on the left */
   padding-right: 2vw; /* Add padding on the right */
-  background: inherit; /* Continue the body gradient */
+  background: inherit;
+  overflow-y: auto; /* Continue the body gradient */
 }
 
 /* Navigation bar */
@@ -73,7 +74,7 @@ body {
 
 /* Input section for city change */
 .input-section {
-  margin-top: 30rem;
+  margin-top: 15rem;
 }
 
 .city-input {
