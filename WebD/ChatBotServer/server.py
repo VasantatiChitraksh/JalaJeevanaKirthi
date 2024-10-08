@@ -106,7 +106,14 @@ def get_related_query(query):
 def get_answer(query, context):
     print("------------------------")
     # context_text = " ".join(context)  # Join if context is a list
-    prompt = f"Context: {context}\n\nQuery: {query}\n\nAnswer: "
+    prompt = f'''Context: {context}
+
+Query: {query}
+
+Based on the provided context, explain the answer in detail, focusing on the key concepts and providing a comprehensive explanation.
+Answer:
+
+'''
     # input = tokenizer(prompt, return_tensors='pt')
     # output = model.generate(**input, max_length=300)
     # return tokenizer.decode(output[0], skip_special_tokens=True)
@@ -130,7 +137,7 @@ server_multiple_pdfs([pdf1])
 ngrok.set_auth_token(ngrok_token)
 
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 @app.route("/query", methods=["POST"])
 def query_api():
@@ -142,7 +149,7 @@ def query_api():
     else:
         return jsonify({"error": "No query provided"}), 400
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     port = 5000
     public_url = ngrok.connect(port)
     print(f"Ngrok Tunnel URL: {public_url}")
