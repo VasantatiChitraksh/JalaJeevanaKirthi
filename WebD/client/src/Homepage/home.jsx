@@ -88,21 +88,26 @@ function Home() {
         };
     }, []);
     const navigate = useNavigate();
-    const handleOnclick = (e) => {
+    const handleOnclick1 = (e) => {
            navigate('/login')
         }
-
+    const handleOnclick2 = (e) => {
+            navigate('/roleplay')
+         }
+    const handleOnclick3 = (e) => {
+            navigate('/weather')
+         }
     return (
         <div className='background'>
             <div className="topbar">
                 <img className="logo-icon" src={logo} alt="Logo" />
                 <h2 className="logo">Jala Jeevana Kirthi</h2>
                 <button className="topbar-button">Game</button>
-                <button className="topbar-button">Weather</button>
+                <button className="topbar-button" onClick={handleOnclick3}>Weather</button>
                 <button className="topbar-button">Blogs</button>
-                <button className="topbar-button">RolePlay</button>
+                <button className="topbar-button" onClick={handleOnclick2}>RolePlay</button>
                 <button className="topbar-button">Forums</button>
-                <button className="topbar-button"  onClick={handleOnclick}>Login</button>
+                <button className="topbar-button"  onClick={handleOnclick1}>Login</button>
             </div>
             <div className="spacer"></div>
             <div className='waves'></div>

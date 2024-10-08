@@ -17,7 +17,7 @@ const StoryGen = () => {
       console.error('Error while handling button click:', error);
     }
   };
-
+ 
   const getStoryData = async () => {
     const genAI = new GoogleGenerativeAI('AIzaSyB060WZBPz_EswunsAdpVwQxRAI4-5wf_4');
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
@@ -37,13 +37,13 @@ const StoryGen = () => {
       <nav className="nav-bar">
         <ul>
           <li>
-            <a href="https://example.com/home" target="_blank" rel="noopener noreferrer">Home</a>
+            <a href="/" target="_blank" rel="noopener noreferrer">Home</a>
           </li>
           <li>
             <a href="https://example.com/blogs" target="_blank" rel="noopener noreferrer">Blogs</a>
           </li>
           <li className="right">
-            <a href="https://example.com/login" target="_blank" rel="noopener noreferrer">Login</a>
+            <a href="/login" target="_blank" rel="noopener noreferrer">Login</a>
           </li>
         </ul>
       </nav>
