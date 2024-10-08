@@ -91,10 +91,10 @@ function Home() {
                 <img className="logo-icon" src={logo} alt="Logo" />
                 <h2 className="logo">Jala Jeevana Kirthi</h2>
                 <button className="topbar-button">Game</button>
-                <button className="topbar-button">About Us</button>
+                <button className="topbar-button">Weather</button>
                 <button className="topbar-button">Blogs</button>
                 <button className="topbar-button">RolePlay</button>
-                <button className="topbar-button">Forms</button>
+                <button className="topbar-button">Forums</button>
                 <button className="topbar-button"  onClick={handleOnclick}>Login</button>
             </div>
             <div className="spacer"></div>
@@ -158,6 +158,7 @@ We believe that even the smallest actions can have a profound effect on our envi
                     <p>Also please read the blogs written by other marine enthuaists and participate in forums. Share valuable information to help the marine industry by writing blogging or uploapding datasets or files, research papers or your findings.</p>
                 </div>
             </div>
+            <button className='chatbot'>ChatBot</button>
             <div className='whale'>
                 <img className="whale-icon" src={whale} alt="Whale" />
             </div>
