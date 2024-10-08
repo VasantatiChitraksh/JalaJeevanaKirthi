@@ -7,12 +7,12 @@ import Signin from './components/Signin/Signin.jsx';
 import Chat from './components/chat/chat.jsx';
 import { FaSignInAlt } from 'react-icons/fa';
 import StoryGen from './ML/story_gen.jsx';
-import { BrowserRouter, Route, Routes } from 'react-router-dom'; // Import Routes instead of Router
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <Routes> {/* Use Routes for defining multiple Route paths */}
+      <Routes>
         <Route path='/signup' element={<Signin />} />
         <Route path='/login' element={<Login />} />
         <Route path='/home' element={  <Home/>} />
