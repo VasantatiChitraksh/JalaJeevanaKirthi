@@ -21,7 +21,7 @@ function Login() {
         console.log('Response from server:', response.data);  // Log the entire response object
         if (response.data.status) {
           console.log('Login successful');  // This should log when login is successful
-          navigate("/home");
+          navigate("/");
         } else {
           console.log('Login failed:', response.data.message);  // Log any error messages
         }
