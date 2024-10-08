@@ -6,9 +6,11 @@ const WeatherPage = () => {
   const [forecastData, setForecastData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [city, setCity] = useState("Visakhapatnam");
+  const [city, setCity] = useState("Visakhapatnam"); // Default city
+  const [inputCity, setInputCity] = useState("Visakhapatnam"); // State for the input field
 
   const apiKey = "2ec3a97355749a6fa01994b0ae075387"; // Free version API key
+
   const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   const forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
 
@@ -37,8 +39,22 @@ const WeatherPage = () => {
     fetchData();
   }, [weatherApiUrl, forecastApiUrl]);
 
-  const handleCityChange = (event) => {
-    setCity(event.target.value);
+  // Handle city input change in real-time (for typing)
+  const handleInputCityChange = (event) => {
+    setInputCity(event.target.value); // Update input field value
+  };
+
+  // Handle city change only when Enter key is pressed and input is valid
+  const handleCityChangeOnEnter = (event) => {
+    if (event.key === 'Enter') {
+      const cityInput = inputCity.trim(); // Remove whitespace
+      if (cityInput) {
+        setCity(cityInput); // Set the city if it's a valid non-empty input
+        setLoading(true); // Set loading to true when changing city
+      } else {
+        alert("Please enter a valid city name");
+      }
+    }
   };
 
   if (loading) {
@@ -55,9 +71,9 @@ const WeatherPage = () => {
 
   const { main, weather, wind, name } = weatherData;
 
-  // Get the next 24-hour forecast (8 intervals, each 3 hours apart)
+  // Prepare hourly forecast data (next 24 hours)
   const hourlyForecast = forecastData.list.slice(0, 8).map((forecast) => {
-    const date = new Date(forecast.dt * 1000); // Convert timestamp to date
+    const date = new Date(forecast.dt * 1000);
     const time = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     return {
       time,
@@ -69,13 +85,13 @@ const WeatherPage = () => {
     };
   });
 
-  // Get the daily forecast (1 forecast per day, around midday)
+  // Prepare daily forecast data (1 forecast per day around midday)
   const dailyForecasts = {};
   forecastData.list.forEach((forecast) => {
     const date = new Date(forecast.dt * 1000);
     const day = date.toLocaleDateString("en-US", { weekday: 'long', day: 'numeric', month: 'short' });
 
-    // Get closest to midday
+    // Pick forecast closest to midday
     if (!dailyForecasts[day] || Math.abs(date.getHours() - 12) < Math.abs(new Date(dailyForecasts[day].dt * 1000).getHours() - 12)) {
       dailyForecasts[day] = forecast;
     }
@@ -115,13 +131,17 @@ const WeatherPage = () => {
         </ul>
       </nav>
 
+      {/* Padding section */}
+      <div className="Padding"></div>
+
       {/* Input section for changing the city */}
       <div className="content">
         <div className="input-section">
           <input 
             type="text" 
-            value={city}
-            onChange={handleCityChange}
+            value={inputCity} // Bind to inputCity state for real-time updates
+            onChange={handleInputCityChange} // Handle real-time input changes
+            onKeyPress={handleCityChangeOnEnter} // Handle city update on Enter key
             placeholder="Enter city name"
             className="city-input"
           />
