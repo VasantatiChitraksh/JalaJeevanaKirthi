@@ -147,3 +147,19 @@ font-size: 24px;
 color: #cceeff;
 margin-bottom: 20px;
 }
+.chatbot{
+  position: fixed;
+  top: 78%;
+  right: 3%;
+  color: #000000;
+  font-weight: bold;
+  border-radius: 25%;
+  background-color: coral;
+  opacity: 80%;
+}
+.chat{
+  position: fixed;
+  top: 10%;
+  right: 3%;
+  justify-content: right;
+}

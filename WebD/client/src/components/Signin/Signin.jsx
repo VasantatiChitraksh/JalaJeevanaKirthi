@@ -20,7 +20,7 @@ const Signin = () => {
        {username , email, password}).then(response => {
          if (response.data.status){
             console.log("sucess")
-            navigate('/home')
+            navigate('/')
          } else {
           console.log('signup failed:', response.data.message);  // Log any error messages
         }        

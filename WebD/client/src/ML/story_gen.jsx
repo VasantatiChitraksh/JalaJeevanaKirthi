@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Chat from '../components/chat/chat.jsx';
 import './story_gen.css'; // Importing the CSS file
 import { GoogleGenerativeAI } from "@google/generative-ai"; //for getting the story, calling gemini api
 
@@ -17,6 +18,12 @@ const StoryGen = () => {
       console.error('Error while handling button click:', error);
     }
   };
+  
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
+  const toggleChat = () => {
+    setIsChatOpen(prevState => !prevState);
+ };
  
   const getStoryData = async () => {
     const genAI = new GoogleGenerativeAI('AIzaSyB060WZBPz_EswunsAdpVwQxRAI4-5wf_4');
@@ -77,9 +84,12 @@ const StoryGen = () => {
       )}
 
       {/* Chat Bot Button */}
-      <a href="https://example.com/chat-bot" target="_blank" rel="noopener noreferrer">
-        <button className="chat-bot">Chat Bot</button>
-      </a>
+      <div className='chat'>
+          <button className="chatbot" onClick={toggleChat}>
+            ChatBot
+          </button>
+          {isChatOpen && <Chat toggleChat={toggleChat} />}
+      </div>
     </div>
   );
 }
