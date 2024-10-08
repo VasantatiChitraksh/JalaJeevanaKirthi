@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { FaRegUserCircle,FaLock } from "react-icons/fa";
 import './signin.css';
 
-const Signin = () => {
+function Signin () {
     return (
         <div className = 'Super'>
             <form action = "">
@@ -34,6 +34,6 @@ const Signin = () => {
          </div>
 
     );
-};
+}
 
 export default Login
