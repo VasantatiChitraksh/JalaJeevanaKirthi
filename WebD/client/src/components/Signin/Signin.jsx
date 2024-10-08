@@ -21,9 +21,11 @@ const Signin = () => {
          if (response.data.status){
             console.log("sucess")
             navigate('/home')
-         }        
+         } else {
+          console.log('signup failed:', response.data.message);  // Log any error messages
+        }        
        } ).catch(err => {
-         console.log(err)
+        console.error('Error during login request:', err);
        })
   }
 
@@ -36,6 +38,8 @@ const Signin = () => {
           <input
             type="text"
             placeholder="UserName"
+            id="username"
+            name="username"
             required
             onChange={(e) => setusername(e.target.value)}
           />
@@ -43,8 +47,10 @@ const Signin = () => {
         <div className="input">
           <FaMailBulk className="Icon" color="purple" />
           <input
-            type="E-mail"
+            type="e-mail"
             placeholder="e-mail"
+            id="email"
+            name="email"
             autoComplete="off"
             required
             onChange={(e) => setemail(e.target.value)}
@@ -55,6 +61,8 @@ const Signin = () => {
           <input
             type="text"
             placeholder="Password"
+            id="password"
+            name="password"
             required
             onChange={(e) => setpassword(e.target.value)}
           />
