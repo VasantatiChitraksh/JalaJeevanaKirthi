@@ -120,7 +120,7 @@ const WeatherPage = () => {
       <nav className="nav-bar">
         <ul>
           <li>
-            <a href="/home">Home</a>
+            <a href="/">Home</a>
           </li>
           <li>
             <a href="/forecasts">Forecasts</a>
