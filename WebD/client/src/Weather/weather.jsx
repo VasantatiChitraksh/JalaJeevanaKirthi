@@ -6,7 +6,7 @@ const WeatherPage = () => {
   const [forecastData, setForecastData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [city, setCity] = useState("Visakhapatnam"); // Default coastal city
+  const [city, setCity] = useState("Visakhapatnam");
 
   const apiKey = "2ec3a97355749a6fa01994b0ae075387"; // Free version API key
   const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
