@@ -57,14 +57,26 @@ router.post("/login", async (req, res) => {
 
 router.post("/forgot-password", async (req, res) => {
   const { email } = req.body;
+  console.log("Email received in request:", email);
+  
   
 
   try {
     const user = await  User.findOne({ email });
-    if (!user) {
-      return res.json({ message: " user not registered" });
+    console.log("came2")
+    try {
+      const user = await User.findOne({ email });
+      if (!user) {
+        console.log("No user found with this email");
+        return res.json({ message: "User not registered" });
+      }
+    } catch (err) {
+      console.error("Database query failed:", err);
+      return res.json({ message: "Error retrieving user" });
     }
+    
     const token = jwt.sign({ id: user._id }, "jwttokenker", { expiresIn: '1h' });
+    console.log("came2")
 
     var transporter = nodemailer.createTransport({
       service: "gmail",
@@ -97,6 +109,7 @@ router.post("/forgot-password", async (req, res) => {
 router.post('/reset-password/:token', async(req,res) =>{
   const {token} = req.params;
   const {password}=req.body
+  console.log("came ")
   try {
     console.log("Token received:", token);
     const decoded = await jwt.verify(token,"jwttokenker");
