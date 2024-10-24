@@ -5,11 +5,20 @@
   /* box-sizing: border-box; */
 }
 
+<<<<<<< HEAD
 
 body {
   height: 100%; 
   width: 100%;
   overflow-x: hidden;
+=======
+/* Background and layout */
+body {
+  height: 100%; /* Ensure body uses full height */
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll; /* Prevents horizontal scroll */
+>>>>>>> d672fe6bf2ba7afd2e31973475b8cdd76f6545d9
 }
 
 h2{
@@ -19,8 +28,7 @@ h2{
 body {
   font-family: Arial, sans-serif;
   background: linear-gradient(to bottom, #66ccff, #003366); 
-  color: white;
-  height: 100%; /* Ensure the background gradient covers the full height of the page */
+  color: white; /* Ensure the background gradient covers the full height of the page */
 }
 
 .weather-page {
@@ -28,11 +36,12 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100vw; /* Ensure full width */
-  min-height: 100vh; /* Ensure the container is at least the full height of the viewport */
-  padding-top: 10vh; /* Adjust for the fixed navbar */
+  height: 100%; /* Ensure the container is at least the full height of the viewport */
+  padding-top: 20vh; /* Adjust for the fixed navbar */
   padding-left: 2vw; /* Add padding on the left */
   padding-right: 2vw; /* Add padding on the right */
-  background: inherit; /* Continue the body gradient */
+  background: inherit;
+  overflow-y: auto; /* Continue the body gradient */
 }
 
 /* Navigation bar */
@@ -73,7 +82,7 @@ body {
 
 /* Input section for city change */
 .input-section {
-  margin-top: 40vh;
+  margin-top: 15rem;
 }
 
 .city-input {
@@ -102,14 +111,12 @@ body {
 }
 /* Hourly forecast section */
 .hourly-section {
-  margin: 2vh 0;
  
 }
 
 .hourly-forecast-scroll {
   display: flex;
   overflow-x: auto;
-  padding: 1vh 0;
   padding-left: 2vw; /* Add padding on the left */
   padding-right: 2vw; /* Add padding on the right */
   scrollbar-color: #ccc transparent;
