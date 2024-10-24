@@ -5,14 +5,13 @@ import { GoogleGenerativeAI } from "@google/generative-ai"; //for getting the st
 
 const StoryGen = () => {
   const [isBoxVisible, setIsBoxVisible] = useState(false);
-  const [boxHeading, setBoxHeading] = useState(''); // State to manage the heading of the box
+  const [boxHeading, setBoxHeading] = useState('');
   const [storyData, setStoryData] = useState('')
 
-  // Function to handle when any button is clicked
   const handleButtonClick = (heading) => {
     try {
-      setIsBoxVisible(true); // Set the state to show the box
-      setBoxHeading(heading); // Update the heading based on the clicked button
+      setIsBoxVisible(true);
+      setBoxHeading(heading);
       getStoryData();
     } catch (error) {
       console.error('Error while handling button click:', error);
@@ -29,12 +28,21 @@ const StoryGen = () => {
     const genAI = new GoogleGenerativeAI('AIzaSyB060WZBPz_EswunsAdpVwQxRAI4-5wf_4');
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    const prompt = `Write a story from the point of view of a ${boxHeading}. The story should describe the day-to-day challenges they face due to overfishing, pollution, climate change, and habitat destruction. Make the story informative, emotional, and educational, helping readers understand the impact of human activity on marine life and the ocean ecosystem. Include details about how these challenges affect the ${boxHeading} and what actions can be taken to improve the situation in 300 words`;
+    const prompt = `Write a story from the point of view of a ${boxHeading}. The story shod describe the day-to-day challenges they face due to overfishing, pollution, climate change, and habitat destruction. Make the story informative, emotional, and educational, helping readers understand the impact of human activity on marine life and the ocean ecosystem. Include details about how these challenges affect the ${boxHeading} and what actions can be taken to improve the situation in 300 words`;
 
     const result = await model.generateContent(prompt);
     
     const story = result.response.text();
     setStoryData(story);
+
+    const synth = window.speechSynthesis;
+    const utterance = new SpeechSynthesisUtterance(story);
+    utterance.rate = 1.0; 
+    utterance.pitch = 0.7; 
+    utterance.voice = synth.getVoices()[0]; 
+    synth.speak(utterance);
+
+    console.log('speaking');
 
   }
 
