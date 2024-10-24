@@ -2,14 +2,14 @@
 * {
   margin: 0;
   /* padding: 1rem; */
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
-/* Background and layout */
-html, body {
-  height: 100%; /* Ensure body uses full height */
+
+body {
+  height: 100%; 
   width: 100%;
-  overflow-x: hidden; /* Prevents horizontal scroll */
+  overflow-x: hidden;
 }
 
 h2{

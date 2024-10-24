@@ -1,0 +1,157 @@
+{
+  "events": [
+    {
+      "event": "call",
+      "id": 1,
+      "thread_id": 0,
+      "method_id": "createIndex",
+      "static": false,
+      "receiver": {
+        "class": "Collection",
+        "value": "[Collection users]",
+        "object_id": 1
+      },
+      "parameters": [
+        {
+          "class": "Object",
+          "properties": [
+            {
+              "name": "username",
+              "class": "Number"
+            }
+          ],
+          "value": "{ username: 1 }",
+          "object_id": 2,
+          "name": "indexSpec"
+        },
+        {
+          "class": "Object",
+          "properties": [
+            {
+              "name": "unique",
+              "class": "Boolean"
+            },
+            {
+              "name": "background",
+              "class": "Boolean"
+            }
+          ],
+          "value": "{ unique: true, background: true }",
+          "object_id": 3,
+          "name": "options"
+        }
+      ],
+      "defined_class": "users",
+      "lineno": 1,
+      "path": "mongodb/users"
+    },
+    {
+      "event": "return",
+      "thread_id": 0,
+      "id": 2,
+      "parent_id": 1,
+      "return_value": {
+        "class": "Promise<String>",
+        "value": "Promise { 'username_1' }",
+        "object_id": 4
+      },
+      "elapsed": 0.058752200013259426
+    },
+    {
+      "event": "call",
+      "id": 3,
+      "thread_id": 0,
+      "method_id": "createIndex",
+      "static": false,
+      "receiver": {
+        "class": "Collection",
+        "value": "[Collection users]",
+        "object_id": 1
+      },
+      "parameters": [
+        {
+          "class": "Object",
+          "properties": [
+            {
+              "name": "email",
+              "class": "Number"
+            }
+          ],
+          "value": "{ email: 1 }",
+          "object_id": 5,
+          "name": "indexSpec"
+        },
+        {
+          "class": "Object",
+          "properties": [
+            {
+              "name": "unique",
+              "class": "Boolean"
+            },
+            {
+              "name": "background",
+              "class": "Boolean"
+            }
+          ],
+          "value": "{ unique: true, background: true }",
+          "object_id": 6,
+          "name": "options"
+        }
+      ],
+      "defined_class": "users",
+      "lineno": 1,
+      "path": "mongodb/users"
+    },
+    {
+      "event": "return",
+      "thread_id": 0,
+      "id": 4,
+      "parent_id": 3,
+      "return_value": {
+        "class": "Promise<String>",
+        "value": "Promise { 'email_1' }",
+        "object_id": 7
+      },
+      "elapsed": 0.055295500002102926
+    }
+  ],
+  "version": "1.12",
+  "metadata": {
+    "client": {
+      "name": "appmap-node",
+      "version": "2.24.3",
+      "url": "https://github.com/getappmap/appmap-node"
+    },
+    "language": {
+      "name": "javascript",
+      "engine": "Node.js",
+      "version": "v20.18.0"
+    },
+    "app": "UG2_Team3_SE_WebD",
+    "recorder": {
+      "type": "process",
+      "name": "process"
+    },
+    "name": "2024-10-21T13:26:07.938Z"
+  },
+  "classMap": [
+    {
+      "name": "mongodb",
+      "type": "package",
+      "children": [
+        {
+          "type": "class",
+          "name": "users",
+          "children": [
+            {
+              "type": "function",
+              "name": "createIndex",
+              "static": false,
+              "location": "mongodb/users:1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "client": {
+    "name": "appmap-node",
+    "version": "2.24.3",
+    "url": "https://github.com/getappmap/appmap-node"
+  },
+  "language": {
+    "name": "javascript",
+    "engine": "Node.js",
+    "version": "v20.18.0"
+  },
+  "app": "UG2_Team3_SE_WebD",
+  "recorder": {
+    "type": "process",
+    "name": "process"
+  },
+  "name": "2024-10-21T13:26:07.938Z"
+}
