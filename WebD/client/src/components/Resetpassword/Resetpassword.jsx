@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import {FaMailBulk,FaLock} from "react-icons/fa";
 import { useState } from "react";
 import Axios from "axios"
+import styles from './ResetPassword.module.css';
 import { Link,useNavigate,useParams } from "react-router-dom";
 
 const Resetpassword = () => {
@@ -29,22 +30,25 @@ const Resetpassword = () => {
 
 
   return (
-    <div className="Super">
-      <form action="" onSubmit={handleSubmit}>
-        <h1>Reset password </h1>
-        <div className="input">
-          <FaLock className="Icon" color="wheat" />
-          <input
-            type="password"
-            placeholder=" set Password"
-            required
-            id="password"         
-            name="password"       
-            onChange={(e) => setpassword(e.target.value)}
-          />
-        </div>
-        <button type="submit">Reset</button>
-      </form>
+    <div className={styles.container}>
+      <div className={styles.Super}>
+        <form onSubmit={handleSubmit}>
+          <h1 className={styles.heading}>Reset Password</h1>
+          
+          <div className={styles.input}>
+            <FaLock className={styles.icon} />
+            <input
+              type="password"
+              placeholder="Set Password"
+              required
+              className={styles.inputField}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+
+          <button type="submit" className={styles.button}>Reset</button>
+        </form>
+      </div>
     </div>
   )
 }
