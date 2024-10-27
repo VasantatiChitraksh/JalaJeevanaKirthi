@@ -8,6 +8,7 @@ import Chat from './components/chat/chat.jsx';
 import { FaSignInAlt } from 'react-icons/fa';
 import StoryGen from './ML/story_gen.jsx';
 import WeatherPage from './Weather/weather.jsx';
+import FishCatch from './Game/game.jsx'
 import Forgotpassword from './components/Forgotpassword/Forgotpassword.jsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Resetpassword from './components/Resetpassword/Resetpassword.jsx';
@@ -26,6 +27,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/resetpassword/:token' element={<Resetpassword/>}/>
         <Route path='/weather' element={<WeatherPage/>}/>
         <Route path='/roleplay' element={<StoryGen/>}/>
+        <Route path='/game'element={<FishCatch/>}/>
       </Routes>
     </BrowserRouter>
     
