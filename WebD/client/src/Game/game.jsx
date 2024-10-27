@@ -1,14 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import Phaser from 'phaser';
 
-function FishCatch(){
+function FishCatch() {
+    useEffect(() => {
+        let gamescene = new Phaser.Scene('Game');
+        gamescene.preload = function () {
+        };
+        gamescene.create = function () {
+
+        };
+        gamescene.update = function () {
+        };
+
+        let config = {
+            type: Phaser.AUTO,
+            height: 360,
+            width: 640,
+            scene: gamescene,
+            parent: 'phaser-game' 
+        };
+
+        const game = new Phaser.Game(config);
+        return () => {
+            game.destroy(true);
+        };
+    }, []);
+
     return (
-        <html>
-        <body>
-            <script src='./phaser.js'></script>
-            <script src='./game.js'></script>
-            <style src='./game.css'></style>
-        </body>
-        </html>
+        <div className='main'>
+            <div id="phaser-game"></div>
+        </div>
     );
 }
 
