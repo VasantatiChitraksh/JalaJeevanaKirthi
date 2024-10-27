@@ -97,12 +97,15 @@ function Home() {
     const handleOnclick3 = (e) => {
             navigate('/weather')
          }
+    const handleOnclick4 = (e) => {
+        navigate('/game')
+    }
     return (
         <div className='background'>
             <div className="topbar">
                 <img className="logo-icon" src={logo} alt="Logo" />
                 <h2 className="logo">Jala Jeevana Kirthi</h2>
-                <button className="topbar-button">Game</button>
+                <button className="topbar-button" onClick={handleOnclick4}>Game</button>
                 <button className="topbar-button" onClick={handleOnclick3}>Weather</button>
                 <button className="topbar-button">Blogs</button>
                 <button className="topbar-button" onClick={handleOnclick2}>RolePlay</button>
