@@ -7,7 +7,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #1a1a1a; /* Dark background */
+  background: linear-gradient(to bottom, #66ccff, #003366); 
   color: white;
   height: 100vh;
   display: flex;
@@ -16,19 +16,18 @@ body {
   align-items: center;
 }
 .story-gen {
-  width: 100%; /* Full width container */
+  width: 100%; 
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center;     /* Center vertically */
+  justify-content: center; 
+  align-items: center;   
   flex-direction: column;
 }
 
-/* Navigation bar */
 .nav-bar {
-  background-color: #333; /* Darker gray for the nav bar */
+  background-color: #003366; 
   padding: 10px;
-  border-bottom: 1px solid #444; /* Border for distinction */
-  width: 100%; /* Ensuring the navigation spans the entire width */
+  border-bottom: 1px solid #444;
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
@@ -37,7 +36,7 @@ body {
 .nav-bar ul {
   list-style: none;
   display: flex;
-  justify-content: flex-start; /* Align links to the left */
+  justify-content: flex-start; 
   width: 100%;
 }
 
@@ -48,34 +47,31 @@ body {
 
 .nav-bar a {
   text-decoration: none;
-  color: white; /* White text */
+  color: #cceeff;
 }
 
 .nav-bar a:hover {
-  color: #f0f0f0; /* Slight hover effect for links */
+  color: #ffffff;
 }
 
 .right {
-  margin-left: auto; /* Only 'Login' should be on the right */
+  margin-left: auto; 
 }
 
-/* Centering content */
 .content {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center;     /* Center vertically */
+  justify-content: center;
+  align-items: center; 
   flex-direction: column;
   gap: 20px;
-  transition: transform 0.3s ease; /* Smooth animation when moving content */
-  height: 80vh; /* Set height to properly center the content */
+  transition: transform 0.3s ease;
+  height: 80vh; 
 }
 
-/* When the box is open, move content and chat-bot to the left */
 .box-open .content {
-  transform: translateX(-25vw); /* Move content and Chat Bot to the left */
+  transform: translateX(-25vw);
 }
 
-/* Option list and individual option styles */
 .option-list {
   display: flex;
   flex-direction: column;
@@ -85,7 +81,7 @@ body {
 .option {
   display: flex;
   align-items: center;
-  background-color: #777; /* Light gray for contrast */
+  background-color: #0099cc;  
   width: 30vw;
   height: 120px;
   border-radius: 30px;
@@ -95,8 +91,8 @@ body {
 }
 
 .option:hover {
-  background-color: #aaa; /* Lighten on hover */
-  transform: scale(1.03); /* Slight scale effect */
+  background-color: #00bfff;
+  transform: scale(1.03); 
 }
 
 .circle {
@@ -109,52 +105,61 @@ body {
 
 .option span {
   font-size: 24px;
-  color: #333; /* Darker text color */
+  color: #ffffff;
 }
 
-/* Chat bot button */
 .chat-bot {
   position: fixed;
   bottom: 2vh;
   right: 1vw;
-  background-color: #777;
+  background-color: #0099cc;
   border: none;
   border-radius: 15px;
   padding: 10px 20px;
   font-size: 16px;
-  color: #333;
+  color: #ffffff;
   cursor: pointer;
 }
 
+
 .chat-bot:hover {
-  background-color: #aaa; /* Lighten on hover */
+  background-color: #00bfff; 
 }
 
-/* Side Box with Scrollable Story */
+
 .side-box {
   position: fixed;
   right: 10px;
   top: 60px;
   width: 50%;
   height: calc(100vh - 120px);
-  background-color: #444;
+  background-color: #004080;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 30px;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
   color: white;
   transition: width 0.3s ease;
-  overflow-y: auto; /* Makes content scrollable when it exceeds the box height */
 }
 
-.side-box h2 {
-  font-size: 24px;
-  color: white;
-  margin-bottom: 20px;
+.side-box h2{
+font-size: 24px;
+color: #cceeff;
+margin-bottom: 20px;
 }
-
-.side-box p {
-  font-size: 18px;
-  line-height: 1.6;
-  padding-right: 10px; /* Add padding for the scroll bar */
+.chatbot{
+  position: fixed;
+  top: 78%;
+  right: 3%;
+  color: #000000;
+  font-weight: bold;
+  border-radius: 25%;
+  background-color: coral;
+  opacity: 80%;
+}
+.chat{
+  position: fixed;
+  top: 10%;
+  right: 3%;
+  justify-content: right;
 }

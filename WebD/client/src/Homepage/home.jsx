@@ -88,21 +88,29 @@ function Home() {
         };
     }, []);
     const navigate = useNavigate();
-    const handleOnclick = (e) => {
+    const handleOnclick1 = (e) => {
            navigate('/login')
         }
-
+    const handleOnclick2 = (e) => {
+            navigate('/roleplay')
+         }
+    const handleOnclick3 = (e) => {
+            navigate('/weather')
+         }
+    const handleOnclick4 = (e) => {
+        navigate('/game')
+    }
     return (
         <div className='background'>
             <div className="topbar">
                 <img className="logo-icon" src={logo} alt="Logo" />
                 <h2 className="logo">Jala Jeevana Kirthi</h2>
-                <button className="topbar-button">Game</button>
-                <button className="topbar-button">Weather</button>
+                <button className="topbar-button" onClick={handleOnclick4}>Game</button>
+                <button className="topbar-button" onClick={handleOnclick3}>Weather</button>
                 <button className="topbar-button">Blogs</button>
-                <button className="topbar-button">RolePlay</button>
+                <button className="topbar-button" onClick={handleOnclick2}>RolePlay</button>
                 <button className="topbar-button">Forums</button>
-                <button className="topbar-button"  onClick={handleOnclick}>Login</button>
+                <button className="topbar-button"  onClick={handleOnclick1}>Login</button>
             </div>
             <div className="spacer"></div>
             <div className='waves'></div>
@@ -181,27 +189,27 @@ We believe that even the smallest actions can have a profound effect on our envi
                 <div className='profiles'>
                 <img className='flogo' src={logo}/>
                 <div className='spacer2' />
-                <div className='creator'>
+                <div className='creator1'>
                 
                 </div>
                 <div className='spacer2'></div>
-                <div className='creator'>
+                <div className='creator2'>
                 
                 </div>
                 <div className='spacer2'></div>
-                <div className='creator'>
+                <div className='creator3'>
                 
                 </div>
                 <div className='spacer2'></div>
-                <div className='creator'>
+                <div className='creator4'>
                 
                 </div>
                 <div className='spacer2'></div>
-                <div className='creator'>
+                <div className='creator5'>
                 
                 </div>
                 <div className='spacer2'></div>
-                <div className='creator'>
+                <div className='creator6'>
                 
                 </div>
                 <div className='spacer2'></div>
@@ -209,16 +217,37 @@ We believe that even the smallest actions can have a profound effect on our envi
                     <a href = "#"></a>
                 </div>
                 <div className="social-media-icons">
-                <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <FontAwesomeIcon icon={faFacebook} size="2x" />
-                </a>
-                <a href="https://instagram.com/yourpage" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <FontAwesomeIcon icon={faInstagram} size="2x" />
-                </a>
-                <a href="https://twitter.com/yourpage" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                <FontAwesomeIcon icon={faTwitter} size="2x" />
-                </a>
-      </div>
+    <a 
+        href="#" 
+        onClick={(e) => { 
+            e.preventDefault(); 
+            console.log('Facebook icon clicked'); 
+        }} 
+        aria-label="Facebook"
+    >
+        <FontAwesomeIcon icon={faFacebook} size="2x" />
+    </a>
+    <a 
+        href="#" 
+        onClick={(e) => { 
+            e.preventDefault(); 
+            console.log('Instagram icon clicked'); 
+        }} 
+        aria-label="Instagram"
+    >
+        <FontAwesomeIcon icon={faInstagram} size="2x" />
+    </a>
+    <a 
+        href="#" 
+        onClick={(e) => { 
+            e.preventDefault(); 
+            console.log('Twitter icon clicked'); 
+        }} 
+        aria-label="Twitter"
+    >
+        <FontAwesomeIcon icon={faTwitter} size="2x" />
+    </a>
+</div>
                 </div>
                 
       <p>@ 2024 Your Company. All rights reserved</p>

@@ -1,14 +1,14 @@
 import React from 'react'
 import ReactDOM from "react-dom";
 import {FaMailBulk,} from "react-icons/fa";
-import "./Forgotpassword.css";
+import styles from "./Forgotpassword.module.css";
 import { useState } from "react";
 import Axios from "axios"
 import { Link,useNavigate } from "react-router-dom";
 
 const Forgotpassword = () => {
 
-  const [email, setemail] = useState("");
+  const [email, setEmail] = useState("");
 
   const navigate = useNavigate()
 
@@ -29,21 +29,26 @@ const Forgotpassword = () => {
 
 
   return (
-    <div className="Super">
-      <form action="" onSubmit={handleSubmit}>
-        <h1>Sign in </h1>
-        <div className="input">
-          <FaMailBulk className="Icon" color="purple" />
-          <input
-            type="E-mail"
-            placeholder="e-mail"
-            autoComplete="off"
-            required
-            onChange={(e) => setemail(e.target.value)}
-          />
-        </div>
-        <button type="submit">Send</button>
-      </form>
+    <div className={styles.container}>
+      <div className={styles.Super}>
+        <form onSubmit={handleSubmit}>
+          <h1 className={styles.heading}>Forgot Password</h1>
+          
+          <div className={styles.input}>
+            <FaMailBulk className={styles.icon} />
+            <input
+              type="email"
+              placeholder="E-mail"
+              autoComplete="off"
+              required
+              className={styles.inputField}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+
+          <button type="submit" className={styles.button}>Send</button>
+        </form>
+      </div>
     </div>
   )
 }

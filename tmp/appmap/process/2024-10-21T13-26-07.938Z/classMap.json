@@ -1,0 +1,20 @@
+[
+  {
+    "name": "mongodb",
+    "type": "package",
+    "children": [
+      {
+        "type": "class",
+        "name": "users",
+        "children": [
+          {
+            "type": "function",
+            "name": "createIndex",
+            "static": false,
+            "location": "mongodb/users:1"
+          }
+        ]
+      }
+    ]
+  }
+]
