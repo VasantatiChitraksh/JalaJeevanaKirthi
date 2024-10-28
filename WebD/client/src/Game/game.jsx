@@ -18,6 +18,7 @@ function FishCatch() {
             bg.setScale(1.25,1.25);
 
             let pl = this.add.sprite(150,100,'player');
+            pl.angle++;
             pl.ScaleX = 1;
             pl.scaleY = 1;
         };
