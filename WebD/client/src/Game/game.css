@@ -1,4 +1,13 @@
 #phaser-game{
     width: 100%;
     height:100%;
+    background-color: blue;
+}
+
+#home_button{
+    margin-left: -20%;
+}
+
+#login_button{
+    margin-left: 68%;
 }
