@@ -28,6 +28,7 @@ import sunrays from './gameassets/items/sunrays.png';
 import netImage from './gameassets/items/net.png';
 
 function FishCatch() {
+
     useEffect(() => {
         const scale = window.devicePixelRatio;
         const w = window.innerWidth * scale;
@@ -64,9 +65,8 @@ function FishCatch() {
             this.add.image(w / 2, h / 2, 'background').setDisplaySize(w, h);
 
             const sunraysSprite = this.add.image(w / 2, h / 2, 'sunrays').setScale(1.5);
-            sunraysSprite.setAlpha(0.5);  // Set initial transparency
+            sunraysSprite.setAlpha(0.25);
 
-            // Create sunrays animation
             this.tweens.add({
                 targets: sunraysSprite,
                 alpha: { from: 0.5, to: 1 },
@@ -75,62 +75,79 @@ function FishCatch() {
                 repeat: -1,
                 ease: 'Sine.easeInOut'
             });
-            // Create the fishing net sprite
-            const net = this.add.image(w / 2-500, h / 2-300, 'net').setInteractive();
+
+            const net = this.add.image(w / 2 - 500, h / 2 - 330, 'net').setInteractive();
             net.setScale(0.75);
             this.input.setDraggable(net);
-            this.physics.add.existing(net);  // Add net to physics
+            this.physics.add.existing(net);
 
-            // Drag event for the fishing net
             this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
                 gameObject.x = dragX;
                 gameObject.y = dragY;
             });
 
-            // Function to handle fish catching
             const catchFish = (fish, fishName) => {
                 if (!caughtFishName) {
                     caughtFishName = fishName;
 
-                    // Create flash card graphics
-                    const flashCard = this.add.graphics();
-                    flashCard.fillStyle(0x000000, 0.7);
-                    flashCard.fillRoundedRect(w / 2 - 100, h / 2 - 50, 200, 100, 10);
+                    const flashCardContainer = this.add.container(w / 2 - 350, h / 2 - 200);
 
-                    const text = this.add.text(w / 2, h / 2, `${fishName} caught!`, {
-                        fontSize: '20px',
-                        color: '#ffffff'
-                    }).setOrigin(0.5);
+                    const flashCardBackground = this.add.graphics();
+                    flashCardBackground.fillStyle(0xF9D57C, 1);
+                    flashCardBackground.fillRoundedRect(0, 0, 600, 400, 10);
+                    flashCardContainer.add(flashCardBackground);
 
-                    const continueButton = this.add.text(w / 2 -40, h / 2 + 30, 'Continue', {
-                        fontSize: '16px',
-                        color: '#ffffff',
-                        backgroundColor: '#000000',
-                        padding: { x: 10, y: 5 },
-                        borderRadius: 5,
-                    }).setOrigin(0.5).setInteractive();
 
-                    const exit = this.add.text(w / 2 + 40, h / 2 +30, 'Exit', {
-                        fontSize: '16px',
-                        color: '#ffffff',
-                        backgroundColor: '#000000',
-                        padding: { x: 10, y: 5 },
-                        borderRadius: 5,
-                    }).setOrigin(0.5).setInteractive();
+                    const details = [
+                        { label: 'Name:', value: "Sample Name" },
+                        { label: 'Average Weight:', value: "90 kg" },
+                        { label: 'Average Height:', value: "98 cm" },
+                        { label: 'Origin:', value: "Sample Ocean" },
+                        { label: 'Status:', value: "Common" },
+                        { label: 'Habitat:', value: "Marine Waters" },
+                        { label: 'Reason for Shortage:', value: "Overfishing" },
+                        { label: 'Fun Fact:', value: "This is a fun fact!" }
+                    ];
 
-                    exit.on('pointerup', () => {
-                        navigate('/');
-                    });
-                    // Add continue button interaction
-                    continueButton.on('pointerdown', () => {
-                        flashCard.destroy();
-                        text.destroy();
-                        continueButton.destroy();
-                        exit.destroy();
-                        caughtFishName = null;  // Reset for next catch
+                    details.forEach((detail, index) => {
+                        const text = this.add.text(20, 20 + index * 30, `${detail.label} ${detail.value}`, {
+                            fontSize: '16px',
+                            color: '#ffffff',
+                            fontFamily: 'Arial',
+                            padding: { x: 10, y: 15 }
+                        });
+                        flashCardContainer.add(text);
                     });
 
-                    // Hide the caught fish
+                    const fishImage = this.add.image(w/2-500, h/2-300, fishName).setScale(0.25); 
+                    flashCardContainer.add(fishImage);
+
+                    const continueButton = this.add.text(w/2-700, h/2-100, 'CONTINUE', {
+                        fontSize: '24px',
+                        color: '#000000',
+                        backgroundColor: '#F9D57C',
+                        fontFamily: 'Arial',
+                        padding: { x: 0, y: 5 },
+                    }).setOrigin(0.5).setInteractive();
+                    flashCardContainer.add(continueButton);
+
+                    const exitButton = this.add.text(w/2-500, h/2-100, 'EXIT', {
+                        fontSize: '24px',
+                        color: '#000000',
+                        backgroundColor: '#F9D57C',
+                        fontFamily: 'Arial',
+                        padding: { x: 10, y: 5 },
+                    }).setOrigin(0.5).setInteractive();
+                    flashCardContainer.add(exitButton);
+
+                    exitButton.on('pointerup', () => navigate('/'));
+                    continueButton.on('pointerup', () => {
+                        flashCardContainer.destroy();
+                        net.setPosition(w / 2 - 500, h / 2 - 330);
+                        caughtFishName = null;
+                        fish.visible = false;
+                    });
+
                     fish.visible = false;
                 }
             };
