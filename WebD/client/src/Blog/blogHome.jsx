@@ -8,7 +8,9 @@ const blogHome = () =>{
     return (
         <> 
          <Banner/> 
-        
+         <Grid container item  lg={10}>
+                    <Posts />
+         </Grid>
         </>
     )
 }
