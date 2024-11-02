@@ -86,31 +86,186 @@ function FishCatch() {
                 gameObject.y = dragY;
             });
 
+            const fishDetails = {
+                'acheRhom': {
+                    name: 'Acherontis Rhombifer',
+                    weight: '1.5–2 kg',
+                    height: '0.4 meters',
+                    origin: 'Amazon Basin',
+                    status: 'Vulnerable',
+                    habitat: 'Freshwater rivers',
+                    shortage: 'Overfishing and habitat loss',
+                    fact: 'Acherontis Rhombifer is known for its distinctive rhomboid body shape.'
+                },
+                'angelfish': {
+                    name: 'Angelfish',
+                    weight: 'Up to 2 kg',
+                    height: 'Up to 0.5 meters',
+                    origin: 'South America',
+                    status: 'Least Concern',
+                    habitat: 'Freshwater rivers and streams',
+                    shortage: 'Invasive species in some regions',
+                    fact: 'Angelfish are popular in home aquariums due to their striking appearance.'
+                },
+                'clownfish': {
+                    name: 'Clownfish',
+                    weight: '200 grams',
+                    height: '11 cm',
+                    origin: 'Indian and Pacific Oceans',
+                    status: 'Least Concern',
+                    habitat: 'Warm sea reefs',
+                    shortage: 'Coral reef destruction',
+                    fact: 'Clownfish have a symbiotic relationship with sea anemones.'
+                },
+                'lobster': {
+                    name: 'Lobster',
+                    weight: 'Up to 9 kg',
+                    height: 'Up to 1 meter (with claws)',
+                    origin: 'North Atlantic',
+                    status: 'Near Threatened',
+                    habitat: 'Cold coastal waters',
+                    shortage: 'Overfishing and habitat disruption',
+                    fact: 'Lobsters can regenerate lost limbs.'
+                },
+                'tuna': {
+                    name: 'Tuna',
+                    weight: 'Up to 684 kg',
+                    height: 'Up to 3 meters',
+                    origin: 'Worldwide (warm oceans)',
+                    status: 'Vulnerable',
+                    habitat: 'Open ocean',
+                    shortage: 'Overfishing for commercial purposes',
+                    fact: 'Tuna are among the fastest swimmers in the ocean, reaching speeds of up to 75 km/h.'
+                },
+                'shark': {
+                    name: 'Great White Shark',
+                    weight: 'Up to 1,100 kg',
+                    height: 'Up to 6.4 meters',
+                    origin: 'Worldwide (coastal waters)',
+                    status: 'Vulnerable',
+                    habitat: 'Coastal and offshore waters',
+                    shortage: 'Overfishing for fins and accidental bycatch',
+                    fact: 'Great White Sharks can sense a drop of blood in 100 liters of water.'
+                },
+                'haddock': {
+                    name: 'Haddock',
+                    weight: '1–3 kg',
+                    height: 'Up to 1 meter',
+                    origin: 'North Atlantic',
+                    status: 'Least Concern',
+                    habitat: 'Cold deep waters',
+                    shortage: 'Overfishing in some regions',
+                    fact: 'Haddock is a popular fish for cooking, often used in fish and chips.'
+                },
+                'mackeral': {
+                    name: 'Mackerel',
+                    weight: '0.5–2 kg',
+                    height: 'Up to 60 cm',
+                    origin: 'Atlantic and Pacific Oceans',
+                    status: 'Least Concern',
+                    habitat: 'Open ocean, near surface',
+                    shortage: 'Overfishing and climate change',
+                    fact: 'Mackerel have a streamlined body that allows them to swim quickly through the water.'
+                },
+                'mahi': {
+                    name: 'Mahi-Mahi',
+                    weight: '7–20 kg',
+                    height: 'Up to 1.5 meters',
+                    origin: 'Tropical and subtropical oceans',
+                    status: 'Least Concern',
+                    habitat: 'Warm surface waters',
+                    shortage: 'Climate change and overfishing',
+                    fact: 'Mahi-Mahi are known for their vibrant colors and rapid growth rates.'
+                },
+                'salmon': {
+                    name: 'Atlantic Salmon',
+                    weight: 'Up to 30 kg',
+                    height: 'Up to 1.5 meters',
+                    origin: 'North Atlantic Ocean',
+                    status: 'Vulnerable',
+                    habitat: 'Rivers and coastal waters',
+                    shortage: 'Overfishing and habitat loss',
+                    fact: 'Salmon are famous for their long migrations upstream to spawn.'
+                },
+                'shrimp': {
+                    name: 'Shrimp',
+                    weight: '10–20 grams',
+                    height: '5–12 cm',
+                    origin: 'Worldwide (coastal waters)',
+                    status: 'Least Concern',
+                    habitat: 'Shallow coastal waters',
+                    shortage: 'Overfishing in some regions',
+                    fact: 'Shrimp are a primary food source for many marine animals.'
+                },
+                'crab': {
+                    name: 'Blue Crab',
+                    weight: 'Up to 1 kg',
+                    height: 'Up to 23 cm (width)',
+                    origin: 'Western Atlantic',
+                    status: 'Near Threatened',
+                    habitat: 'Estuaries and coastal waters',
+                    shortage: 'Overharvesting and habitat degradation',
+                    fact: 'Blue Crabs are named for their blue claws and legs.'
+                },
+                'swordfish': {
+                    name: 'Swordfish',
+                    weight: '150–650 kg',
+                    height: 'Up to 4.5 meters',
+                    origin: 'Worldwide (tropical and temperate oceans)',
+                    status: 'Least Concern',
+                    habitat: 'Open ocean',
+                    shortage: 'Overfishing and accidental bycatch',
+                    fact: 'Swordfish are named for their long, flat bill, which they use to slash through schools of fish.'
+                },
+                'whale': {
+                    name: 'Blue Whale',
+                    weight: 'Up to 190,000 kg',
+                    height: 'Up to 30 meters',
+                    origin: 'Worldwide (open ocean)',
+                    status: 'Endangered',
+                    habitat: 'Open ocean',
+                    shortage: 'Hunting and habitat loss',
+                    fact: 'Blue Whales are the largest animals on Earth, and their calls can be heard over great distances underwater.'
+                },
+                'stingray': {
+                    name: 'Stingray',
+                    weight: 'Up to 350 kg',
+                    height: 'Up to 4 meters (including tail)',
+                    origin: 'Worldwide (coastal waters)',
+                    status: 'Near Threatened',
+                    habitat: 'Shallow coastal waters and sandy seabeds',
+                    shortage: 'Overfishing and habitat degradation',
+                    fact: 'Stingrays have a venomous stinger on their tail used for defense.'
+                }
+            };
+            
+
             const catchFish = (fish, fishName) => {
                 if (!caughtFishName) {
                     caughtFishName = fishName;
-
+            
                     const flashCardContainer = this.add.container(w / 2 - 350, h / 2 - 200);
-
+            
                     const flashCardBackground = this.add.graphics();
                     flashCardBackground.fillStyle(0xF9D57C, 1);
                     flashCardBackground.fillRoundedRect(0, 0, 600, 400, 10);
                     flashCardContainer.add(flashCardBackground);
-
-
-                    const details = [
-                        { label: 'Name:', value: "Sample Name" },
-                        { label: 'Average Weight:', value: "90 kg" },
-                        { label: 'Average Height:', value: "98 cm" },
-                        { label: 'Origin:', value: "Sample Ocean" },
-                        { label: 'Status:', value: "Common" },
-                        { label: 'Habitat:', value: "Marine Waters" },
-                        { label: 'Reason for Shortage:', value: "Overfishing" },
-                        { label: 'Fun Fact:', value: "This is a fun fact!" }
+            
+                    const details = fishDetails[fishName];
+            
+                    const detailFields = [
+                        { label: 'Name:', value: details.name },
+                        { label: 'Average Weight:', value: details.weight },
+                        { label: 'Average Height:', value: details.height },
+                        { label: 'Origin:', value: details.origin },
+                        { label: 'Status:', value: details.status },
+                        { label: 'Habitat:', value: details.habitat },
+                        { label: 'Reason for Shortage:', value: details.shortage }, // Fixing 'reason' to 'shortage'
+                        { label: 'Fun Fact:', value: details.fact }
                     ];
-
-                    details.forEach((detail, index) => {
-                        const text = this.add.text(20, 20 + index * 30, `${detail.label} ${detail.value}`, {
+            
+                    detailFields.forEach((detail, index) => {
+                        const text = this.add.text(20, 20 + index * 30, `${detail.label} ${detail.value}`, { // Fixed interpolation
                             fontSize: '16px',
                             color: '#ffffff',
                             fontFamily: 'Arial',
@@ -118,11 +273,11 @@ function FishCatch() {
                         });
                         flashCardContainer.add(text);
                     });
-
-                    const fishImage = this.add.image(w/2-500, h/2-300, fishName).setScale(0.25); 
+            
+                    const fishImage = this.add.image(w / 2 - 500, h / 2 - 300, fishName).setScale(0.25); 
                     flashCardContainer.add(fishImage);
-
-                    const continueButton = this.add.text(w/2-700, h/2-100, 'CONTINUE', {
+            
+                    const continueButton = this.add.text(w / 2 - 700, h / 2 - 100, 'CONTINUE', {
                         fontSize: '24px',
                         color: '#000000',
                         backgroundColor: '#F9D57C',
@@ -130,8 +285,8 @@ function FishCatch() {
                         padding: { x: 0, y: 5 },
                     }).setOrigin(0.5).setInteractive();
                     flashCardContainer.add(continueButton);
-
-                    const exitButton = this.add.text(w/2-500, h/2-100, 'EXIT', {
+            
+                    const exitButton = this.add.text(w / 2 - 500, h / 2 - 100, 'EXIT', {
                         fontSize: '24px',
                         color: '#000000',
                         backgroundColor: '#F9D57C',
@@ -139,7 +294,7 @@ function FishCatch() {
                         padding: { x: 10, y: 5 },
                     }).setOrigin(0.5).setInteractive();
                     flashCardContainer.add(exitButton);
-
+            
                     exitButton.on('pointerup', () => navigate('/'));
                     continueButton.on('pointerup', () => {
                         flashCardContainer.destroy();
@@ -147,10 +302,11 @@ function FishCatch() {
                         caughtFishName = null;
                         fish.visible = false;
                     });
-
+            
                     fish.visible = false;
                 }
             };
+            
 
             // Fish data
             const fishData = [
