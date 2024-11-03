@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 import './game.css';
 import { useNavigate } from "react-router-dom";
 import logo from '../assets/LOGO.jpg';
+import axios from 'axios';
 import background from './gameassets/Items/game_background.jpg';
 
 // Import all fish images
@@ -29,12 +30,39 @@ import netImage from './gameassets/items/net.png';
 
 function FishCatch() {
 
+    let fishDetails;
+    const [caughtFishName, setCaughtFishName] = useState(null);
+    let isNetActive=true;
+
+    useEffect(()=> {
+        const fetchdetails = async () => {
+            try {
+                const response = await axios.get('http://localhost:3001/data/fishes'); 
+                console.log("Response data:", response.data);
+                const fishdata = response.data.reduce((acc, fish) => {
+                    acc[fish.name] = fish; 
+                    return acc;
+                }, {});
+        
+                console.log("FishMap:", fishdata);
+                fishDetails = fishdata;
+        
+            } catch (error) {
+                console.error("Error fetching fish details:", error);
+            }
+        };
+        
+        fetchdetails();
+    }, []);
+
+    useEffect(() => {
+        console.log("Updated Fish details:", fishDetails);
+    }, [fishDetails]);
+
     useEffect(() => {
         const scale = window.devicePixelRatio;
         const w = window.innerWidth * scale;
         const h = window.innerHeight * scale;
-
-        let caughtFishName = null;
         let gameScene = new Phaser.Scene('Game');
 
         gameScene.preload = function () {
@@ -44,21 +72,26 @@ function FishCatch() {
             this.load.image('net', netImage);
 
             // Preload all fish images
-            this.load.image('acheRhom', acheRhom);
-            this.load.image('swordfish', sword);
-            this.load.image('angelfish', angelfish);
-            this.load.image('lobster', lobster);
-            this.load.image('tuna', tuna);
-            this.load.image('clownfish', clownfish);
-            this.load.image('shark', shark);
-            this.load.image('haddock', haddock);
-            this.load.image('mackeral', mackeral);
-            this.load.image('mahi', mahi);
-            this.load.image('salmon', salmon);
-            this.load.image('shrimp', shrimp);
-            this.load.image('crab', crab);
-            this.load.image('whale', whale);
-            this.load.image('stingray', stingray);
+            const images = new Map([
+                ['Rhombous Bitterling (Acheilognathus rhombeus)', acheRhom],
+                ['Swordfish', sword],
+                ['Angelfish', angelfish],
+                ['Lobster', lobster],
+                ['Yellow Fin Tuna', tuna],
+                ['Clownfish', clownfish],
+                ['Great White Shark', shark],
+                ['Haddock', haddock],
+                ['Mackerel', mackeral],
+                ['Mahi-Mahi', mahi],
+                ['Atlantic Salmon', salmon],
+                ['Shrimp', shrimp],
+                ['Spider Crab', crab],
+                ['Sperm Whale', whale],
+                ['Stingray', stingray]
+            ]);
+            images.forEach((value, key) => {
+                this.load.image(key, value);
+            });            
         };
 
         gameScene.create = function () {
@@ -82,34 +115,37 @@ function FishCatch() {
             this.physics.add.existing(net);
 
             this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
-                gameObject.x = dragX;
-                gameObject.y = dragY;
-            });
+                    gameObject.x = dragX;
+                    gameObject.y = dragY;
+            },
+        );            
 
             const catchFish = (fish, fishName) => {
-                if (!caughtFishName) {
-                    caughtFishName = fishName;
-
+                if (!caughtFishName  && isNetActive) {
+                    setCaughtFishName(fishName);
+                    isNetActive = false;
+            
                     const flashCardContainer = this.add.container(w / 2 - 350, h / 2 - 200);
-
                     const flashCardBackground = this.add.graphics();
                     flashCardBackground.fillStyle(0xF9D57C, 1);
                     flashCardBackground.fillRoundedRect(0, 0, 600, 400, 10);
                     flashCardContainer.add(flashCardBackground);
-
-
-                    const details = [
-                        { label: 'Name:', value: "Sample Name" },
-                        { label: 'Average Weight:', value: "90 kg" },
-                        { label: 'Average Height:', value: "98 cm" },
-                        { label: 'Origin:', value: "Sample Ocean" },
-                        { label: 'Status:', value: "Common" },
-                        { label: 'Habitat:', value: "Marine Waters" },
-                        { label: 'Reason for Shortage:', value: "Overfishing" },
-                        { label: 'Fun Fact:', value: "This is a fun fact!" }
+                    
+                    console.log("The fish :",fishDetails);
+                    const details = fishDetails[fishName];
+                    console.log("Details",details);
+                    const detailFields = [
+                        { label: 'Name:', value: details.name },
+                        { label: 'Average Weight:', value: details.weight },
+                        { label: 'Average Height:', value: details.height },
+                        { label: 'Origin:', value: details.origin },
+                        { label: 'Status:', value: details.status },
+                        { label: 'Habitat:', value: details.habitat },
+                        { label: 'Reason for Shortage:', value: details.shortage },
+                        { label: 'Fun Fact:', value: details.fact }
                     ];
 
-                    details.forEach((detail, index) => {
+                    detailFields.forEach((detail, index) => {
                         const text = this.add.text(20, 20 + index * 30, `${detail.label} ${detail.value}`, {
                             fontSize: '16px',
                             color: '#ffffff',
@@ -118,11 +154,11 @@ function FishCatch() {
                         });
                         flashCardContainer.add(text);
                     });
-
-                    const fishImage = this.add.image(w/2-500, h/2-300, fishName).setScale(0.25); 
+            
+                    const fishImage = this.add.image(w / 2 - 500, h / 2 - 300, fishName).setScale(0.25); 
                     flashCardContainer.add(fishImage);
-
-                    const continueButton = this.add.text(w/2-700, h/2-100, 'CONTINUE', {
+            
+                    const continueButton = this.add.text(w / 2 - 700, h / 2 - 100, 'CONTINUE', {
                         fontSize: '24px',
                         color: '#000000',
                         backgroundColor: '#F9D57C',
@@ -130,8 +166,8 @@ function FishCatch() {
                         padding: { x: 0, y: 5 },
                     }).setOrigin(0.5).setInteractive();
                     flashCardContainer.add(continueButton);
-
-                    const exitButton = this.add.text(w/2-500, h/2-100, 'EXIT', {
+            
+                    const exitButton = this.add.text(w / 2 - 500, h / 2 - 100, 'EXIT', {
                         fontSize: '24px',
                         color: '#000000',
                         backgroundColor: '#F9D57C',
@@ -139,36 +175,38 @@ function FishCatch() {
                         padding: { x: 10, y: 5 },
                     }).setOrigin(0.5).setInteractive();
                     flashCardContainer.add(exitButton);
-
+            
                     exitButton.on('pointerup', () => navigate('/'));
                     continueButton.on('pointerup', () => {
                         flashCardContainer.destroy();
                         net.setPosition(w / 2 - 500, h / 2 - 330);
-                        caughtFishName = null;
+                        setCaughtFishName(null);
+                        isNetActive = true;
                         fish.visible = false;
                     });
-
+            
                     fish.visible = false;
                 }
             };
+            
 
             // Fish data
             const fishData = [
-                { key: 'haddock', x: w + 50, y: h / 2 - 175, scale: 0.25, duration: 3600, direction: 'left' },
-                { key: 'acheRhom', x: w + 50, y: h / 2 - 165, scale: 0.4, duration: 3200, direction: 'left' },
-                { key: 'mackeral', x: w + 50, y: h / 2 - 100, scale: 0.25, duration: 4500, direction: 'left' },
-                { key: 'salmon', x: w + 50, y: h / 2 - 35, scale: 0.4, duration: 3000, direction: 'left' },
-                { key: 'mahi', x: -50, y: h / 2 - 100, scale: 0.5, duration: 3800, direction: 'right' },
-                { key: 'tuna', x: -50, y: h / 2 - 70, scale: 0.35, duration: 3500, direction: 'right' },
-                { key: 'swordfish', x: -50, y: h / 2 - 40, scale: 0.35, duration: 2000, direction: 'right' },
-                { key: 'clownfish', x: -50, y: h / 2 - 10, scale: 0.25, duration: 3100, direction: 'right' },
-                { key: 'angelfish', x: -50, y: h / 2 + 70, scale: 0.3, duration: 4000, direction: 'right' },
-                { key: 'shrimp', x: -50, y: h / 2 + 50, scale: 0.3, duration: 7000, direction: 'right' },
-                { key: 'stingray', x: -50, y: h / 2 + 220, scale: 0.25, duration: 3500, direction: 'right' },
-                { key: 'whale', x: -50, y: h / 2 + 110, scale: 0.4, duration: 4500, direction: 'right' },
-                { key: 'crab', x: w + 50, y: h / 2 + 140, scale: 0.25, duration: 7500, direction: 'left' },
-                { key: 'lobster', x: -50, y: h / 2 + 170, scale: 0.1, duration: 6000, direction: 'right' },
-                { key: 'shark', x: w + 50, y: h / 2 + 200, scale: 0.7, duration: 3500, direction: 'left' },
+                { key: 'Haddock', x: w + 50, y: h / 2 - 175, scale: 0.25, duration: 3600, direction: 'left' },
+                { key: 'Rhombous Bitterling (Acheilognathus rhombeus)', x: w + 50, y: h / 2 - 165, scale: 0.4, duration: 3200, direction: 'left' },
+                { key: 'Mackerel', x: w + 50, y: h / 2 - 100, scale: 0.25, duration: 4500, direction: 'left' },
+                { key: 'Atlantic Salmon', x: w + 50, y: h / 2 - 35, scale: 0.4, duration: 3000, direction: 'left' },
+                { key: 'Mahi-Mahi', x: -50, y: h / 2 - 100, scale: 0.5, duration: 3800, direction: 'right' },
+                { key: 'Yellow Fin Tuna', x: -50, y: h / 2 - 70, scale: 0.35, duration: 3500, direction: 'right' },
+                { key: 'Swordfish', x: -50, y: h / 2 - 40, scale: 0.35, duration: 2000, direction: 'right' },
+                { key: 'Clownfish', x: -50, y: h / 2 - 10, scale: 0.25, duration: 3100, direction: 'right' },
+                { key: 'Angelfish', x: -50, y: h / 2 + 70, scale: 0.3, duration: 4000, direction: 'right' },
+                { key: 'Shrimp', x: -50, y: h / 2 + 50, scale: 0.3, duration: 7000, direction: 'right' },
+                { key: 'Stingray', x: -50, y: h / 2 + 220, scale: 0.25, duration: 3500, direction: 'right' },
+                { key: 'Sperm Whale', x: -50, y: h / 2 + 110, scale: 0.4, duration: 4500, direction: 'right' },
+                { key: 'Spider Crab', x: w + 50, y: h / 2 + 140, scale: 0.25, duration: 7500, direction: 'left' },
+                { key: 'Lobster', x: -50, y: h / 2 + 170, scale: 0.1, duration: 6000, direction: 'right' },
+                { key: 'Great White Shark', x: w + 50, y: h / 2 + 200, scale: 0.7, duration: 3500, direction: 'left' },
             ];
 
             // Add each fish and set motion
@@ -189,7 +227,7 @@ function FishCatch() {
 
                 // Check for overlap between net and fish
                 this.physics.add.overlap(net, fishSprite, () => {
-                    if (fishSprite.visible) {  // Only catch fish if it's visible
+                    if (fishSprite.visible && isNetActive) {  // Only catch fish if it's visible
                         catchFish(fishSprite, fishInfo.key);
                     }
                 });
