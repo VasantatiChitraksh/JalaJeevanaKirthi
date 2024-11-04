@@ -142,7 +142,8 @@ function FishCatch() {
                         { label: 'Status:', value: details.status },
                         { label: 'Habitat:', value: details.habitat },
                         { label: 'Reason for Shortage:', value: details.shortage },
-                        { label: 'Fun Fact:', value: details.fact }
+                        { label: 'Fun Fact:', value: details.fact },
+                        { label: 'Points:', value: details.points}
                     ];
 
                     detailFields.forEach((detail, index) => {
