@@ -13,7 +13,8 @@ const FishSchema = new mongoose.Schema({
     status: { type: String, required: true },
     habitat: { type: String, required: true },
     shortage: { type: String },
-    fact: { type: String }
+    fact: { type: String },
+    points: {type : Number},
 });
 
 const FishModel = marineDbConnection.model("fishes", FishSchema);
