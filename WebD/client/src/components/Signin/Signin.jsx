@@ -20,6 +20,7 @@ const Signin = () => {
        {username , email, password}).then(response => {
          if (response.data.status){
             console.log("sucess")
+            localStorage.setItem('userEmail', email);
             navigate('/')
          } else {
           console.log('signup failed:', response.data.message);  // Log any error messages

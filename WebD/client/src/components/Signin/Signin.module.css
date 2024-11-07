@@ -8,7 +8,7 @@
     background: linear-gradient(to bottom, #4facfe, #00f2fe); /* Blue gradient background */
     opacity: 50;
     background: transparent;
-    background: url('../../assets/loginimage.jpg') no-repeat center center fixed;
+    background: url('../../assets/signbb.jpg') no-repeat center center fixed;
     background-size: cover;
     backdrop-filter:blur(5px);
 }
