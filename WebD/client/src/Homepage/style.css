@@ -2,10 +2,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 73rem;
+    margin-top: 3rem;
     margin-left: 4rem;
 }
 
+.nav-button{
+    color: #000000;
+}
 .image-holder {
     width: 60%; 
     height: 20rem; 
@@ -192,6 +195,7 @@
 }
 .icon-box p{
     text-align: center;
+    color: black;
 }
 .footer-section {
     background-color: rgb(255, 255, 255);
@@ -280,13 +284,53 @@
     opacity: 75%;
     animation: float 4s ease-in-out infinite; 
 }
-.creator{
+.creator1{
     border-radius: 50%;
     height: 6.25rem;
     width: 6.25rem;
     color: black;
     background-image: url('../assets/cv.jpg');
     background-size: contain;  
+}
+.creator2{
+    border-radius: 50%;
+    height: 6.25rem;
+    width: 6.25rem;
+    color: black;
+    background-image: url('../assets/Dhyanam.jpg');
+    background-size: contain;  
+}
+.creator3{
+    border-radius: 50%;
+    height: 6.25rem;
+    width: 6.25rem;
+    color: black;
+    background-image: url('../assets/bhanu.jpg');
+    background-size: cover;  
+}
+.creator4{
+    border-radius: 50%;
+    height: 6.25rem;
+    width: 6.25rem;
+    color: black;
+    background-image: url('../assets/AnirudhArrepu.jpg');
+    background-size: cover;  
+}
+.creator5{
+    border-radius: 50%;
+    height: 6.25rem;
+    width: 6.25rem;
+    color: black;
+    background-image: url('../assets/charan.jpg');
+    background-size: cover;  
+}
+.creator6{
+    border-radius: 50%;
+    height: 6.25rem;
+    width: 6.25rem;
+    color: black;
+    background-image: url('../assets/Ashish.jpg');
+    background-size: cover;  
 }
 
 .social-media-icons{
@@ -298,4 +342,20 @@
 
 .social-media-icons a {
     margin-right: 1.875rem;
+}
+.chatbot{
+    position: fixed;
+    top: 78%;
+    right: 3%;
+    color: #000000;
+    font-weight: bold;
+    border-radius: 25%;
+    background-color: coral;
+    opacity: 80%;
+}
+.chat{
+    position: fixed;
+    top: 10%;
+    right: 3%;
+    justify-content: right;
 }
