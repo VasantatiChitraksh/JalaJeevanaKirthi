@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import logo from '../assets/LOGO.jpg';
 import axios from 'axios';
 import background from './gameassets/Items/game_background.jpg';
+import wave_sound from './gameassets/sounds/waves.mp3';
 
 // Import all fish images
 import acheRhom from './gameassets/fishes/Acheilognathusrhombeus.png';
@@ -71,6 +72,7 @@ function FishCatch() {
             this.load.image('bubble', bubbleImage);
             this.load.image('sunrays', sunrays);
             this.load.image('net', netImage);
+            this.load.audio('waves',wave_sound);
 
             // Preload all fish images
             const images = new Map([
@@ -97,6 +99,8 @@ function FishCatch() {
 
         gameScene.create = function () { 
             this.add.image(w / 2, h / 2, 'background').setDisplaySize(w, h);
+            let waves_audio = this.sound.add('waves');
+            waves_audio.play();
 
             const sunraysSprite = this.add.image(w / 2, h / 2, 'sunrays').setScale(1.5);
             sunraysSprite.setAlpha(0.25);
