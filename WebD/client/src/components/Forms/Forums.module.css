@@ -1,0 +1,128 @@
+/* Container for the entire discussion */
+.discussion-container {
+    background-color: #87CEEB; /* Light blue background */
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    height: 100vh; /* Full viewport height */
+    width: 100vw;
+    background: linear-gradient(to bottom, #4facfe, #00f2fe); /* Blue gradient background */
+    opacity: 50;
+    background: transparent;
+    background: url('../../assets/loginimage.jpg') no-repeat center center fixed;
+    background-size: cover;
+    backdrop-filter:blur(5px);
+}
+
+/* Header for the date and topic */
+.date-picker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #00BFFF; /* Darker blue */
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+}
+data{
+    align-items: center;   
+}
+
+.topic {
+    background-color: #4facfe;
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+    font-size: 1.1em;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Comments section styling */
+.comments-section {
+    background-color: #7FB3D5; /* Slightly darker blue */
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.comment {
+    background-color: #E0E0E0; /* Light gray for comments */
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #333;
+    position: relative;
+}
+
+.comment strong {
+    font-weight: bold;
+}
+
+/* Reply section styling */
+.reply {
+    background-color: #D3D3D3; /* Slightly darker gray for replies */
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    font-size: 0.9em;
+    color: #555;
+    position: relative;
+}
+
+.replys {
+    color: #555;
+    font-size: 0.9em;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Add comment section */
+.comment-input {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.comment-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 5px;
+}
+
+.comment-input button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #87CEEB; /* Light blue */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.comment-input button:hover {
+    background-color: #00BFFF; /* Darker blue on hover */
+}
+
+/* Optional: CSS for discussion title bar */
+.header {
+    display: flex;
+    justify-content: center;
+    background-color: #00BFFF; /* Darker blue */
+    padding: 8px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+
