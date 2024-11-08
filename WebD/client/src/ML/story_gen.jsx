@@ -35,6 +35,13 @@ const StoryGen = () => {
     const story = result.response.text();
     setStoryData(story);
 
+
+    const synth = window.speechSynthesis;
+    const utterance = new SpeechSynthesisUtterance(story);
+    synth.speak(utterance);
+
+
+
   }
 
   return (
