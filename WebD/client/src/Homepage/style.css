@@ -344,7 +344,7 @@
     margin-right: 1.875rem;
 }
 .chatbot{
-    position: fixed;
+    /* position: fixed; */
     top: 78%;
     right: 3%;
     color: #000000;
@@ -357,5 +357,6 @@
     position: fixed;
     top: 10%;
     right: 3%;
+    z-index: 0;
     justify-content: right;
 }
