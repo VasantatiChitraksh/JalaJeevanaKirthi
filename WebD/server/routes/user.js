@@ -123,4 +123,22 @@ router.post('/reset-password/:token', async(req,res) =>{
   }
 })
 
+router.get("/user", async (req, res) => {
+  const { email } = req.query;
+
+  try {
+    const user = await User.findOne({ email }, 'username');  // Fetch only the username field
+    console.log(email);
+    if (user) {
+      return res.status(200).json({ username: user.username });
+    } else {
+      return res.status(404).json({ message: "User not found" });
+    }
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+    return res.status(500).json({ message: "Error fetching user data" });
+  }
+});
+
+
 export { router as UserRouter };

@@ -12,6 +12,7 @@ import Chat from '../components/chat/chat.jsx';
 import {FaComment} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faTwitter} from '@fortawesome/free-brands-svg-icons';
+import Axios from "axios";
 
 function Home() {
     const images = [
@@ -21,6 +22,7 @@ function Home() {
     ]
 
     const [isChatOpen, setIsChatOpen] = useState(false);
+    const [username, setUsername] = useState("");
 
     const toggleChat = () => {
       setIsChatOpen(prevState => !prevState);
@@ -63,12 +65,34 @@ function Home() {
             document.querySelector('.background').style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
         };
 
+        const email = localStorage.getItem('userEmail');
+        console.log("Email from localStorage:", email);
+        
+        if (email) {
+            Axios.get(`http://localhost:3001/auth/user?email=${email}`)
+              .then((response) => {
+                console.log("Response data:", response.data); // Log the response to check the structure
+                setUsername(response.data.username); // Update the username in state
+              })
+              .catch((error) => {
+                console.error("Error fetching user data:", error);
+              });
+        }
+
         document.addEventListener('scroll', handleScroll);
         
         return () => {
             document.removeEventListener('scroll', handleScroll); 
         };
     }, []);
+
+
+    useEffect(() => {
+        console.log("Updated username:", username); // Logs the username after it's updated
+    }, [username]);
+
+    
+
 
     useEffect(() => {
         const handleFooterScroll = () => {
@@ -79,9 +103,12 @@ function Home() {
             } else {
                 document.querySelector('.whale').style.display = 'none';
             }
+
+            
         };
 
         window.addEventListener('scroll', handleFooterScroll);
+
 
         return () => {
             window.removeEventListener('scroll', handleFooterScroll); 
@@ -100,6 +127,9 @@ function Home() {
     const handleOnclick4 = (e) => {
         navigate('/game')
     }
+    const handleOnclick5 = (e) => {
+        navigate('/forums' , { state: { username } })
+    }
     return (
         <div className='background'>
             <div className="topbar">
@@ -109,8 +139,9 @@ function Home() {
                 <button className="topbar-button" onClick={handleOnclick3}>Weather</button>
                 <button className="topbar-button">Blogs</button>
                 <button className="topbar-button" onClick={handleOnclick2}>RolePlay</button>
-                <button className="topbar-button">Forums</button>
+                <button className="topbar-button" onClick={handleOnclick5}>Forums</button>
                 <button className="topbar-button"  onClick={handleOnclick1}>Login</button>
+                <button className="topbar-button"  onClick={handleOnclick1}>{username}</button>
             </div>
             <div className="spacer"></div>
             <div className='waves'></div>

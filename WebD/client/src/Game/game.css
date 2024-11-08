@@ -11,6 +11,11 @@
 #login_button{
     margin-left: 68%;
 }
+
+.score-card{
+    position: absolute;
+    left: 30%;
+}
 .flash-card {
     width: 600px;
     height: 400px;
@@ -59,4 +64,16 @@
     border-radius: 5px;
     border: none;
     cursor: pointer;
+}
+
+.score-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: darkblue;
+    font-family: Arial, sans-serif;
+    position: absolute;
+    left: 45%;
+    top: 7%;
 }

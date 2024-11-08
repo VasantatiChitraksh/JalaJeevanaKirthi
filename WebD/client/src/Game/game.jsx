@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import logo from '../assets/LOGO.jpg';
 import axios from 'axios';
 import background from './gameassets/Items/game_background.jpg';
+import wave_sound from './gameassets/sounds/waves.mp3';
 
 // Import all fish images
 import acheRhom from './gameassets/fishes/Acheilognathusrhombeus.png';
@@ -31,6 +32,7 @@ import netImage from './gameassets/items/net.png';
 function FishCatch() {
 
     let fishDetails;
+    const [score, setScore] = useState(0);
     const [caughtFishName, setCaughtFishName] = useState(null);
     let isNetActive=true;
 
@@ -70,6 +72,7 @@ function FishCatch() {
             this.load.image('bubble', bubbleImage);
             this.load.image('sunrays', sunrays);
             this.load.image('net', netImage);
+            this.load.audio('waves',wave_sound);
 
             // Preload all fish images
             const images = new Map([
@@ -94,8 +97,10 @@ function FishCatch() {
             });            
         };
 
-        gameScene.create = function () {
+        gameScene.create = function () { 
             this.add.image(w / 2, h / 2, 'background').setDisplaySize(w, h);
+            let waves_audio = this.sound.add('waves');
+            waves_audio.play();
 
             const sunraysSprite = this.add.image(w / 2, h / 2, 'sunrays').setScale(1.5);
             sunraysSprite.setAlpha(0.25);
@@ -124,7 +129,6 @@ function FishCatch() {
                 if (!caughtFishName  && isNetActive) {
                     setCaughtFishName(fishName);
                     isNetActive = false;
-            
                     const flashCardContainer = this.add.container(w / 2 - 350, h / 2 - 200);
                     const flashCardBackground = this.add.graphics();
                     flashCardBackground.fillStyle(0xF9D57C, 1);
@@ -133,8 +137,10 @@ function FishCatch() {
                     
                     console.log("The fish :",fishDetails);
                     const details = fishDetails[fishName];
+                    const fishPoints = details.points;
+                    setScore(prevScore => prevScore + fishPoints);
                     console.log("Details",details);
-                    const detailFields = [
+                    const detailFields = [ 
                         { label: 'Name:', value: details.name },
                         { label: 'Average Weight:', value: details.weight },
                         { label: 'Average Height:', value: details.height },
@@ -143,18 +149,32 @@ function FishCatch() {
                         { label: 'Habitat:', value: details.habitat },
                         { label: 'Reason for Shortage:', value: details.shortage },
                         { label: 'Fun Fact:', value: details.fact },
-                        { label: 'Points:', value: details.points}
+                        { label: 'Points:', value: details.points }
                     ];
-
+                    
+                    const maxWidth = 400;
+                    const lineHeight = 35; 
                     detailFields.forEach((detail, index) => {
-                        const text = this.add.text(20, 20 + index * 30, `${detail.label} ${detail.value}`, {
+                        let textValue = `${detail.label} ${detail.value}`;
+                    
+                        if (detail.label === 'Fun Fact:') {
+                            if (detail.value.length > 100) {
+                                textValue = `${detail.label} ${detail.value.slice(0, 100)}...`; 
+                            }
+                        }
+                    
+                        const text = this.add.text(20, 20 + index * lineHeight, textValue, {
                             fontSize: '16px',
                             color: '#ffffff',
                             fontFamily: 'Arial',
-                            padding: { x: 10, y: 15 }
+                            padding: { x: 10, y: 15 },
+                            wordWrap: { width: maxWidth, useAdvancedWrap: true }
                         });
+                    
                         flashCardContainer.add(text);
                     });
+                    
+                    
             
                     const fishImage = this.add.image(w / 2 - 500, h / 2 - 300, fishName).setScale(0.25); 
                     flashCardContainer.add(fishImage);
@@ -231,21 +251,10 @@ function FishCatch() {
                     if (fishSprite.visible && isNetActive) {  // Only catch fish if it's visible
                         catchFish(fishSprite, fishInfo.key);
                     }
-                });
-
+                });   
             });
 
-            const bubbles = this.add.particles('bubble');
-            bubbles.createEmitter({
-                x: { min: 0, max: w },
-                y: h,
-                lifespan: 6000,
-                speedY: { min: -50, max: -100 },
-                scale: { start: 0.1, end: 0.3 },
-                quantity: 1,
-                frequency: 1000,
-                alpha: { start: 0.5, end: 0 }
-            });
+            
         };
 
         const config = {
@@ -280,16 +289,20 @@ function FishCatch() {
     };
 
     return (
-        <div className='main'>
+        <div className="main">
             <div id="phaser-game"></div>
             <div className="topbar">
                 <img className="logo-icon" src={logo} alt="Logo" />
                 <h2 className="logo">Jala Jeevana Kirthi</h2>
                 <button className="topbar-button" id="home_button" onClick={handleOnclick2}>Home</button>
                 <button className="topbar-button" id="login_button" onClick={handleOnclick1}>Login</button>
+                <div className="score-container">
+                <h3>Score: {score}</h3> {/* Displaying the current score */}
             </div>
+            </div>            
         </div>
     );
+    
 }
 
 export default FishCatch;
