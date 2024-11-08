@@ -326,8 +326,6 @@ function FishCatch() {
                     }
                 });   
             });
-
-            
         };
 
         const config = {

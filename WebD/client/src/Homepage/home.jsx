@@ -134,7 +134,7 @@ function Home() {
         <div className='background'>
             <div className="topbar">
                 <img className="logo-icon" src={logo} alt="Logo" />
-                <h2 className="logo">Jala Jeevana Kirthi</h2>
+                <h2 className="logo">Jala Jeevana Keerthi</h2>
                 <button className="topbar-button" onClick={handleOnclick4}>Game</button>
                 <button className="topbar-button" onClick={handleOnclick3}>Weather</button>
                 <button className="topbar-button">Blogs</button>
@@ -247,38 +247,6 @@ We believe that even the smallest actions can have a profound effect on our envi
                 <div className="social-media-icons">
                     <a href = "#"></a>
                 </div>
-                <div className="social-media-icons">
-    <a 
-        href="#" 
-        onClick={(e) => { 
-            e.preventDefault(); 
-            console.log('Facebook icon clicked'); 
-        }} 
-        aria-label="Facebook"
-    >
-        <FontAwesomeIcon icon={faFacebook} size="2x" />
-    </a>
-    <a 
-        href="#" 
-        onClick={(e) => { 
-            e.preventDefault(); 
-            console.log('Instagram icon clicked'); 
-        }} 
-        aria-label="Instagram"
-    >
-        <FontAwesomeIcon icon={faInstagram} size="2x" />
-    </a>
-    <a 
-        href="#" 
-        onClick={(e) => { 
-            e.preventDefault(); 
-            console.log('Twitter icon clicked'); 
-        }} 
-        aria-label="Twitter"
-    >
-        <FontAwesomeIcon icon={faTwitter} size="2x" />
-    </a>
-</div>
                 </div>
                 
       <p>@ 2024 Your Company. All rights reserved</p>
