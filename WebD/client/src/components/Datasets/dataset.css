@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #66ccff, #003366); 
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.navbar {
+  background-color: #003366;
+  padding: 10px;
+  border-bottom: 1px solid #444;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.navbar ul{
+    list-style: none;
+    display: flex;
+    justify-content: flex-start; 
+    width: 100%;
+}
+
+.navbar li {
+  padding: 0 20px;
+  font-size: 18px;
+}
+
+.navbar a {
+   text-decoration: none;
+   color: #cceeff;
+}
+  
+.nav-bar a:hover {
+   color: #ffffff;
+} 
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+    gap: 20px;
+    height: 80vh; 
+}
+
+.upload-section {
+  width: 30%;
+  padding: 2rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.upload-button {
+  background-color: #1c3a72;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.search-section {
+  width: 70%;
+  padding: 2rem;
+  color: white;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #d1d9e6;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0.5rem;
+  flex: 1;
+}
+
+.datasets {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.dataset-card {
+  background-color: #1c3a72;
+  padding: 1rem;
+  border-radius: 8px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}

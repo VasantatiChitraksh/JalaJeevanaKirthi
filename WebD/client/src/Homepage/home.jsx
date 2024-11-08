@@ -130,6 +130,9 @@ function Home() {
     const handleOnclick5 = (e) => {
         navigate('/forums' , { state: { username } })
     }
+    const handleOnclick6 = (e) =>{
+        navigate('/datasets')
+    }
     return (
         <div className='background'>
             <div className="topbar">
@@ -139,6 +142,7 @@ function Home() {
                 <button className="topbar-button" onClick={handleOnclick3}>Weather</button>
                 <button className="topbar-button">Blogs</button>
                 <button className="topbar-button" onClick={handleOnclick2}>RolePlay</button>
+                <button className="topbar-button" onClick={handleOnclick6}>Datasets</button>
                 <button className="topbar-button" onClick={handleOnclick5}>Forums</button>
                 <button className="topbar-button"  onClick={handleOnclick1}>Login</button>
                 <button className="topbar-button"  onClick={handleOnclick1}>{username}</button>

@@ -6,6 +6,7 @@ import Login from './components/Login/Login.jsx';
 import Signin from './components/Signin/Signin.jsx';
 import Forum from './components/Forms/Forums.jsx';
 import Chat from './components/chat/chat.jsx';
+import Dataset from './components/Datasets/dataset.jsx';
 import { FaSignInAlt } from 'react-icons/fa';
 import StoryGen from './ML/story_gen.jsx';
 import WeatherPage from './Weather/weather.jsx';
@@ -27,6 +28,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/chat' element={<Chat/>}/>
         <Route path='/forgotpassword' element={<Forgotpassword/>}/>
         <Route path='/resetpassword/:token' element={<Resetpassword/>}/>
+        <Route path='/datasets' element={<Dataset/>}/>
         <Route path='/weather' element={<WeatherPage/>}/>
         <Route path='/roleplay' element={<StoryGen/>}/>
         <Route path='/game'element={<FishCatch/>}/>
