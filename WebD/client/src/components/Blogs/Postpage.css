@@ -1,0 +1,71 @@
+.post-banner {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  .banner-input {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 5px;
+  }
+  
+  /* Title Input Styling */
+  .title-input {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+    font-size: 1.5em;
+    text-align: center;
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  /* Post Meta Information */
+  .post-meta {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1em;
+    color: #555;
+    padding: 10px 0;
+  }
+  
+  /* Content Input Styling */
+  .content-input {
+    width: 90%;
+    max-width: 800px;
+    height: 300px;
+    margin: 20px auto;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+  }
+  
+  /* Submit Button Styling */
+  .submit-btn {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    font-size: 1em;
+    color: white;
+    background-color: #0073e6;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .submit-btn:hover {
+    background-color: #005bb5;
+  }
