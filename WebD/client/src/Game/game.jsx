@@ -179,7 +179,6 @@ function FishCatch() {
                             padding: { x: 10, y: 15 },
                             wordWrap: { width: maxWidth, useAdvancedWrap: true }
                         });
-                    
                         flashCardContainer.add(text);
                     });
                     
@@ -262,8 +261,6 @@ function FishCatch() {
                     }
                 });   
             });
-
-            
         };
 
         const config = {
