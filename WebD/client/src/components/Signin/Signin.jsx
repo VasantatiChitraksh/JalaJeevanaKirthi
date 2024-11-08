@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {FaRegUserCircle,FaLock,FaMailBulk,} from "react-icons/fa";
-import "./Signin.css";
+import styles from "./Signin.module.css";
 import { useState } from "react";
 import Axios from "axios"
 import { Link,useNavigate } from "react-router-dom";
@@ -20,6 +20,7 @@ const Signin = () => {
        {username , email, password}).then(response => {
          if (response.data.status){
             console.log("sucess")
+            localStorage.setItem('userEmail', email);
             navigate('/')
          } else {
           console.log('signup failed:', response.data.message);  // Log any error messages
@@ -30,52 +31,62 @@ const Signin = () => {
   }
 
   return (
-    <div className="Super">
-      <form action="" onSubmit={handleSubmit}>
-        <h1>Sign in </h1>
-        <div className="input">
-          <FaRegUserCircle className="Icon" color="wheat" />
+    <div className={styles.container}>
+    <div className={styles.Super}>
+      <form onSubmit={handleSubmit}>
+        <h1 className={styles.heading}>Sign In</h1>
+        
+        <div className={styles.input}>
+          <FaRegUserCircle className={styles.icon} />
           <input
             type="text"
-            placeholder="UserName"
+            placeholder="Username"
             id="username"
             name="username"
             required
+            className={styles.inputField}
             onChange={(e) => setusername(e.target.value)}
           />
         </div>
-        <div className="input">
-          <FaMailBulk className="Icon" color="wheat" />
+        
+        <div className={styles.input}>
+          <FaMailBulk className={styles.icon} />
           <input
-            type="e-mail"
-            placeholder="e-mail"
+            type="email"
+            placeholder="Email"
             id="email"
             name="email"
             autoComplete="off"
             required
+            className={styles.inputField}
             onChange={(e) => setemail(e.target.value)}
           />
         </div>
-        <div className="input">
-          <FaLock className="Icon" color="wheat" />
+        
+        <div className={styles.input}>
+          <FaLock className={styles.icon} />
           <input
-            type="text"
+            type="password"
             placeholder="Password"
             id="password"
             name="password"
             required
+            className={styles.inputField}
             onChange={(e) => setpassword(e.target.value)}
           />
         </div>
-
-        <button type="submit">signup</button>
-        <div>
+        
+        <button type="submit" className={styles.button}>Sign Up</button>
+        
+        <div className={styles.links}>
           <p>
-            already have an account ? <Link to="/login">login</Link>
+            Already have an account? <Link to="/login" className={styles.link}>Login</Link>
           </p>
         </div>
       </form>
     </div>
+  </div>
+  
   );
 };
 

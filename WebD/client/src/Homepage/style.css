@@ -6,6 +6,9 @@
     margin-left: 4rem;
 }
 
+.nav-button{
+    color: #000000;
+}
 .image-holder {
     width: 60%; 
     height: 20rem; 
@@ -192,6 +195,7 @@
 }
 .icon-box p{
     text-align: center;
+    color: black;
 }
 .footer-section {
     background-color: rgb(255, 255, 255);

@@ -4,6 +4,8 @@ import cors from 'cors';
 import { Server } from 'socket.io';
 import mongoose from 'mongoose';
 import { UserRouter } from './routes/user.js';
+import { FishRouter  } from './routes/marinedata.js'; 
+import { ForumsRouter } from './routes/forums.js';
 import cookieParser from 'cookie-parser';
 import http from 'http';
 
@@ -21,6 +23,8 @@ app.use(cors({
 app.use(cookieParser());
 
 app.use('/auth', UserRouter);
+app.use('/data',FishRouter);
+app.use('/api', ForumsRouter);
 
 mongoose.connect('mongodb+srv://jjkweb:ug2team3@cluster0.b3naz.mongodb.net/authtication')
     .then(() => console.log('Connected to MongoDB'))

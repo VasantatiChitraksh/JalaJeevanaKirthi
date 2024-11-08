@@ -5,20 +5,12 @@
   /* box-sizing: border-box; */
 }
 
-<<<<<<< HEAD
-
-body {
-  height: 100%; 
-  width: 100%;
-  overflow-x: hidden;
-=======
 /* Background and layout */
 body {
   height: 100%; /* Ensure body uses full height */
   width: 100%;
   overflow-x: hidden;
   overflow-y: scroll; /* Prevents horizontal scroll */
->>>>>>> d672fe6bf2ba7afd2e31973475b8cdd76f6545d9
 }
 
 h2{
@@ -82,7 +74,7 @@ body {
 
 /* Input section for city change */
 .input-section {
-  margin-top: 15rem;
+  margin-top: 25rem;
 }
 
 .city-input {

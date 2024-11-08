@@ -1,8 +1,8 @@
 import React from "react";
 import { FaMailBulk, FaLock } from "react-icons/fa";
-import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import Axios from "axios";
+import styles from './Login.module.css';
 import { useState } from "react";
 
 function Login() {
@@ -21,6 +21,7 @@ function Login() {
         console.log('Response from server:', response.data);  // Log the entire response object
         if (response.data.status) {
           console.log('Login successful');  // This should log when login is successful
+          localStorage.setItem('userEmail', email);
           navigate("/");
         } else {
           console.log('Login failed:', response.data.message);  // Log any error messages
@@ -33,41 +34,44 @@ function Login() {
   
 
   return (
-    <div className="Super">
-      <form onSubmit={handleSubmit}>
-        <h1>Login</h1>
-        <div className="input">
-          <FaMailBulk className="Icon" color="wheat" />
-          <input
-            type="email"
-            placeholder="e-mail"
-            autoComplete="off"
-            required
-            id="email"          
-            name="email"           
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className="input">
-          <FaLock className="Icon" color="wheat" />
-          <input
-            type="password"
-            placeholder="Password"
-            required
-            id="password"         
-            name="password"       
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <button type="submit">Login</button>
-        <div>
-        <Link to ='/forgotpassword'>forgotpassword?</Link>
-          <p>
-            Don't have an account?{" "}
-            <Link to="/signup">Register</Link>
-          </p>
-        </div>
-      </form>
+    <div className={styles.container}>
+      <div className={styles.Super}>
+        <form onSubmit={handleSubmit}>
+          <h1 className={styles.heading}>Login</h1>
+          
+          <div className={styles.input}>
+            <FaMailBulk className={styles.icon} />
+            <input
+              type="email"
+              placeholder="e-mail"
+              autoComplete="off"
+              required
+              className={styles.inputField}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+
+          <div className={styles.input}>
+            <FaLock className={styles.icon} />
+            <input
+              type="password"
+              placeholder="Password"
+              required
+              className={styles.inputField}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+
+          <button type="submit" className={styles.button}>Login</button>
+          
+          <div className={styles.links}>
+            <Link to="/forgotpassword" className={styles.link}>Forgot Password?</Link>
+            <p>
+              Don't have an account? <Link to="/signup" className={styles.link}>Register</Link>
+            </p>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
