@@ -13,6 +13,7 @@ import {FaComment} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faTwitter} from '@fortawesome/free-brands-svg-icons';
 import Axios from "axios";
+import './style.css';
 
 function Home() {
     const images = [
@@ -130,18 +131,21 @@ function Home() {
     const handleOnclick5 = (e) => {
         navigate('/forums' , { state: { username } })
     }
+    const handleOnclick7 = (e) => {
+        navigate('/blogs')
+    }
     return (
         <div className='background'>
             <div className="topbar">
                 <img className="logo-icon" src={logo} alt="Logo" />
-                <h2 className="logo">Jala Jeevana Keerthi</h2>
+                <h2 className="logo">JalaJeevanaKeerthi</h2>
                 <button className="topbar-button" onClick={handleOnclick4}>Game</button>
                 <button className="topbar-button" onClick={handleOnclick3}>Weather</button>
-                <button className="topbar-button">Blogs</button>
+                <button className="topbar-button" onClick={handleOnclick7}>Blogs</button>
                 <button className="topbar-button" onClick={handleOnclick2}>RolePlay</button>
                 <button className="topbar-button" onClick={handleOnclick5}>Forums</button>
-                <button className="topbar-button"  onClick={handleOnclick1}>Login</button>
-                <button className="topbar-button"  onClick={handleOnclick1}>{username}</button>
+                <button className="topbar-button" onClick={handleOnclick1}>Login</button>
+                <button className="topbar-button" onClick={handleOnclick1}>{username}</button>
             </div>
             <div className="spacer"></div>
             <div className='waves'></div>

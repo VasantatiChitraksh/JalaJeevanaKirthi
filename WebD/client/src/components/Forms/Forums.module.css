@@ -104,6 +104,7 @@ data{
 .comment-input button {
     padding: 10px 15px;
     border: none;
+    width: 10rem;
     background-color: #87CEEB; /* Light blue */
     color: white;
     border-radius: 5px;

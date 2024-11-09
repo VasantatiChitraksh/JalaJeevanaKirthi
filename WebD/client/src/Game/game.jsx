@@ -434,7 +434,7 @@ function FishCatch() {
             <div id="phaser-game"></div>
             <div className="topbar">
                 <img className="logo-icon" src={logo} alt="Logo" />
-                <h2 className="logo">Jala Jeevana Kirthi</h2>
+                <h2 className="logo">JalaJeevanaKirthi</h2>
                 <button className="topbar-button" id="home_button" onClick={handleOnclick2}>Home</button>
                 <button className="topbar-button" id="login_button" onClick={handleOnclick1}>Login</button>
                 <div className="score-container">
