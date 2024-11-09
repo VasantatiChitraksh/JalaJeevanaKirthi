@@ -7,6 +7,7 @@ import Signin from './components/Signin/Signin.jsx';
 import Forum from './components/Forms/Forums.jsx';
 import Chat from './components/chat/chat.jsx';
 import Bloghome from './components/Blogs/blogHome.jsx';
+import PostPage from './components/Blogs/Postpage.jsx';
 import { FaSignInAlt } from 'react-icons/fa';
 import StoryGen from './ML/story_gen.jsx';
 import WeatherPage from './Weather/weather.jsx';
@@ -31,6 +32,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/weather' element={<WeatherPage/>}/>
         <Route path='/roleplay' element={<StoryGen/>}/>
         <Route path='/blogs' element={<Bloghome/>}/>
+        <Route path='/postPage' element={<PostPage/>}/>
         <Route path='/game'element={<FishCatch/>}/>
       </Routes>
     </BrowserRouter>

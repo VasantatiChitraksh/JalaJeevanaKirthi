@@ -1,10 +1,21 @@
-.post-banner {
-    width: 100%;
+.post-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+ .post-banner {
+    width: 500px;
     height: 300px;
     background-size: cover;
     background-position: center;
     position: relative;
   }
+
   
   .banner-input {
     position: absolute;
@@ -45,7 +56,7 @@
     height: 300px;
     margin: 20px auto;
     padding: 10px;
-    font-size: 1em;
+    font-size: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
     resize: vertical;

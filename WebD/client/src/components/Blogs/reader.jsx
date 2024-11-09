@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './reader.css'
 
 function PostPage() {
   const [comments, setComments] = useState([]);
