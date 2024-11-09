@@ -29,7 +29,6 @@ import bird2 from './gameassets/Items/bird2.png';
 
 // Load additional assets
 import bubbleImage from './gameassets/items/bubble.png';
-import sunrays from './gameassets/items/sunrays.png';
 import netImage from './gameassets/items/net.png';
 
 //Load waste assest
@@ -79,7 +78,6 @@ function FishCatch() {
         gameScene.preload = function () {
             this.load.image('background', background);
             this.load.image('bubble', bubbleImage);
-            this.load.image('sunrays', sunrays);
             this.load.image('net', netImage);
             this.load.image('bird1' , bird1);
             this.load.image('bird2' ,bird2);
@@ -101,7 +99,11 @@ function FishCatch() {
                 ['Shrimp', shrimp],
                 ['Spider Crab', crab],
                 ['Sperm Whale', whale],
-                ['Stingray', stingray]
+                ['Stingray', stingray],
+                ['Waste_Bottle', waste_bottle],
+                ['Waste_Can', waste_can],
+                ['Waste_Banana', waste_banana],
+                ['Waste_Plastic', waste_plastic],
             ]);
             images.forEach((value, key) => {
                 this.load.image(key, value);
@@ -109,7 +111,7 @@ function FishCatch() {
         };
 
         gameScene.create = function () { 
-            this.add.image(w / 2, h / 2, 'background').setDisplaySize(w, h);
+            this.add.image(w / 2, h / 2-20, 'background').setDisplaySize(w,h);
             let waves_audio = this.sound.add('waves');
             waves_audio.play();
 
@@ -117,19 +119,8 @@ function FishCatch() {
             this.add.image(w/5,h/6,'bird2').setScale(0.5);
             this.add.image(w - w/7,h/8,'bird1').setScale(0.5);
             this.add.image(w-w/5,h/6,'bird2').setScale(0.5);
-            const sunraysSprite = this.add.image(w / 2, h / 2, 'sunrays').setScale(1.5);
-            sunraysSprite.setAlpha(0.25);
 
-            this.tweens.add({
-                targets: sunraysSprite,
-                alpha: { from: 0.5, to: 1 },
-                duration: 3000,
-                yoyo: true,
-                repeat: -1,
-                ease: 'Sine.easeInOut'
-            });
-
-            const net = this.add.image(w / 2 - 500, h / 2 - 330, 'net').setInteractive();
+            const net = this.add.image(w / 2 - 100, h / 2 - 400, 'net').setInteractive();
             net.setScale(0.75);
             this.input.setDraggable(net);
             this.physics.add.existing(net);
@@ -138,7 +129,80 @@ function FishCatch() {
                     gameObject.x = dragX;
                     gameObject.y = dragY;
             },
-        );            
+            );
+            const wasteItems = [
+                { key: 'Waste_Bottle', x: w/2+50, y: h/2 + 150, scale: 0.2 },
+                { key: 'Waste_Bottle', x: w/2+400, y: h/2 - 150, scale: 0.2 },
+                { key: 'Waste_Can', x: w/2 + 350, y: h/2+200, scale: 0.75 },
+                { key: 'Waste_Banana', x: w/2 - 250, y: h/2-100, scale: 0.25 },
+                { key: 'Waste_Plastic', x: w/2 - 550, y: h/2 - 200, scale: 0.5 }
+            ];                      
+
+            wasteItems.forEach(waste => {
+                const wasteSprite = this.add.image(waste.x, waste.y, waste.key).setScale(waste.scale);
+                this.physics.add.existing(wasteSprite);
+                wasteSprite.setInteractive();
+
+                this.tweens.add({
+                    targets: wasteSprite,
+                    y: wasteSprite.y - 30, 
+                    duration: 2000,         
+                    ease: 'Sine.easeInOut', 
+                    yoyo: true,             
+                    repeat: -1             
+                });
+
+                this.physics.add.overlap(net, wasteSprite, () => {
+                    if (wasteSprite.visible && isNetActive) { 
+                         catchWaste(waste.key);
+                         wasteSprite.visible = false;
+                    }
+                });   
+            });
+
+            const catchWaste = (wasteName) => {
+                if (isNetActive) {
+                    isNetActive = false;
+            
+                    setScore(prevScore => prevScore - 100);
+                    setCaughtFishName(`Waste Item: ${wasteName}`);
+                    
+                    displayWasteDetails(wasteName); // Display waste item details, if any
+                }
+            };
+            
+            const displayWasteDetails = (wasteName) => {
+                const wasteDetailContainer = this.add.container(w / 2 - 150, h / 2 - 150);
+                const wasteBackground = this.add.graphics();
+                wasteBackground.fillStyle(0xF9D57C, 1);
+                wasteBackground.fillRoundedRect(0, 0, 300, 300, 10);
+                wasteDetailContainer.add(wasteBackground);
+            
+                const wasteText = this.add.text(20, 20, `Collected: ${wasteName}\nAvoid throwing waste into the oceans, it causes a lot of environmental damage and kills marine life. Also wastes the resources of fisherman who are trying to catch fishes and reduces thier revenue leading to a hard hit of thier life.Hopefully this point deduction simulated the negative effect it has.`, {
+                    fontSize: '16px',
+                    color: '#ffffff',
+                    fontFamily: 'Arial',
+                    padding: { x: 10, y: 5 },
+                    wordWrap: { width: 250, useAdvancedWrap: true }
+                });
+                wasteDetailContainer.add(wasteText);
+            
+                const continueButton = this.add.text(w / 2 - 800, h / 2 - 180, 'CONTINUE', {
+                    fontSize: '24px',
+                    color: '#000000',
+                    backgroundColor: '#F9D57C',
+                    fontFamily: 'Arial',
+                    padding: { x: 0, y: 5 },
+                }).setOrigin(0.5).setInteractive();
+                wasteDetailContainer.add(continueButton);
+            
+                continueButton.on('pointerup', () => {
+                    wasteDetailContainer.destroy();
+                    net.setPosition(w / 2 - 100, h / 2 - 400);
+                    
+                    isNetActive = true;
+                });
+            };         
 
         const catchFish = (fish, fishName) => {
             if (!caughtFishName && isNetActive) {
@@ -181,7 +245,7 @@ function FishCatch() {
                             fishDetailContainer.add(text);
                         });
 
-                        const fishImage = this.add.image(w / 2 - 500, h / 2 - 300, fishName).setScale(0.25);
+                        const fishImage = this.add.image(w / 2 - 100, h / 2 - 300, fishName).setScale(0.25);
                         fishDetailContainer.add(fishImage);
                         setTimeout(() => {
                             fishDetailContainer.destroy();
@@ -282,7 +346,7 @@ function FishCatch() {
         
             continueButton.on('pointerup', () => {
                 detailContainer.destroy();
-                net.setPosition(w / 2 - 500, h / 2 - 330);
+                net.setPosition(w / 2 - 100, h / 2 - 400);
                 setCaughtFishName(null);
                 isNetActive = true;
                 fish.visible = false;
@@ -306,7 +370,7 @@ function FishCatch() {
                 { key: 'Sperm Whale', x: -50, y: h / 2 + 110, scale: 0.4, duration: 4500, direction: 'right' },
                 { key: 'Spider Crab', x: w + 50, y: h / 2 + 140, scale: 0.25, duration: 7500, direction: 'left' },
                 { key: 'Lobster', x: -50, y: h / 2 + 170, scale: 0.1, duration: 6000, direction: 'right' },
-                { key: 'Great White Shark', x: w + 50, y: h / 2 + 200, scale: 0.7, duration: 3500, direction: 'left' },
+                { key: 'Great White Shark', x: w + 50, y: h / 2 + 200, scale: 0.7, duration: 3500, direction: 'left' }
             ];
 
             // Add each fish and set motion
