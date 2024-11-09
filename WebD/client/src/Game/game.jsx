@@ -32,6 +32,12 @@ import bubbleImage from './gameassets/items/bubble.png';
 import sunrays from './gameassets/items/sunrays.png';
 import netImage from './gameassets/items/net.png';
 
+//Load waste assest
+import waste_bottle from './gameassets/Items/waste_bottle.png';
+import waste_can from './gameassets/Items/waste_can.png';
+import waste_banana from './gameassets/Items/waste_banana.png';
+import waste_plastic from './gameassets/Items/waste_plastic.png';
+
 function FishCatch() {
 
     let fishDetails;
