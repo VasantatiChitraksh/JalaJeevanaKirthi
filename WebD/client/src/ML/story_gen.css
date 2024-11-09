@@ -15,6 +15,12 @@ body {
   justify-content: center;
   align-items: center;
 }
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .story-gen {
   width: 100%; 
   display: flex;
@@ -65,7 +71,7 @@ body {
   flex-direction: column;
   gap: 20px;
   transition: transform 0.3s ease;
-  height: 80vh; 
+  height: 100vh;
 }
 
 .box-open .content {

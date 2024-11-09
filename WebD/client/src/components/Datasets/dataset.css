@@ -14,22 +14,27 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
 }
 
 .container {
   display: flex;
   flex-direction: column;
+  width: 100%;
   height: 100vh;
+  background: inherit;
+  overflow-y: auto;
 }
 
 .navbar {
   background-color: #003366;
-  padding: 10px;
+  padding: 1px;
   border-bottom: 1px solid #444;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 100;
 }
 
 .navbar ul{
@@ -59,7 +64,7 @@ body {
     align-items: center; 
     flex-direction: column;
     gap: 20px;
-    height: 80vh; 
+    height: 100vh; 
 }
 
 .upload-section {
