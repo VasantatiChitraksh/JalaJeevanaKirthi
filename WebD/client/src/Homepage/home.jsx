@@ -133,6 +133,7 @@ function Home() {
     }
     const handleOnclick6 = (e) =>{
         navigate('/datasets')
+    }
     const handleOnclick7 = (e) => {
         navigate('/blogs')
     }
@@ -260,6 +261,5 @@ We believe that even the smallest actions can have a profound effect on our envi
             </footer>
         </div>
     );
-}
-
+    }
 export default Home;
