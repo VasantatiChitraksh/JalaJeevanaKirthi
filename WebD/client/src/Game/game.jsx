@@ -23,6 +23,9 @@ import shrimp from './gameassets/fishes/Shrimp.png';
 import crab from './gameassets/fishes/spidercrab.png';
 import whale from './gameassets/fishes/spremwhale.png';
 import stingray from './gameassets/fishes/stingray.png';
+import bird1 from './gameassets/Items/bird1.png';
+import bird2 from './gameassets/Items/bird2.png';
+
 
 // Load additional assets
 import bubbleImage from './gameassets/items/bubble.png';
@@ -72,6 +75,8 @@ function FishCatch() {
             this.load.image('bubble', bubbleImage);
             this.load.image('sunrays', sunrays);
             this.load.image('net', netImage);
+            this.load.image('bird1' , bird1);
+            this.load.image('bird2' ,bird2);
             this.load.audio('waves',wave_sound);
 
             // Preload all fish images
@@ -102,6 +107,10 @@ function FishCatch() {
             let waves_audio = this.sound.add('waves');
             waves_audio.play();
 
+            this.add.image(w/13,h/8,'bird1').setScale(0.5);
+            this.add.image(w/6,h/6,'bird2').setScale(0.5);
+            this.add.image(w - w/13,h/8,'bird1').setScale(0.5);
+            this.add.image( w- w/6,h/6,'bird2').setScale(0.5);
             const sunraysSprite = this.add.image(w / 2, h / 2, 'sunrays').setScale(1.5);
             sunraysSprite.setAlpha(0.25);
 
@@ -170,7 +179,6 @@ function FishCatch() {
                             padding: { x: 10, y: 15 },
                             wordWrap: { width: maxWidth, useAdvancedWrap: true }
                         });
-                    
                         flashCardContainer.add(text);
                     });
                     
@@ -253,8 +261,6 @@ function FishCatch() {
                     }
                 });   
             });
-
-            
         };
 
         const config = {
