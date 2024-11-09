@@ -5,11 +5,13 @@
 }
 
 #home_button{
-    margin-left: -20%;
+    margin-left: -10%;
+    margin-top: 0%;
 }
 
 #login_button{
-    margin-left: 68%;
+    margin-left: 60%;
+    margin-top: 0%;
 }
 
 .score-card{

@@ -23,11 +23,19 @@ import shrimp from './gameassets/fishes/Shrimp.png';
 import crab from './gameassets/fishes/spidercrab.png';
 import whale from './gameassets/fishes/spremwhale.png';
 import stingray from './gameassets/fishes/stingray.png';
+import bird1 from './gameassets/Items/bird1.png';
+import bird2 from './gameassets/Items/bird2.png';
+
 
 // Load additional assets
 import bubbleImage from './gameassets/items/bubble.png';
-import sunrays from './gameassets/items/sunrays.png';
 import netImage from './gameassets/items/net.png';
+
+//Load waste assest
+import waste_bottle from './gameassets/Items/waste_bottle.png';
+import waste_can from './gameassets/Items/waste_can.png';
+import waste_banana from './gameassets/Items/waste_banana.png';
+import waste_plastic from './gameassets/Items/waste_plastic.png';
 
 function FishCatch() {
 
@@ -70,8 +78,9 @@ function FishCatch() {
         gameScene.preload = function () {
             this.load.image('background', background);
             this.load.image('bubble', bubbleImage);
-            this.load.image('sunrays', sunrays);
             this.load.image('net', netImage);
+            this.load.image('bird1' , bird1);
+            this.load.image('bird2' ,bird2);
             this.load.audio('waves',wave_sound);
 
             // Preload all fish images
@@ -90,7 +99,11 @@ function FishCatch() {
                 ['Shrimp', shrimp],
                 ['Spider Crab', crab],
                 ['Sperm Whale', whale],
-                ['Stingray', stingray]
+                ['Stingray', stingray],
+                ['Waste_Bottle', waste_bottle],
+                ['Waste_Can', waste_can],
+                ['Waste_Banana', waste_banana],
+                ['Waste_Plastic', waste_plastic],
             ]);
             images.forEach((value, key) => {
                 this.load.image(key, value);
@@ -98,23 +111,16 @@ function FishCatch() {
         };
 
         gameScene.create = function () { 
-            this.add.image(w / 2, h / 2, 'background').setDisplaySize(w, h);
+            this.add.image(w / 2, h / 2-20, 'background').setDisplaySize(w,h);
             let waves_audio = this.sound.add('waves');
             waves_audio.play();
 
-            const sunraysSprite = this.add.image(w / 2, h / 2, 'sunrays').setScale(1.5);
-            sunraysSprite.setAlpha(0.25);
+            this.add.image(w/7,h/8,'bird1').setScale(0.5);
+            this.add.image(w/5,h/6,'bird2').setScale(0.5);
+            this.add.image(w - w/7,h/8,'bird1').setScale(0.5);
+            this.add.image(w-w/5,h/6,'bird2').setScale(0.5);
 
-            this.tweens.add({
-                targets: sunraysSprite,
-                alpha: { from: 0.5, to: 1 },
-                duration: 3000,
-                yoyo: true,
-                repeat: -1,
-                ease: 'Sine.easeInOut'
-            });
-
-            const net = this.add.image(w / 2 - 500, h / 2 - 330, 'net').setInteractive();
+            const net = this.add.image(w / 2 - 100, h / 2 - 400, 'net').setInteractive();
             net.setScale(0.75);
             this.input.setDraggable(net);
             this.physics.add.existing(net);
@@ -123,95 +129,232 @@ function FishCatch() {
                     gameObject.x = dragX;
                     gameObject.y = dragY;
             },
-        );            
+            );
+            const wasteItems = [
+                { key: 'Waste_Bottle', x: w/2+50, y: h/2 + 150, scale: 0.2 },
+                { key: 'Waste_Bottle', x: w/2+400, y: h/2 - 150, scale: 0.2 },
+                { key: 'Waste_Can', x: w/2 + 350, y: h/2+200, scale: 0.75 },
+                { key: 'Waste_Banana', x: w/2 - 250, y: h/2-100, scale: 0.25 },
+                { key: 'Waste_Plastic', x: w/2 - 550, y: h/2 - 200, scale: 0.5 }
+            ];                      
 
-            const catchFish = (fish, fishName) => {
-                if (!caughtFishName  && isNetActive) {
-                    setCaughtFishName(fishName);
+            wasteItems.forEach(waste => {
+                const wasteSprite = this.add.image(waste.x, waste.y, waste.key).setScale(waste.scale);
+                this.physics.add.existing(wasteSprite);
+                wasteSprite.setInteractive();
+
+                this.tweens.add({
+                    targets: wasteSprite,
+                    y: wasteSprite.y - 30, 
+                    duration: 2000,         
+                    ease: 'Sine.easeInOut', 
+                    yoyo: true,             
+                    repeat: -1             
+                });
+
+                this.physics.add.overlap(net, wasteSprite, () => {
+                    if (wasteSprite.visible && isNetActive) { 
+                         catchWaste(waste.key);
+                         wasteSprite.visible = false;
+                    }
+                });   
+            });
+
+            const catchWaste = (wasteName) => {
+                if (isNetActive) {
                     isNetActive = false;
-                    const flashCardContainer = this.add.container(w / 2 - 350, h / 2 - 200);
-                    const flashCardBackground = this.add.graphics();
-                    flashCardBackground.fillStyle(0xF9D57C, 1);
-                    flashCardBackground.fillRoundedRect(0, 0, 600, 400, 10);
-                    flashCardContainer.add(flashCardBackground);
+            
+                    setScore(prevScore => prevScore - 100);
+                    setCaughtFishName(`Waste Item: ${wasteName}`);
                     
-                    console.log("The fish :",fishDetails);
-                    const details = fishDetails[fishName];
-                    const fishPoints = details.points;
-                    setScore(prevScore => prevScore + fishPoints);
-                    console.log("Details",details);
-                    const detailFields = [ 
-                        { label: 'Name:', value: details.name },
-                        { label: 'Average Weight:', value: details.weight },
-                        { label: 'Average Height:', value: details.height },
-                        { label: 'Origin:', value: details.origin },
-                        { label: 'Status:', value: details.status },
-                        { label: 'Habitat:', value: details.habitat },
-                        { label: 'Reason for Shortage:', value: details.shortage },
-                        { label: 'Fun Fact:', value: details.fact },
-                        { label: 'Points:', value: details.points }
-                    ];
+                    displayWasteDetails(wasteName); // Display waste item details, if any
+                }
+            };
+            
+            const displayWasteDetails = (wasteName) => {
+                const wasteDetailContainer = this.add.container(w / 2 - 150, h / 2 - 150);
+                const wasteBackground = this.add.graphics();
+                wasteBackground.fillStyle(0xF9D57C, 1);
+                wasteBackground.fillRoundedRect(0, 0, 300, 300, 10);
+                wasteDetailContainer.add(wasteBackground);
+            
+                const wasteText = this.add.text(20, 20, `Collected: ${wasteName}\nAvoid throwing waste into the oceans, it causes a lot of environmental damage and kills marine life. Also wastes the resources of fisherman who are trying to catch fishes and reduces thier revenue leading to a hard hit of thier life.Hopefully this point deduction simulated the negative effect it has.`, {
+                    fontSize: '16px',
+                    color: '#ffffff',
+                    fontFamily: 'Arial',
+                    padding: { x: 10, y: 5 },
+                    wordWrap: { width: 250, useAdvancedWrap: true }
+                });
+                wasteDetailContainer.add(wasteText);
+            
+                const continueButton = this.add.text(w / 2 - 800, h / 2 - 180, 'CONTINUE', {
+                    fontSize: '24px',
+                    color: '#000000',
+                    backgroundColor: '#F9D57C',
+                    fontFamily: 'Arial',
+                    padding: { x: 0, y: 5 },
+                }).setOrigin(0.5).setInteractive();
+                wasteDetailContainer.add(continueButton);
+            
+                continueButton.on('pointerup', () => {
+                    wasteDetailContainer.destroy();
+                    net.setPosition(w / 2 - 100, h / 2 - 400);
                     
-                    const maxWidth = 400;
-                    const lineHeight = 35; 
-                    detailFields.forEach((detail, index) => {
-                        let textValue = `${detail.label} ${detail.value}`;
-                    
-                        if (detail.label === 'Fun Fact:') {
-                            if (detail.value.length > 100) {
-                                textValue = `${detail.label} ${detail.value.slice(0, 100)}...`; 
-                            }
-                        }
-                    
-                        const text = this.add.text(20, 20 + index * lineHeight, textValue, {
-                            fontSize: '16px',
-                            color: '#ffffff',
-                            fontFamily: 'Arial',
-                            padding: { x: 10, y: 15 },
-                            wordWrap: { width: maxWidth, useAdvancedWrap: true }
+                    isNetActive = true;
+                });
+            };         
+
+        const catchFish = (fish, fishName) => {
+            if (!caughtFishName && isNetActive) {
+                isNetActive = false;
+                const details = fishDetails[fishName];
+                const fishPoints = details.points;
+                
+                setScore(prevScore => {
+                    const newScore = prevScore + fishPoints;
+                    if (newScore >= 1000) {
+                        setCaughtFishName(fishName);
+        
+                        const fishDetailContainer = this.add.container(w / 2 - 350, h / 2 - 250);
+                        const fishDetailBackground = this.add.graphics();
+                        fishDetailBackground.fillStyle(0xF9D57C, 1);
+                        fishDetailBackground.fillRoundedRect(0, 0, 600, 500, 10);
+                        fishDetailContainer.add(fishDetailBackground);
+        
+                        const detailFields = [
+                            { label: 'Name:', value: details.name },
+                            { label: 'Average Weight:', value: details.weight },
+                            { label: 'Average Height:', value: details.height },
+                            { label: 'Origin:', value: details.origin },
+                            { label: 'Status:', value: details.status },
+                            { label: 'Habitat:', value: details.habitat },
+                            { label: 'Reason for Shortage:', value: details.shortage },
+                            { label: 'Fun Fact:', value: details.fact },
+                            { label: 'Points:', value: details.points }
+                        ];
+        
+                        const lineHeight = 45;
+                        detailFields.forEach((detail, index) => {
+                            const text = this.add.text(20, 20 + index * lineHeight, `${detail.label} ${detail.value}`, {
+                                fontSize: '16px',
+                                color: '#ffffff',
+                                fontFamily: 'Arial',
+                                padding: { x: 10, y: 15 },
+                                wordWrap: { width: 450, useAdvancedWrap: true }
+                            });
+                            fishDetailContainer.add(text);
                         });
+
+                        const fishImage = this.add.image(w / 2 - 100, h / 2 - 300, fishName).setScale(0.25);
+                        fishDetailContainer.add(fishImage);
+                        setTimeout(() => {
+                            fishDetailContainer.destroy();
+                            showGameOver();
+                        }, 3000);
+        
+                    } else {
+                        setCaughtFishName(fishName);
+                        isNetActive = false;
+                        displayFishDetails(fish, fishName, details);
+                    }
                     
-                        flashCardContainer.add(text);
-                    });
-                    
-                    
+                    fish.visible = false;
+                    return newScore;
+                });
+            }
+        };
+        
+        const showGameOver = () => {
+            const gameOverContainer = this.add.container(w / 2 - 350, h / 2 - 200);
+            const gameOverBackground = this.add.graphics();
+            gameOverBackground.fillStyle(0xF9D57C, 1);
+            gameOverBackground.fillRoundedRect(0, 0, 600, 400, 10);
+            gameOverContainer.add(gameOverBackground);
+        
+            const gameOverText = this.add.text(20, 20, "GAME OVER", {
+                fontSize: '36px',
+                color: '#ffffff',
+                fontFamily: 'Arial',
+                padding: { x: 10, y: 15 },
+            });
+            gameOverContainer.add(gameOverText);
+        
+            const exitButton = this.add.text(w / 2 - 500, h / 2 - 100, 'EXIT', {
+                fontSize: '24px',
+                color: '#000000',
+                backgroundColor: '#F9D57C',
+                fontFamily: 'Arial',
+                padding: { x: 10, y: 5 },
+            }).setOrigin(0.5).setInteractive();
+            gameOverContainer.add(exitButton);
+        
+            exitButton.on('pointerup', () => navigate('/'));
+        };
+        
+        const displayFishDetails = (fish, fishName, details) => {
+            const detailContainer = this.add.container(w / 2 - 350, h / 2 - 250);
+            const detailBackground = this.add.graphics();
+            detailBackground.fillStyle(0xF9D57C, 1);
+            detailBackground.fillRoundedRect(0, 0, 700, 500, 10);
+            detailContainer.add(detailBackground);
+        
+            const detailFields = [
+                { label: 'Name:', value: details.name },
+                { label: 'Average Weight:', value: details.weight },
+                { label: 'Average Height:', value: details.height },
+                { label: 'Origin:', value: details.origin },
+                { label: 'Status:', value: details.status },
+                { label: 'Habitat:', value: details.habitat },
+                { label: 'Reason for Shortage:', value: details.shortage },
+                { label: 'Fun Fact:', value: details.fact },
+                { label: 'Points:', value: details.points }
+            ];
             
-                    const fishImage = this.add.image(w / 2 - 500, h / 2 - 300, fishName).setScale(0.25); 
-                    flashCardContainer.add(fishImage);
+            const linewidth = 600;
+            const lineHeight = 40;
+            detailFields.forEach((detail, index) => {
+                const text = this.add.text(20, 20 + index * lineHeight, `${detail.label} ${detail.value}`, {
+                    fontSize: '16px',
+                    color: '#ffffff',
+                    fontFamily: 'Arial',
+                    padding: { x: 10, y: 15 },
+                    wordWrap: { width: linewidth, useAdvancedWrap: true }
+                });
+                detailContainer.add(text);
+            });
             
-                    const continueButton = this.add.text(w / 2 - 700, h / 2 - 100, 'CONTINUE', {
-                        fontSize: '24px',
-                        color: '#000000',
-                        backgroundColor: '#F9D57C',
-                        fontFamily: 'Arial',
-                        padding: { x: 0, y: 5 },
-                    }).setOrigin(0.5).setInteractive();
-                    flashCardContainer.add(continueButton);
-            
-                    const exitButton = this.add.text(w / 2 - 500, h / 2 - 100, 'EXIT', {
+            const fishImage = this.add.image(w / 2 - 500, h / 2 - 300, fishName).setScale(0.25);
+            detailContainer.add(fishImage);
+            const exitButton = this.add.text(w / 2 - 550, h / 2 , 'EXIT', {
                         fontSize: '24px',
                         color: '#000000',
                         backgroundColor: '#F9D57C',
                         fontFamily: 'Arial',
                         padding: { x: 10, y: 5 },
-                    }).setOrigin(0.5).setInteractive();
-                    flashCardContainer.add(exitButton);
-            
-                    exitButton.on('pointerup', () => navigate('/'));
-                    continueButton.on('pointerup', () => {
-                        flashCardContainer.destroy();
-                        net.setPosition(w / 2 - 500, h / 2 - 330);
-                        setCaughtFishName(null);
-                        isNetActive = true;
-                        fish.visible = false;
-                    });
-            
-                    fish.visible = false;
-                }
-            };
-            
-
-            // Fish data
+            }).setOrigin(0.5).setInteractive();
+            detailContainer.add(exitButton);
+                    
+            exitButton.on('pointerup', () => navigate('/'));
+            const continueButton = this.add.text(w / 2 - 800, h / 2, 'CONTINUE', {
+                fontSize: '24px',
+                color: '#000000',
+                backgroundColor: '#F9D57C',
+                fontFamily: 'Arial',
+                padding: { x: 0, y: 5 },
+            }).setOrigin(0.5).setInteractive();
+            detailContainer.add(continueButton);
+        
+            continueButton.on('pointerup', () => {
+                detailContainer.destroy();
+                net.setPosition(w / 2 - 100, h / 2 - 400);
+                setCaughtFishName(null);
+                isNetActive = true;
+                fish.visible = false;
+            });
+        
+            fish.visible = false;
+        };
+        
             const fishData = [
                 { key: 'Haddock', x: w + 50, y: h / 2 - 175, scale: 0.25, duration: 3600, direction: 'left' },
                 { key: 'Rhombous Bitterling (Acheilognathus rhombeus)', x: w + 50, y: h / 2 - 165, scale: 0.4, duration: 3200, direction: 'left' },
@@ -227,7 +370,7 @@ function FishCatch() {
                 { key: 'Sperm Whale', x: -50, y: h / 2 + 110, scale: 0.4, duration: 4500, direction: 'right' },
                 { key: 'Spider Crab', x: w + 50, y: h / 2 + 140, scale: 0.25, duration: 7500, direction: 'left' },
                 { key: 'Lobster', x: -50, y: h / 2 + 170, scale: 0.1, duration: 6000, direction: 'right' },
-                { key: 'Great White Shark', x: w + 50, y: h / 2 + 200, scale: 0.7, duration: 3500, direction: 'left' },
+                { key: 'Great White Shark', x: w + 50, y: h / 2 + 200, scale: 0.7, duration: 3500, direction: 'left' }
             ];
 
             // Add each fish and set motion
@@ -248,13 +391,11 @@ function FishCatch() {
 
                 // Check for overlap between net and fish
                 this.physics.add.overlap(net, fishSprite, () => {
-                    if (fishSprite.visible && isNetActive) {  // Only catch fish if it's visible
-                        catchFish(fishSprite, fishInfo.key);
+                    if (fishSprite.visible && isNetActive) { 
+                         catchFish(fishSprite, fishInfo.key);
                     }
                 });   
             });
-
-            
         };
 
         const config = {
@@ -293,7 +434,7 @@ function FishCatch() {
             <div id="phaser-game"></div>
             <div className="topbar">
                 <img className="logo-icon" src={logo} alt="Logo" />
-                <h2 className="logo">Jala Jeevana Kirthi</h2>
+                <h2 className="logo">JalaJeevanaKirthi</h2>
                 <button className="topbar-button" id="home_button" onClick={handleOnclick2}>Home</button>
                 <button className="topbar-button" id="login_button" onClick={handleOnclick1}>Login</button>
                 <div className="score-container">

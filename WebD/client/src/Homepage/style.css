@@ -2,23 +2,25 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 3rem;
-    margin-left: 4rem;
+    margin-top: 3rem; /* 48px */
+    margin-left: 4rem; /* 64px */
 }
 
 .nav-button{
     color: #000000;
+    width: 4rem;
 }
+
 .image-holder {
     width: 60%; 
-    height: 20rem; 
+    height: 20rem; /* 320px */
     overflow: hidden; 
     display: flex; 
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-radius: 0.625rem;
-    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.2);
+    border-radius: 0.625rem; /* 10px */
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.2); /* 4px, 10px */
     position: relative;
 }
 
@@ -31,18 +33,19 @@
         transform: translateX(0);
     }
     25%{
-        transform: translateX(0.625rem);
+        transform: translateX(0.625rem); /* 10px */
     }
     50%{
         transform: translateX(0);
     }
     75%{
-        transform: translateX(-0.625rem);
+        transform: translateX(-0.625rem); /* -10px */
     }
     100%{
         transform: translateX(0);
     }
 }
+
 @keyframes appear{
     from{
         opacity: 0;
@@ -53,9 +56,10 @@
         clip-path: inset(0 0 0 0);
     }
 }
+
 .image {
-    height: 25rem;
-    width: 50rem;
+    height: 25rem; /* 400px */
+    width: 50rem; /* 800px */
     animation: imageFloat 8s linear infinite;
 }
 
@@ -66,27 +70,30 @@
     right: 0;
     background-color: white;
     color: black;
-    height: 3.5rem;
+    height: 4rem; /* 56px */
     display: flex;
     align-items: center;
     z-index: 2;
 }
 
 .logo {
-    color: darkblue;
+    color: blue;
     margin-left: 0.625rem;
-    margin-right: 18.75rem;
+    display: flex;
+    font-size: 20px;
+    margin-right: 15.75rem; 
 }
 
 .logo-icon {
-    height: 2.5rem;
+    height: 2.5rem; 
     width: 2.5rem;
     margin-left: 0.625rem;
-    border-radius: 1.5rem;
+    border-radius: 1.5rem; 
 }
 
 .topbar-button {
-    margin-left: 1.5625rem;
+    margin-left: 0rem; 
+    margin-top: 0%;
     background-color: white;
     color: black;
     opacity: 0.5;
@@ -98,40 +105,31 @@
 }
 
 .spacer{
-    height: 2rem;
-}
-.spacer2{
-    width: 1.875rem;
-}
-.spacer3{
-    width: 5.5rem;
+    height: 2rem; /* 32px */
 }
 
-/* html, body {
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    overflow-x: hidden;
-    transition: background-color 0.5s;
-} */
+.spacer2{
+    width: 1.875rem; /* 30px */
+}
+
+.spacer3{
+    width: 5.5rem; /* 88px */
+}
 
 .background {
-    min-height: 100vh; 
+    min-height: 100vh; /* Full viewport height */
     background-color: rgba(38, 174, 232, 0.971);
 }
 
 .about-section {
-    margin-top: 5rem;
-    margin-left: 10rem;
+    margin-top: 5rem; /* 80px */
+    margin-left: 10rem; /* 160px */
     width: 80%;
-    height: 25rem;
+    height: 25rem; /* 400px */
     background-color: white;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-    border-radius: 0.625rem;
-    margin-bottom: 2.5rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* 4px, 8px */
+    border-radius: 0.625rem; /* 10px */
+    margin-bottom: 2.5rem; /* 40px */
     text-align: center;
     background-image: url('../assets/Coral.png');
     background-size: cover;
@@ -139,12 +137,12 @@
 }
 
 .about-section h2 {
-    font-size: 1.75rem;
+    font-size: 1.75rem; /* 28px */
     color: #0027ad;
 }
 
 .about-section p {
-    font-size: 1.125rem;
+    font-size: 1.125rem; /* 18px */
     font-family: 'Times New Roman', Times, serif;
     color: #000000;
 }
@@ -152,9 +150,9 @@
 .icons-section {
     display: flex;
     justify-content: center;
-    height: 21.875rem;
-    gap: 1.25rem;
-    margin-bottom: 2.5rem;
+    height: 21.875rem; /* 350px */
+    gap: 1.25rem; /* 20px */
+    margin-bottom: 2.5rem; /* 40px */
 }
 
 @keyframes float {
@@ -162,13 +160,13 @@
         transform: translateY(0);
     }
     25%{
-        transform: translateY(0.625rem);
+        transform: translateY(0.625rem); /* 10px */
     }
     50%{
         transform: translateY(0);
     }
     75%{
-        transform: translateY(-0.625rem);
+        transform: translateY(-0.625rem); /* -10px */
     }
     100%{
         transform: translateY(0);
@@ -176,38 +174,42 @@
 }
 
 .icon-box {
-    width: 15.625rem;
-    height: 25rem;
+    width: 15.625rem; /* 250px */
+    height: 25rem; /* 400px */
     background-color: #fff;
     background-image: url('../assets/design1.png');
     background-size: 112%;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-    border-radius: 0.625rem;
-    font-size: 1rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* 4px, 8px */
+    border-radius: 0.625rem; /* 10px */
+    font-size: 1rem; /* 16px */
     font-weight: bold;
     color: black;
     animation: float 4s linear infinite, appear 2s linear;
 }
+
 .icon-box h2{
     text-align: center;
 }
+
 .icon-box p{
     text-align: center;
     color: black;
 }
+
 .footer-section {
     background-color: rgb(255, 255, 255);
     width: 100%;
-    padding: 1.25rem;
+    padding: 1.25rem; /* 20px */
     width: 100vw;
-    padding-left: 2%;
+    padding-left: 2%; /* 2% of the viewport width */
 }
 
 .profiles{
     display: flex;
 }
+
 .footer-section p {
     margin: 0;
     align-items: baseline;
@@ -215,13 +217,15 @@
     text-align: center;
     color: black;
 }
+
 .footer-section h3{
     color: black;
     text-align: center;
 }
+
 .footer-section img{
-    height: 9.375rem;
-    width: 9.375rem;
+    height: 9.375rem; /* 150px */
+    width: 9.375rem; /* 150px */
     border-radius: 50%;
 }
 
@@ -229,8 +233,8 @@
     position: relative;
     opacity: 80%;
     bottom: 30%;
-    width: 1.875rem;
-    height: 4.375rem;
+    width: 1.875rem; /* 30px */
+    height: 4.375rem; /* 70px */
     animation: swim 4s linear 1;
 }
 
@@ -242,27 +246,31 @@
         left: 110%;
     }
 }
+
 .fishes{
     position: absolute;
     display: flex;
     opacity: 75%;
-    width: 1.875rem;
-    height: 12.5rem;
+    width: 1.875rem; /* 30px */
+    height: 12.5rem; /* 200px */
     animation: swim 3s linear infinite;
 }
 
 .fishes img{
     width: auto;
-    height: 9.375rem;
+    height: 9.375rem; /* 150px */
 }
+
 .whale img{
     width: auto;
-    height: 12.5rem;
+    height: 12.5rem; /* 200px */
 }
+
 .scuba img{
-    width: 12.5rem;
-    height: 9.375rem;
+    width: 12.5rem; /* 200px */
+    height: 9.375rem; /* 150px */
 }
+
 .scuba {
     position: absolute;
     opacity: 75%;
@@ -271,92 +279,60 @@
     height: auto; 
     animation: float 5s ease-in-out infinite;
 }
+
 .sub img{
     width: auto;
-    height: 9.375rem;
+    height: 9.375rem; /* 150px */
 }
+
 .sub {
     position: absolute; 
     right: 45%;
     bottom: -65%;
-    width: 6.25rem; 
-    height: 1.5rem; 
+    width: 6.25rem; /* 100px */
+    height: 1.5rem; /* 24px */
     opacity: 75%;
     animation: float 4s ease-in-out infinite; 
 }
+
+.creator1, .creator2, .creator3, .creator4, .creator5, .creator6 {
+    border-radius: 50%;
+    height: 6.25rem; /* 100px */
+    width: 6.25rem; /* 100px */
+    color: black;
+    background-size: cover;
+}
+
 .creator1{
-    border-radius: 50%;
-    height: 6.25rem;
-    width: 6.25rem;
-    color: black;
     background-image: url('../assets/cv.jpg');
-    background-size: contain;  
+    background-size: cover;
 }
+
 .creator2{
-    border-radius: 50%;
-    height: 6.25rem;
-    width: 6.25rem;
-    color: black;
     background-image: url('../assets/Dhyanam.jpg');
-    background-size: contain;  
+    background-size: cover;
 }
+
 .creator3{
-    border-radius: 50%;
-    height: 6.25rem;
-    width: 6.25rem;
-    color: black;
     background-image: url('../assets/bhanu.jpg');
-    background-size: cover;  
+    background-size: cover;
 }
+
 .creator4{
-    border-radius: 50%;
-    height: 6.25rem;
-    width: 6.25rem;
-    color: black;
     background-image: url('../assets/AnirudhArrepu.jpg');
-    background-size: cover;  
+    background-size: cover;
 }
+
 .creator5{
-    border-radius: 50%;
-    height: 6.25rem;
-    width: 6.25rem;
-    color: black;
     background-image: url('../assets/charan.jpg');
-    background-size: cover;  
+    background-size: cover;
 }
+
 .creator6{
-    border-radius: 50%;
-    height: 6.25rem;
-    width: 6.25rem;
-    color: black;
     background-image: url('../assets/Ashish.jpg');
-    background-size: cover;  
+    background-size: cover;
 }
 
-.social-media-icons{
-    margin-top: 1.5rem;
-    margin-left: 7rem;
-    bottom: 7.8125rem;
-    right: 0.625rem;
-}
-
-.social-media-icons a {
-    margin-right: 1.875rem;
-}
 .chatbot{
-    /* position: fixed; */
-    top: 78%;
-    right: 3%;
-    color: #000000;
-    font-weight: bold;
-    border-radius: 25%;
-    background-color: coral;
-    opacity: 80%;
-}
-.chat{
-    position: fixed;
-    top: 10%;
-    right: 3%;
-    z-index: 0;
-    justify-content: right;
+    width: 8rem;
 }
