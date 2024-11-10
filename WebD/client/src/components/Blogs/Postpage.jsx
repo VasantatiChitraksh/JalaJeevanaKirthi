@@ -3,19 +3,13 @@ import './Postpage.css'
 
 
 function PostPage() {
-  //const [bannerImage, setBannerImage] = useState('../../assets/Ocean.jpg'); // Default banner
+
   const [title, setTitle] = useState('YOUR TITLE');
   const [content, setContent] = useState('yOUR CONTENT');
   const [username, setUsername] = useState('Guest'); // Default username, you can make it dynamic
   const [date] = useState(new Date().toLocaleDateString());
 
-  /*const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setBannerImage(imageUrl);
-    }
-  };*/
+
 
   const handleSubmit = () => {
     
