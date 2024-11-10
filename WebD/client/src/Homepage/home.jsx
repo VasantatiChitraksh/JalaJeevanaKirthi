@@ -163,7 +163,14 @@ function Home() {
             navigate('/login');
         }
     }
-
+    const handleOnclick8 = (e) => {
+        if (loginFlag === "1"){
+        alert(`Hey!! ${username} Welcome to JalaJeevanaKirthi`)
+        }
+        else{
+            alert("Please Create/Login into Your Account to access all our features")
+        }
+    }
     return (
         <div className='background'>
             <div className="topbar">
@@ -178,7 +185,7 @@ function Home() {
                 <button className="topbar-button" onClick={handleLoginLogout}>
                     {loginFlag === "1" ? "Logout🏃‍♂️‍➡️" : "Login🏃‍♂️"}
                 </button>
-                <button className="topbar-button" >👤  {username}</button>
+                <button className="topbar-button"  onClick={handleOnclick8}>👤 {username}</button>
             </div>
             <div className="spacer"></div>
             <div className='waves'></div>

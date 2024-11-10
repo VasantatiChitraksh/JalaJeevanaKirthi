@@ -73,7 +73,7 @@ function Dataset() {
             <a href="/" >Home</a>
           </li>
           <li>
-            <a href="https://example.com/blogs" >Blogs</a>
+            <a href="/blogs" >Blogs</a>
           </li>
           <li className="right">
             <a href="/login" >Login</a>

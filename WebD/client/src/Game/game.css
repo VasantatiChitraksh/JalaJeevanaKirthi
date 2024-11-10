@@ -6,12 +6,12 @@
 
 #home_button{
     margin-left: -10%;
-    margin-top: 0%;
+    margin-top: 1rem;
 }
 
 #login_button{
     margin-left: 60%;
-    margin-top: 0%;
+    margin-top: 1rem;
 }
 
 .score-card{
@@ -70,6 +70,7 @@
 
 .score-container {
     position: absolute;
+    margin-top: 0.5rem;
     top: 20px;
     left: 20px;
     font-size: 24px;
