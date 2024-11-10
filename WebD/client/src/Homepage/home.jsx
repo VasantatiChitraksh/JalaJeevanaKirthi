@@ -23,6 +23,8 @@ function Home() {
 
     const [isChatOpen, setIsChatOpen] = useState(false);
     const [username, setUsername] = useState("");
+    var loginFlag= 0;
+    loginFlag = localStorage.getItem('loginFlag')
 
     const toggleChat = () => {
       setIsChatOpen(prevState => !prevState);
@@ -115,9 +117,6 @@ function Home() {
         };
     }, []);
     const navigate = useNavigate();
-    const handleOnclick1 = (e) => {
-           navigate('/login')
-        }
     const handleOnclick2 = (e) => {
             navigate('/roleplay')
          }
@@ -128,12 +127,58 @@ function Home() {
         navigate('/game')
     }
     const handleOnclick5 = (e) => {
-        navigate('/forums' , { state: { username } })
+        if (loginFlag === "1") {
+            navigate('/forums' , { state: { username } })
+          } else {
+            alert("Please Login to access Forums....😅")
+          }
+        
     }
+<<<<<<< Updated upstream
+=======
+    const handleOnclick6 = (e) =>{
+        if (loginFlag === "1") {
+            navigate('/datasets')
+          } else {
+            alert("Please Login to access Datasets....😅")
+          }
+        
+    }
+    const handleOnclick7 = (e) => {
+        if (loginFlag === "1") {
+            navigate('/blogs')
+          } else {
+            alert("Please Login to access Blogs....😅")
+          }
+       
+    }
+
+    const handleLoginLogout = (e) => {
+        if (loginFlag === "1") {
+            localStorage.removeItem('loginFlag');
+            localStorage.removeItem('userEmail');
+            setUsername("");
+            loginFlag = "0";
+            navigate('/'); 
+        } else {
+            navigate('/login');
+        }
+    }
+
+
+    // var log;
+    // if (loginFlag === "1") {
+    //     log = "Logout"
+    //   } else {
+    //     log = "Login"
+    //   }
+
+>>>>>>> Stashed changes
     return (
         <div className='background'>
             <div className="topbar">
                 <img className="logo-icon" src={logo} alt="Logo" />
+<<<<<<< Updated upstream
                 <h2 className="logo">Jala Jeevana Kirthi</h2>
                 <button className="topbar-button" onClick={handleOnclick4}>Game</button>
                 <button className="topbar-button" onClick={handleOnclick3}>Weather</button>
@@ -142,6 +187,19 @@ function Home() {
                 <button className="topbar-button" onClick={handleOnclick5}>Forums</button>
                 <button className="topbar-button"  onClick={handleOnclick1}>Login</button>
                 <button className="topbar-button"  onClick={handleOnclick1}>{username}</button>
+=======
+                <h2 className="logo">JalaJeevanaKeerthi</h2>
+                <button className="topbar-button" onClick={handleOnclick4}>Game🎮</button>
+                <button className="topbar-button" onClick={handleOnclick3}>Weather☁️</button>
+                <button className="topbar-button" onClick={handleOnclick7}>Blogs🤩</button>
+                <button className="topbar-button" onClick={handleOnclick2}>RolePlay🎭</button>
+                <button className="topbar-button" onClick={handleOnclick6}>Datasets📑</button>
+                <button className="topbar-button" onClick={handleOnclick5}>Forums🗨️</button>
+                <button className="topbar-button" onClick={handleLoginLogout}>
+                    {loginFlag === "1" ? "Logout🏃‍♂️‍➡️" : "Login🏃‍♂️"}
+                </button>
+                <button className="topbar-button" >👤  {username}</button>
+>>>>>>> Stashed changes
             </div>
             <div className="spacer"></div>
             <div className='waves'></div>
@@ -206,7 +264,7 @@ We believe that even the smallest actions can have a profound effect on our envi
             </div>
             <div className='chat'>
                 <button className="chatbot" onClick={toggleChat}>
-                ChatBot
+                🤖ChatBot
                 </button>
                 {isChatOpen && <Chat toggleChat={toggleChat} />}
             </div>

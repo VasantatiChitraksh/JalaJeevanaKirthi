@@ -22,6 +22,7 @@ function Login() {
         if (response.data.status) {
           console.log('Login successful');  // This should log when login is successful
           localStorage.setItem('userEmail', email);
+          localStorage.setItem('loginFlag', 1);
           navigate("/");
         } else {
           console.log('Login failed:', response.data.message);  // Log any error messages
