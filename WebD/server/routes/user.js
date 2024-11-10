@@ -8,10 +8,11 @@ const router = express.Router();
 
 router.post("/signup", async (req, res) => {
   const { username, email, password } = req.body;
-  const user = User.finsdOne({ email });
-  // if (user) {
-  //   return res.json({ message: " user already exist" });
-  // }
+  
+  const user = await User.findOne({ email });
+  if (user) {
+    return res.json({ message: "User already exists" });
+  }
 
   const hashpassword = await bcrypt.hash(password, 10);
 
@@ -22,7 +23,7 @@ router.post("/signup", async (req, res) => {
   });
 
   await newUser.save();
-  return res.json({ status: "true", message: "Record registred" });
+  return res.json({ status: "true", message: "Record registered" });
 });
 
 router.post("/login", async (req, res) => {
@@ -33,8 +34,8 @@ router.post("/login", async (req, res) => {
     return res.json({ status: false, message: "User is not registered" });
   }
 
-  const validpasswoed = await bcrypt.compare(password, user.password);
-  if (!validpasswoed) {
+  const validpassword = await bcrypt.compare(password, user.password);
+  if (!validpassword) {
     return res.json({ status: false, message: "Password incorrect" });
   }
 
@@ -51,43 +52,34 @@ router.post("/login", async (req, res) => {
     secure: true,
   });
 
-  console.log({ status: true, message: "Login successful" }); // Log this
+  console.log({ status: true, message: "Login successful" });
   return res.json({ status: true, message: "Login successful" });
 });
 
 router.post("/forgot-password", async (req, res) => {
   const { email } = req.body;
   console.log("Email received in request:", email);
-  
-  
 
   try {
-    const user = await  User.findOne({ email });
-    console.log("came2")
-    try {
-      const user = await User.findOne({ email });
-      if (!user) {
-        console.log("No user found with this email");
-        return res.json({ message: "User not registered" });
-      }
-    } catch (err) {
-      console.error("Database query failed:", err);
-      return res.json({ message: "Error retrieving user" });
+    const user = await User.findOne({ email });
+    if (!user) {
+      console.log("No user found with this email");
+      return res.json({ message: "User not registered" });
     }
-    
+
     const token = jwt.sign({ id: user._id }, "jwttokenker", { expiresIn: '1h' });
-    console.log("came2")
+    console.log("Reset token generated");
 
     var transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "asta456as@gmail.com",
-        pass: "xxev lykf puay iewp",
+        user: "your_email@gmail.com",
+        pass: "your_app_specific_password",
       },
     });
 
     var mailOptions = {
-      from: "asta456as@gmail.com",
+      from: "your_email@gmail.com",
       to: email,
       subject: "Reset Password",
       text: `http://localhost:5173/resetPassword/${token}`,
@@ -95,40 +87,38 @@ router.post("/forgot-password", async (req, res) => {
 
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
-        return res.json({message :"error sending email"})
+        return res.json({ message: "Error sending email" });
       } else {
-        return res.json( {status : true ,message :"Email sent"});
+        return res.json({ status: true, message: "Email sent" });
       }
     });
   } catch (err) {
-    console.log(err);
+    console.log("Error:", err);
+    return res.status(500).json({ message: "An error occurred" });
   }
-  return res.json({ status: "true", message: "Record registred" });
 });
 
-router.post('/reset-password/:token', async(req,res) =>{
-  const {token} = req.params;
-  const {password}=req.body
-  console.log("came ")
+router.post('/reset-password/:token', async(req, res) => {
+  const { token } = req.params;
+  const { password } = req.body;
+
   try {
-    console.log("Token received:", token);
-    const decoded = await jwt.verify(token,"jwttokenker");
-    console.log("Decoded token:", decoded);
+    const decoded = jwt.verify(token, "jwttokenker");
     const id = decoded.id;
-    const  hashpassword = await bcrypt.hash(password,10)
-    await User.findByIdAndUpdate({_id: id}, {password: hashpassword})
-    return res.json({ status: "true", message: "update password " });
-  } catch(err){
-    return res.json({ message: "invalid token" })
+    const hashpassword = await bcrypt.hash(password, 10);
+    
+    await User.findByIdAndUpdate(id, { password: hashpassword });
+    return res.json({ status: "true", message: "Password updated" });
+  } catch (err) {
+    return res.json({ message: "Invalid token" });
   }
-})
+});
 
 router.get("/user", async (req, res) => {
   const { email } = req.query;
 
   try {
     const user = await User.findOne({ email }, 'username');  // Fetch only the username field
-    console.log(email);
     if (user) {
       return res.status(200).json({ username: user.username });
     } else {
@@ -139,6 +129,5 @@ router.get("/user", async (req, res) => {
     return res.status(500).json({ message: "Error fetching user data" });
   }
 });
-
 
 export { router as UserRouter };
