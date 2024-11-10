@@ -12,8 +12,8 @@
 }
 
 .image-holder {
-    width: 60%; 
-    height: 20rem; /* 320px */
+    width: 75%; 
+    height: 28rem; /* 320px */
     overflow: hidden; 
     display: flex; 
     justify-content: center;
