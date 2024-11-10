@@ -1,4 +1,5 @@
-import express from "express"
+import express from "express";
+import axios from "axios";
 import { Blogs } from "../models/Blogs.js";
 
 const router = express.Router();
@@ -12,7 +13,15 @@ router.post("/newblog", async (req, res)=>{
     })
 
     await newBlog.save();
-    return res.json({ status: "true", message: "Blog added"});
+    const flaskResponse = await axios.post("http://localhost:5000/addData", {
+        newdata: text,
+    });
+
+    if (flaskResponse.data) {
+        return res.json({ status: "true", message: "Blog added and sent to knowledge base" });
+    } else {
+        return res.status(500).json({ status: "false", message: "Blog added but failed to update knowledge base" });
+    }
 })
 
 export {router as BlogsRouter}
