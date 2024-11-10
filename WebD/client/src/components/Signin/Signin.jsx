@@ -21,6 +21,7 @@ const Signin = () => {
          if (response.data.status){
             console.log("sucess")
             localStorage.setItem('userEmail', email);
+            localStorage.setItem('loginFlag', 1);
             navigate('/')
          } else {
           console.log('signup failed:', response.data.message);  // Log any error messages
