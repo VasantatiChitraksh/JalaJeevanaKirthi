@@ -6,15 +6,15 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #66ccff, #003366); 
-    color: white;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #66ccff, #003366); 
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
 }
 
 .container {
@@ -37,63 +37,91 @@ body {
   z-index: 100;
 }
 
-.navbar ul{
-    list-style: none;
-    display: flex;
-    justify-content: flex-start; 
-    width: 100%;
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .navbar li {
-  padding: 0 20px;
+  padding: 20px;
   font-size: 18px;
 }
 
 .navbar a {
-   text-decoration: none;
-   color: #cceeff;
+  text-decoration: none;
+  color: #cceeff;
 }
-  
-.nav-bar a:hover {
-   color: #ffffff;
-} 
+
+.navbar a:hover {
+  color: #ffffff;
+}
 
 .content {
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    flex-direction: column;
-    gap: 20px;
-    height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  height: 100vh;
 }
 
 .upload-section {
-  margin-top: 20%;
-  width: 30%;
-  padding: 2rem;
+  margin-top: 2vh;
+  width: 300px;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .upload-button {
   background-color: #1c3a72;
   color: white;
-  padding: 0.8rem 1.5rem;
-  margin-top: 1rem;
+  padding: 8px 20px;
+  margin-top: 10px;
   border: none;
   border-radius: 8px;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 5px;
   cursor: pointer;
 }
 
+/* Positioning for the filter container */
+.filter-container {
+  position: relative; /* Allows dropdown to be positioned relative to this container */
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 40px; /* Adjust as necessary to align below the icon */
+  left: 0;
+  width: 200px;
+  background-color: #1c3a72;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  z-index: 100;
+}
+
+.dropdown-menu p {
+  padding:  8px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.dropdown-menu p:hover {
+  background-color: #00509e;
+}
+
+
 .search-section {
-  width: 70%;
-  padding: 2rem;
+  width: 500px;
+  padding: 20px;
   color: white;
 }
 
@@ -102,29 +130,95 @@ body {
   align-items: center;
   background-color: #d1d9e6;
   border-radius: 8px;
-  padding: 0.5rem;
-  margin-bottom: 2rem;
+  padding: 5px;
+  margin-bottom: 20px;
 }
 
 .search-bar input {
   border: none;
   outline: none;
   background: transparent;
-  padding: 0.5rem;
+  padding: 5px;
   flex: 1;
 }
 
+.datasets-section {
+  width: 70vw;
+  padding: 20px;
+  color: white;
+}
 .datasets {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 20px;
 }
 
 .dataset-card {
   background-color: #1c3a72;
-  padding: 1rem;
+  padding: 35px;
   border-radius: 8px;
   color: white;
   display: flex;
   flex-direction: column;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: #ffffff;
+  color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal h3 {
+  margin-top: 0;
+  color: #1c3a72;
+}
+
+.modal label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.modal input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal button {
+  padding: 8px 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal button[type="submit"] {
+  background-color: #1c3a72;
+  color: white;
+}
+
+.modal button[type="button"] {
+  background-color: #ccc;
+  color: #333;
+  margin-top:5px;
 }
