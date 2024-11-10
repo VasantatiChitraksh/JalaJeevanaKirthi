@@ -20,7 +20,7 @@ router.get("/searchdataset", async (req, res)=>{
     const books = await Dataset.find(query);
     res.json(books);
   } catch (err) {
-    res.status(500).json({ error: "Error fetching datasets" });
+    res.status(500).json({ error: "error fetching datasets" });
   }
 })
 
