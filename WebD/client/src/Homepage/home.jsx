@@ -134,8 +134,6 @@ function Home() {
           }
         
     }
-<<<<<<< Updated upstream
-=======
     const handleOnclick6 = (e) =>{
         if (loginFlag === "1") {
             navigate('/datasets')
@@ -173,21 +171,10 @@ function Home() {
     //     log = "Login"
     //   }
 
->>>>>>> Stashed changes
     return (
         <div className='background'>
             <div className="topbar">
                 <img className="logo-icon" src={logo} alt="Logo" />
-<<<<<<< Updated upstream
-                <h2 className="logo">Jala Jeevana Kirthi</h2>
-                <button className="topbar-button" onClick={handleOnclick4}>Game</button>
-                <button className="topbar-button" onClick={handleOnclick3}>Weather</button>
-                <button className="topbar-button">Blogs</button>
-                <button className="topbar-button" onClick={handleOnclick2}>RolePlay</button>
-                <button className="topbar-button" onClick={handleOnclick5}>Forums</button>
-                <button className="topbar-button"  onClick={handleOnclick1}>Login</button>
-                <button className="topbar-button"  onClick={handleOnclick1}>{username}</button>
-=======
                 <h2 className="logo">JalaJeevanaKeerthi</h2>
                 <button className="topbar-button" onClick={handleOnclick4}>Game🎮</button>
                 <button className="topbar-button" onClick={handleOnclick3}>Weather☁️</button>
@@ -199,7 +186,6 @@ function Home() {
                     {loginFlag === "1" ? "Logout🏃‍♂️‍➡️" : "Login🏃‍♂️"}
                 </button>
                 <button className="topbar-button" >👤  {username}</button>
->>>>>>> Stashed changes
             </div>
             <div className="spacer"></div>
             <div className='waves'></div>
