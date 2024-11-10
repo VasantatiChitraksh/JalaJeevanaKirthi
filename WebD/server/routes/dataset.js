@@ -1,18 +1,31 @@
 import express from "express";
-import { Dataset } from "../models/Dataset";
+import { Dataset } from "../models/Dataset.js";
 
 const router = express.Router();
 
 router.get("/searchdataset", async (req, res)=>{
-    const { query } = res.query;
+    const { search, tags } = req.query;
 
-    const results = await Dataset.find({ title: { $regex: query, $options: 'i' } }).limit(5);
-    
-    return res.json(results);
+  const query = {};
+
+  if (search) {
+    query.title = { $regex: search, $options: "i" };
+  }
+
+  if (tags) {
+    query.tags = { $in: tags.split(",") };
+  }
+
+  try {
+    const books = await Dataset.find(query);
+    res.json(books);
+  } catch (err) {
+    res.status(500).json({ error: "Error fetching datasets" });
+  }
 })
 
 router.post("/newdataset", async (req, res)=>{
-    const { url, username, date, title, description } = req.body;
+    const { url, username, date, title, description, tags } = req.body;
 
     const newDataset = new Dataset({
         url,
@@ -20,8 +33,11 @@ router.post("/newdataset", async (req, res)=>{
         date,
         title,
         description,
+        tags: tags.split(","),
     })
 
     await newDataset.save();
     return res.json({status: "true", message: "Dataset Added"})
 })
+
+export {router as DatasetRouter}

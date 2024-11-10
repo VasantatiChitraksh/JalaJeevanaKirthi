@@ -1,5 +1,5 @@
 import express from "express"
-import { Blogs } from "../models/Blogs";
+import { Blogs } from "../models/Blogs.js";
 
 const router = express.Router();
 
@@ -14,3 +14,5 @@ router.post("/newblog", async (req, res)=>{
     await newBlog.save();
     return res.json({ status: "true", message: "Blog added"});
 })
+
+export {router as BlogsRouter}
