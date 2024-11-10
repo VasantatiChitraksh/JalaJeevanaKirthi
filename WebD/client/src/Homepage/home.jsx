@@ -164,19 +164,6 @@ function Home() {
         }
     }
 
-
-    // var log;
-    // if (loginFlag === "1") {
-    //     log = "Logout"
-    //   } else {
-    //     log = "Login"
-    //   }
-
-        navigate('/datasets')
-    }
-    const handleOnclick7 = (e) => {
-        navigate('/blogs')
-    }
     return (
         <div className='background'>
             <div className="topbar">
@@ -303,4 +290,5 @@ We believe that even the smallest actions can have a profound effect on our envi
             </footer>
         </div>
     );
+}
 export default Home;
