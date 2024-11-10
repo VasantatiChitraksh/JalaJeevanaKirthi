@@ -67,9 +67,14 @@
     align-items: center;
     padding-top: 5px;
     padding-bottom: 20px;
-    padding-left: 70px;
     display: flex;
     justify-content: center;
+  }
+
+  .list-blogs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .blog-grid {
