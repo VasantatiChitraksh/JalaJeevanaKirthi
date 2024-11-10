@@ -13,6 +13,7 @@ function BlogPosts({ onPostClick }) {
   return (
     <section className="blog-section">
       <div className="blog-grid">
+       
         {Array.from({ length: 6 }, (_, index) => (
           <div key={index} className="blog-post"  onClick={() => onPostClick(index + 1)}>
             Post {index + 1}
