@@ -5,11 +5,18 @@
 }
 
 #home_button{
-    margin-left: -20%;
+    margin-left: -10%;
+    margin-top: 0%;
 }
 
 #login_button{
-    margin-left: 68%;
+    margin-left: 60%;
+    margin-top: 0%;
+}
+
+.score-card{
+    position: absolute;
+    left: 30%;
 }
 .flash-card {
     width: 600px;
@@ -59,4 +66,16 @@
     border-radius: 5px;
     border: none;
     cursor: pointer;
+}
+
+.score-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: darkblue;
+    font-family: Arial, sans-serif;
+    position: absolute;
+    left: 45%;
+    top: 7%;
 }

@@ -13,6 +13,7 @@ import {FaComment} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faTwitter} from '@fortawesome/free-brands-svg-icons';
 import Axios from "axios";
+import './style.css';
 
 function Home() {
     const images = [
@@ -171,6 +172,11 @@ function Home() {
     //     log = "Login"
     //   }
 
+        navigate('/datasets')
+    }
+    const handleOnclick7 = (e) => {
+        navigate('/blogs')
+    }
     return (
         <div className='background'>
             <div className="topbar">
@@ -291,44 +297,10 @@ We believe that even the smallest actions can have a profound effect on our envi
                 <div className="social-media-icons">
                     <a href = "#"></a>
                 </div>
-                <div className="social-media-icons">
-    <a 
-        href="#" 
-        onClick={(e) => { 
-            e.preventDefault(); 
-            console.log('Facebook icon clicked'); 
-        }} 
-        aria-label="Facebook"
-    >
-        <FontAwesomeIcon icon={faFacebook} size="2x" />
-    </a>
-    <a 
-        href="#" 
-        onClick={(e) => { 
-            e.preventDefault(); 
-            console.log('Instagram icon clicked'); 
-        }} 
-        aria-label="Instagram"
-    >
-        <FontAwesomeIcon icon={faInstagram} size="2x" />
-    </a>
-    <a 
-        href="#" 
-        onClick={(e) => { 
-            e.preventDefault(); 
-            console.log('Twitter icon clicked'); 
-        }} 
-        aria-label="Twitter"
-    >
-        <FontAwesomeIcon icon={faTwitter} size="2x" />
-    </a>
-</div>
                 </div>
                 
       <p>@ 2024 Your Company. All rights reserved</p>
             </footer>
         </div>
     );
-}
-
 export default Home;

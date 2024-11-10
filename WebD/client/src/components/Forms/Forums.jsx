@@ -81,9 +81,6 @@ const Forum = () => {
         }
     };
     
-    
-    
-
     return (
         <div className={styles['discussion-container']}>
         <div className={styles['date-picker']}>
@@ -130,7 +127,7 @@ const Forum = () => {
                 value={newComment}
                 onChange={(e) => setNewComment(e.target.value)}
             />
-            <button onClick={handleCommentSubmit}>Add Comment</button>
+            <button className={styles['comment-input']} onClick={handleCommentSubmit}>Add Comment</button>
         </div>
     </div>
 
