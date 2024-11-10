@@ -139,19 +139,32 @@ ngrok.set_auth_token(ngrok_token)
 
 app = Flask(__name__)
 
+@app.route("/addData", methods=["POST"])
+def update_knowledge_base():
+    data = request.json
+    newData = data.get("newdata")
+    if newData:
+        print(newData)
+        chunks = getchunks(text=newData)
+        store_to_db(chunks)
+        return jsonify({"message": "Data added successfully"}), 200
+    else:
+        return jsonify({"message": "Couldn't add text"}), 400
+
 @app.route("/query", methods=["POST"])
 def query_api():
     data = request.json
     query = data.get("query")
     if query:
         answer = answer_query(query)
-        return jsonify({"query": query, "answer": answer})
+        return jsonify({"query": query, "answer": answer}), 200
     else:
         return jsonify({"error": "No query provided"}), 400
 
 if __name__ == '__main__':
     port = 5000
+    ngrok.set_auth_token(ngrok_token)
     public_url = ngrok.connect(port)
     print(f"Ngrok Tunnel URL: {public_url}")
-    
+
     app.run(host='0.0.0.0', port=port)

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './Postpage.css';
+import './Postpage.css'
+
 
 function PostPage() {
   const [bannerImage, setBannerImage] = useState('../../assets/Ocean.jpg'); // Default banner
