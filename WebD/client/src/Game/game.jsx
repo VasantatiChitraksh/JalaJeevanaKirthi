@@ -28,8 +28,8 @@ import bird2 from './gameassets/Items/bird2.png';
 
 
 // Load additional assets
-const bubbleImage = require("./gameassets/items/bubble.png")
-import netImage from './gameassets/items/net.png';
+const bubbleImage = require("./gameassets/Items/bubble.png")
+import netImage from './gameassets/Items/net.png';
 
 //Load waste assest
 import waste_bottle from './gameassets/Items/waste_bottle.png';
