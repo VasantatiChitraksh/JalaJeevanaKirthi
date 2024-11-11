@@ -14,7 +14,7 @@ const Forgotpassword = () => {
 
   const handleSubmit = (e) => {
    e.preventDefault()
-   console.log("sucess")
+   //console.log("sucess")
    Axios.post('http://localhost:3001/auth/forgot-password',
        {email}).then(response => {
          if (response.data.status){

@@ -120,6 +120,7 @@ const Forum = () => {
                 </div>
             ))}
         </div>
+        <footer>
         <div className={styles['comment-input']}>
             <input
                 type="text"
@@ -129,6 +130,7 @@ const Forum = () => {
             />
             <button className={styles['comment-input']} onClick={handleCommentSubmit}>Add Comment</button>
         </div>
+        </footer>
     </div>
 
     
