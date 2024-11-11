@@ -8,10 +8,25 @@ function Dataset() {
   const [datasets, setDatasets] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [username, setUsername] = useState('');
+
+  const email = localStorage.getItem('userEmail');
+  console.log("Email from localStorage:", email);
+  
+  if (email) {
+      axios.get(`http://localhost:3001/auth/user?email=${email}`)
+        .then((response) => {
+          console.log("Response data:", response.data); // Log the response to check the structure
+          setUsername(response.data.username); // Update the username in state
+        })
+        .catch((error) => {
+          console.error("Error fetching user data:", error);
+        });
+  }
 
   // New state for form input
   const [formData, setFormData] = useState({
-    username: '',
+    username: username,
     title: '',
     date: '',
     url: ''
