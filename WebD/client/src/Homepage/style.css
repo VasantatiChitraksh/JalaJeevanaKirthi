@@ -12,8 +12,8 @@
 }
 
 .image-holder {
-    width: 60%; 
-    height: 20rem; /* 320px */
+    width: 75%; 
+    height: 28rem; /* 320px */
     overflow: hidden; 
     display: flex; 
     justify-content: center;
@@ -93,7 +93,7 @@
 
 .topbar-button {
     margin-left: 0rem; 
-    margin-top: 0%;
+    margin-top: 1rem;
     background-color: white;
     color: black;
     opacity: 0.5;

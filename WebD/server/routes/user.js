@@ -8,10 +8,11 @@ const router = express.Router();
 
 router.post("/signup", async (req, res) => {
   const { username, email, password } = req.body;
-  const user = User.finsdOne({ email });
-  // if (user) {
-  //   return res.json({ message: " user already exist" });
-  // }
+  
+  const user = await User.findOne({ email });
+  if (user) {
+    return res.json({ message: "User already exists" });
+  }
 
   const hashpassword = await bcrypt.hash(password, 10);
 
@@ -22,7 +23,7 @@ router.post("/signup", async (req, res) => {
   });
 
   await newUser.save();
-  return res.json({ status: "true", message: "Record registred" });
+  return res.json({ status: "true", message: "Record registered" });
 });
 
 router.post("/login", async (req, res) => {
@@ -33,8 +34,8 @@ router.post("/login", async (req, res) => {
     return res.json({ status: false, message: "User is not registered" });
   }
 
-  const validpasswoed = await bcrypt.compare(password, user.password);
-  if (!validpasswoed) {
+  const validpassword = await bcrypt.compare(password, user.password);
+  if (!validpassword) {
     return res.json({ status: false, message: "Password incorrect" });
   }
 
@@ -51,32 +52,23 @@ router.post("/login", async (req, res) => {
     secure: true,
   });
 
-  console.log({ status: true, message: "Login successful" }); // Log this
+  console.log({ status: true, message: "Login successful" });
   return res.json({ status: true, message: "Login successful" });
 });
 
 router.post("/forgot-password", async (req, res) => {
   const { email } = req.body;
   console.log("Email received in request:", email);
-  
-  
 
   try {
-    const user = await  User.findOne({ email });
-    console.log("came2")
-    try {
-      const user = await User.findOne({ email });
-      if (!user) {
-        console.log("No user found with this email");
-        return res.json({ message: "User not registered" });
-      }
-    } catch (err) {
-      console.error("Database query failed:", err);
-      return res.json({ message: "Error retrieving user" });
+    const user = await User.findOne({ email });
+    if (!user) {
+      console.log("No user found with this email");
+      return res.json({ message: "User not registered" });
     }
-    
+
     const token = jwt.sign({ id: user._id }, "jwttokenker", { expiresIn: '1h' });
-    console.log("came2")
+    console.log("Reset token generated");
 
     var transporter = nodemailer.createTransport({
       service: "gmail",
@@ -87,7 +79,7 @@ router.post("/forgot-password", async (req, res) => {
     });
 
     var mailOptions = {
-      from: "asta456as@gmail.com",
+      from: "your_email@gmail.com",
       to: email,
       subject: "Reset Password",
       text: `http://localhost:5173/resetPassword/${token}`,
@@ -95,15 +87,15 @@ router.post("/forgot-password", async (req, res) => {
 
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
-        return res.json({message :"error sending email"})
+        return res.json({ message: "Error sending email" });
       } else {
-        return res.json( {status : true ,message :"Email sent"});
+        return res.json({ status: true, message: "Email sent" });
       }
     });
   } catch (err) {
-    console.log(err);
+    console.log("Error:", err);
+    return res.status(500).json({ message: "An error occurred" });
   }
-  return res.json({ status: "true", message: "Record registred" });
 });
 
 router.post('/reset-password/:token', async(req,res) =>{
@@ -133,7 +125,7 @@ router.post('/reset-password/:token', async(req,res) =>{
     console.error("Error in reset-password:", err);
     return res.status(400).json({ message: "Invalid token or error updating password" });
   }
-})
+});
 
 
 router.get("/user", async (req, res) => {
@@ -141,7 +133,6 @@ router.get("/user", async (req, res) => {
 
   try {
     const user = await User.findOne({ email }, 'username');  // Fetch only the username field
-    console.log(email);
     if (user) {
       return res.status(200).json({ username: user.username });
     } else {
@@ -152,6 +143,5 @@ router.get("/user", async (req, res) => {
     return res.status(500).json({ message: "Error fetching user data" });
   }
 });
-
 
 export { router as UserRouter };
