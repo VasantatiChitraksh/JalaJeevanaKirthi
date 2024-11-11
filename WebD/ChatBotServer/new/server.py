@@ -6,6 +6,9 @@ import chromadb
 from concurrent.futures import ThreadPoolExecutor
 from flask import Flask, request, jsonify
 from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 # Get tokens from environment variables
 gemini_api_key = "AIzaSyB060WZBPz_EswunsAdpVwQxRAI4-5wf_4"
@@ -112,5 +115,8 @@ def query_api():
     else:
         return jsonify({"error": "No query provided"}), 400
 
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    # Use the port specified in the PORT environment variable, default to 5000 if not set
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+
