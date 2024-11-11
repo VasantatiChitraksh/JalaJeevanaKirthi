@@ -11,7 +11,15 @@ import { DatasetRouter } from './routes/dataset.js';
 import cookieParser from 'cookie-parser';
 import http from 'http';
 
+
 const app = express();
+
+const port = process.env.PORT || 3001;
+
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Server is running on port ${port}`);
+  });
+  
 
 app.use(express.json());
 
