@@ -26,3 +26,4 @@ function BlogPosts({ onPostClick }) {
 }
 
 export default BlogPosts;
+
