@@ -28,7 +28,6 @@ import bird2 from './gameassets/Items/bird2.png';
 
 
 // Load additional assets
-const bubbleImage = require("./gameassets/Items/bubble.png")
 import netImage from './gameassets/Items/net.png';
 
 //Load waste assest
@@ -77,7 +76,6 @@ function FishCatch() {
 
         gameScene.preload = function () {
             this.load.image('background', background);
-            this.load.image('bubble', bubbleImage);
             this.load.image('net', netImage);
             this.load.image('bird1' , bird1);
             this.load.image('bird2' ,bird2);
@@ -115,12 +113,12 @@ function FishCatch() {
             let waves_audio = this.sound.add('waves');
             waves_audio.play();
 
-            this.add.image(w/7,h/8,'bird1').setScale(0.5);
-            this.add.image(w/5,h/6,'bird2').setScale(0.5);
-            this.add.image(w - w/7,h/8,'bird1').setScale(0.5);
-            this.add.image(w-w/5,h/6,'bird2').setScale(0.5);
+            this.add.image(w/3,h/8,'bird1').setScale(0.5);
+            this.add.image(w/4,h/6,'bird2').setScale(0.5);
+            this.add.image(w - w/16,h/8,'bird1').setScale(0.5);
+            this.add.image(w-w/8,h/6,'bird2').setScale(0.5);
 
-            const net = this.add.image(w / 2 - 100, h / 2 - 400, 'net').setInteractive();
+            const net = this.add.image(w / 2 + 100, h / 2 - 350, 'net').setInteractive();
             net.setScale(0.75);
             this.input.setDraggable(net);
             this.physics.add.existing(net);
