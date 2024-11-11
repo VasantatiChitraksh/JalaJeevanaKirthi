@@ -18,9 +18,10 @@ const Resetpassword = () => {
    console.log("sucess")
    Axios.post('http://localhost:3001/auth/reset-password/'+token,
        {password}).then(response => {
+        console.log(password)
          if (response.data.status){
             console.log("sucess")
-            navigate('/login')
+             navigate('/login')
          } 
          console.log(response.data)       
        } ).catch(err => {
@@ -42,7 +43,7 @@ const Resetpassword = () => {
               placeholder="Set Password"
               required
               className={styles.inputField}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setpassword(e.target.value)}
             />
           </div>
 
