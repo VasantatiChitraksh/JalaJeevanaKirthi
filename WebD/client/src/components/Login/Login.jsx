@@ -25,6 +25,7 @@ function Login() {
           localStorage.setItem('loginFlag', 1);
           navigate("/");
         } else {
+          alert("Invalid EmailID or Password" )
           console.log('Login failed:', response.data.message);  // Log any error messages
         }
       })
