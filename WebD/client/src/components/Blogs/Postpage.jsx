@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Postpage.css'
+import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 
 function PostPage() {
@@ -8,13 +10,40 @@ function PostPage() {
   const [content, setContent] = useState('yOUR CONTENT');
   const [username, setUsername] = useState('Guest'); // Default username, you can make it dynamic
   const [date] = useState(new Date().toLocaleDateString());
+  const navigate = useNavigate();
+  const location = useLocation();
+  const addPost = location.state?.addPost;
 
 
+  const validateTitle = () => {
+    const wordsInTitle = title.trim().split(' ');
+    return wordsInTitle.length >= 1 && title.toLowerCase() !== 'your title';
+  };
+
+  const validateContent = () => {
+    const wordsInContent = content.trim().split(' ');
+    return wordsInContent.length >= 20 && content.toLowerCase() !== 'your content';
+  };
 
   const handleSubmit = () => {
-    
-    alert('Post submitted successfully!');
+    if (!validateTitle()) {
+      alert("Please enter a title with at least 1 word and not 'YOUR TITLE'");
+      return;
+    }
+    if (!validateContent()) {
+      alert("Please enter content with at least 20 words and not 'YOUR CONTENT'");
+      return;
+    }
+
+    alert('Your post submitted successfully');
+
+    // If validations pass, create the new post and navigate back to homepage
+    const newPost = { title, content, username, date };
+    addPost(newPost);
+    navigate('/');
   };
+
+
 
   return (
     <div className="post-page">
