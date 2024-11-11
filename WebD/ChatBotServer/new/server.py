@@ -85,8 +85,8 @@ def server_multiple_pdfs(pdfs):
     with ThreadPoolExecutor() as executor:
         list(executor.map(lambda pdf: store_to_db(load_data_convert_to_chunks(pdf)), pdfs))
 
-pdf1 = PdfReader('../testing_pdf.pdf')
-server_multiple_pdfs([pdf1])
+# pdf1 = PdfReader('../testing_pdf.pdf')
+# server_multiple_pdfs([pdf1])
 
 # Set up Flask app
 app = Flask(__name__)
