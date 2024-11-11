@@ -28,7 +28,7 @@ import bird2 from './gameassets/Items/bird2.png';
 
 
 // Load additional assets
-import bubbleImage from './gameassets/items/bubble.png';
+const bubbleImage = require("./gameassets/items/bubble.png")
 import netImage from './gameassets/items/net.png';
 
 //Load waste assest
