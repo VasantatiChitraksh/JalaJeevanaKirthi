@@ -82,7 +82,7 @@ router.post("/forgot-password", async (req, res) => {
       service: "gmail",
       auth: {
         user: "asta456as@gmail.com",
-        pass: "xxev lykf puay iewp",
+        pass: "uefc cugc upjp ihca",
       },
     });
 
@@ -109,19 +109,32 @@ router.post("/forgot-password", async (req, res) => {
 router.post('/reset-password/:token', async(req,res) =>{
   const {token} = req.params;
   const {password}=req.body
-  console.log("came ")
+  console.log("hi")
+  console.log(password)
   try {
-    console.log("Token received:", token);
-    const decoded = await jwt.verify(token,"jwttokenker");
-    console.log("Decoded token:", decoded);
+    // Verify JWT token
+    const decoded = jwt.verify(token, "jwttokenker");
     const id = decoded.id;
-    const  hashpassword = await bcrypt.hash(password,10)
-    await User.findByIdAndUpdate({_id: id}, {password: hashpassword})
-    return res.json({ status: "true", message: "update password " });
-  } catch(err){
-    return res.json({ message: "invalid token" })
+
+    // Hash the new password
+    const hashpassword = await bcrypt.hash(password, 10);
+
+    // Find user by ID and update password
+    const updatedUser = await User.findByIdAndUpdate(id, { password: hashpassword }, { new: true });
+
+    // Check if user was found and updated
+    if (!updatedUser) {
+      return res.status(404).json({ status: "false", message: "User not found" });
+    }
+
+    // Password updated successfully
+    return res.json({ status: "true", message: "Password updated" });
+  } catch (err) {
+    console.error("Error in reset-password:", err);
+    return res.status(400).json({ message: "Invalid token or error updating password" });
   }
 })
+
 
 router.get("/user", async (req, res) => {
   const { email } = req.query;
