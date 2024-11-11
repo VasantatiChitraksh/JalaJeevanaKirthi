@@ -126,7 +126,7 @@ const WeatherPage = () => {
             <a href="/forecasts">Forecasts</a>
           </li>
           <li className="right">
-            <a href="/contact">Contact</a>
+            <a href="/login">Login</a>
           </li>
         </ul>
       </nav>

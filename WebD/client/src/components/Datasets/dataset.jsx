@@ -8,12 +8,27 @@ function Dataset() {
   const [datasets, setDatasets] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [username, setUsername] = useState('');
+
+  const email = localStorage.getItem('userEmail');
+  console.log("Email from localStorage:", email);
+  
+  if (email) {
+      axios.get(`http://localhost:3001/auth/user?email=${email}`)
+        .then((response) => {
+          console.log("Response data:", response.data); // Log the response to check the structure
+          setUsername(response.data.username); // Update the username in state
+        })
+        .catch((error) => {
+          console.error("Error fetching user data:", error);
+        });
+  }
 
   // New state for form input
   const [formData, setFormData] = useState({
-    name: '',
+    username: username,
+    title: '',
     date: '',
-    author: '',
     url: ''
   });
 
@@ -21,7 +36,7 @@ function Dataset() {
   useEffect(() => {
     const fetchDatasets = async () => {
       try {
-        const response = await axios.get('https://example.com/api/datasets'); // Replace with your actual API endpoint
+        const response = await axios.get('http://localhost:3001/datasets/viewdatasets'); // Replace with your actual API endpoint
         setDatasets(response.data);
       } catch (error) {
         console.error('Error fetching datasets:', error);
@@ -51,12 +66,18 @@ function Dataset() {
   };
 
   // Handle form submission
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    // Here you can make an API call to upload the dataset or add it to the datasets array
-    setDatasets([...datasets, formData]);
-    setIsModalOpen(false); // Close modal after submission
-    setFormData({ name: '', date: '', author: '', url: '' }); // Clear form
+    try {
+      const response = await axios.post('http://localhost:3001/datasets/newdataset', formData);
+      if (response.status === 201) {  // Assuming successful creation returns status 201
+        setDatasets([...datasets, response.data]); // Add the new dataset from the response to the list
+      }
+      setIsModalOpen(false); // Close modal after submission
+      setFormData({ username: '', title: '', date: '', url: '' }); // Clear form
+    } catch (error) {
+      console.error('Error uploading dataset:', error);
+    }
   };
 
   return (
@@ -67,7 +88,7 @@ function Dataset() {
             <a href="/" >Home</a>
           </li>
           <li>
-            <a href="https://example.com/blogs" >Blogs</a>
+            <a href="/blogs" >Blogs</a>
           </li>
           <li className="right">
             <a href="/login" >Login</a>
@@ -106,7 +127,7 @@ function Dataset() {
             {datasets.length > 0 ? (
               datasets.map((dataset, index) => (
                 <div className="dataset-card" key={index}>
-                  <p>{dataset.author}</p>
+                  <p>{dataset.username}</p>
                   <p>Date: {dataset.date}</p>
                   <p>{dataset.description || dataset.url}</p>
                 </div>
@@ -124,16 +145,16 @@ function Dataset() {
             <h3>Upload New Dataset</h3>
             <form onSubmit={handleFormSubmit}>
               <label>
-                Name:
-                <input type="text" name="name" value={formData.name} onChange={handleInputChange} required />
+                Title:
+                <input type="text" name="title" value={formData.title} onChange={handleInputChange} required />
               </label>
               <label>
                 Date:
                 <input type="date" name="date" value={formData.date} onChange={handleInputChange} required />
               </label>
               <label>
-                Author:
-                <input type="text" name="author" value={formData.author} onChange={handleInputChange} required />
+                Username:
+                <input type="text" name="username" value={formData.username} onChange={handleInputChange} required />
               </label>
               <label>
                 URL:

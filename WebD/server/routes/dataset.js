@@ -24,7 +24,17 @@ router.get("/searchdataset", async (req, res)=>{
   }
 })
 
+router.get("/viewdatasets", async (req, res) => {
+  try {
+      const datasets = await Dataset.find({}).limit(5);
+      res.json(datasets);
+  } catch (err) {
+      res.status(500).json({ error: "error retrieving datasets" });
+  }
+});
+
 router.post("/newdataset", async (req, res)=>{
+    console.log("insidde new dataset");
     const { url, username, date, title, description, tags } = req.body;
 
     const newDataset = new Dataset({
@@ -33,7 +43,7 @@ router.post("/newdataset", async (req, res)=>{
         date,
         title,
         description,
-        tags: tags.split(","),
+        // tags: tags.split(","),
     })
 
     await newDataset.save();

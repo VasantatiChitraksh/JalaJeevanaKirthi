@@ -6,7 +6,7 @@ const DatasetSchema = new mongoose.Schema({
     date: {type: Date, required: true},
     title: {type: String, required: true},
     description: {type: String, required: false},
-    tags: [String]
+    tags: {type: [String], require: false},
 })
 
 const DatasetModel = mongoose.model("Dataset", DatasetSchema);

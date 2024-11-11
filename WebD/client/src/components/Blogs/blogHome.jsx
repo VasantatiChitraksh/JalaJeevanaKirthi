@@ -14,8 +14,9 @@ function Bloghome() {
    return (
        <div className='bloghome-container'>
            <Banner />
-           
-           <BlogPosts />
+           <div className="list-blogs">
+            <BlogPosts />
+           </div>
            <div className="create-btn-container">
              <button onClick={handleCreatePost} className="create-btn">Create</button>
            </div>
