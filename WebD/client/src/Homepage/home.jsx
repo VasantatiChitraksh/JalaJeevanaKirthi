@@ -174,9 +174,6 @@ function Home() {
             alert("Please Create/Login into Your Account to access all our features")
         }
     }
-    const handleOnclick9 = (e) => {
-        navigate('/quiz')
-    }
     return (
         <div className='background'>
             <div className="topbar">
@@ -188,7 +185,6 @@ function Home() {
                 <button className="topbar-button" onClick={handleOnclick2}>RolePlay🎭</button>
                 <button className="topbar-button" onClick={handleOnclick6}>Datasets📑</button>
                 <button className="topbar-button" onClick={handleOnclick5}>Forums🗨️</button>
-                <button className="topbar-button" onClick={handleOnclick9}>Quiz</button>
                 <button className="topbar-button" onClick={handleLoginLogout}>
                     {loginFlag === "1" ? "Logout🏃‍♂️‍➡️" : "Login🏃‍♂️"}
                 </button>
