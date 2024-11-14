@@ -123,19 +123,29 @@ function Dataset() {
         </div>
 
         <div className="datasets-section">
+          
           <div className="datasets">
             {datasets.length > 0 ? (
-              datasets.map((dataset, index) => (
-                <div className="dataset-card" key={index}>
-                  <p>{dataset.username}</p>
-                  <p>Date: {dataset.date}</p>
-                  <p>{dataset.description || dataset.url}</p>
-                </div>
-              ))
-            ) : (
-              <p>Loading datasets...</p>
-            )}
-          </div>
+            datasets.map((dataset, index) => (
+            <div className="dataset-card" key={index}>
+              <p>{dataset.username}</p>
+              <p>Date: {dataset.date}</p>
+              <p
+                className="dataset-link"
+                onClick={() => {
+                navigator.clipboard.writeText(dataset.url);
+                alert('URL copied to clipboard');
+                }}
+              >
+          {dataset.name || dataset.title} {/* Display name or default text */}
+        </p>
+      </div>
+    ))
+  ) : (
+    <p>Loading datasets...</p>
+  )}
+</div>
+
         </div>
       </div>
 
