@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Banner from './banner';
 import BlogPosts from './blogposts';
-import Modal from './reader'; // Import the Modal component
+import Modal from './reader';
 import { useNavigate } from 'react-router-dom';
 import './blogHome.css';
 
@@ -12,12 +12,14 @@ function Bloghome() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleCreatePost = () => {
-    navigate('/postPage');{/*, { state: { addPost } }*/}
+    navigate('/postPage');
   };
 
   const addPost = (newPost) => {
     setPosts((prevPosts) => [newPost, ...prevPosts]);
   };
+
+
 
   const openModal = (post) => {
     setSelectedPost(post);
@@ -39,10 +41,11 @@ function Bloghome() {
   return (
     <div className='bloghome-container'>
       <Banner />
-      <BlogPosts posts={posts} onPostClick={openModal} />
       <div className="create-btn-container">
         <button onClick={handleCreatePost} className="create-btn">Create</button>
       </div>
+      <BlogPosts posts={posts} onPostClick={openModal} />
+
       
       {isModalOpen && (
         <Modal 
