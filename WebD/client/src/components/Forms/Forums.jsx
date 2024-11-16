@@ -32,7 +32,7 @@ const Forum = () => {
     useEffect(() => {
         const fetchOrGenerateTopic = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/api/discussion?date=${selectedDate}`);
+                const response = await axios.get(` https://ug2-team3-se-webd-1.onrender.com/api/discussion?date=${selectedDate}`);
                 if (response.data.topic !== "No topic available for this date.") {
                     setTopic(response.data.topic);
                 } else {
