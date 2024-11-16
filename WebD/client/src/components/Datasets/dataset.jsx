@@ -10,14 +10,7 @@ function Dataset() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [username, setUsername] = useState('');
-  const [formData, setFormData] = useState({
-    username: '',
-    title: '',
-    date: '',
-    url: '',
-    tags: [],
-    newTag: '' // For creating a new tag
-  });
+  
   const [searchQuery, setSearchQuery] = useState(''); // State for search query
 
   // Fetch datasets and tags from backend
@@ -43,6 +36,15 @@ function Dataset() {
 
     fetchInitialData();
   }, []);
+
+  const [formData, setFormData] = useState({
+    username: username,
+    title: '',
+    date: '',
+    url: '',
+    tags: [],
+    newTag: '' // For creating a new tag
+  });
 
   // Handle input changes for form fields
   const handleInputChange = (e) => {
