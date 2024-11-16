@@ -16,7 +16,7 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
   
-    Axios.post('http://localhost:3001/auth/login', { email, password })
+    Axios.post('https://ug2-team3-se-webd-1.onrender.com/auth/login', { email, password })
       .then((response) => {
         console.log('Response from server:', response.data);  // Log the entire response object
         if (response.data.status) {
