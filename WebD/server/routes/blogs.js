@@ -25,17 +25,17 @@ router.post("/newblog", async (req, res)=>{
     })
 
     await newBlog.save();
-    // const flaskResponse = await axios.post("http://localhost:5000/addData", {
-    //     newdata: content,
-    // });
-    // 
-    // if (flaskResponse.data) {
-    //     return res.json({ status: "true", message: "Blog added and sent to knowledge base" });
-    // } else {
-    //     return res.status(500).json({ status: "false", message: "Blog added but failed to update knowledge base" });
-    // }
+    const flaskResponse = await axios.post("http://localhost:5000/addData", {
+        newdata: content,
+    });
+    
+    if (flaskResponse.data) {
+        return res.json({ status: "true", message: "Blog added and sent to knowledge base" });
+    } else {
+        return res.status(500).json({ status: "false", message: "Blog added but failed to update knowledge base" });
+    }
 
-    return res.json({ status: "true", message: "Blog added" });
+    // return res.json({ status: "true", message: "Blog added" });
     
 })
 

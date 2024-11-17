@@ -10,6 +10,7 @@ import { BlogsRouter } from './routes/blogs.js';
 import { DatasetRouter } from './routes/dataset.js';
 import cookieParser from 'cookie-parser';
 import http from 'http';
+import https from 'https';
 
 // Initialize Express app
 const app = express();
@@ -75,8 +76,8 @@ io.on('connection', (socket) => {
         });
 
         const options = {
-            hostname: '127.0.0.1',  // Replace with your Flask server hostname
-            port: 5000,             // Replace with your Flask server port
+            hostname: '6a1b-34-106-136-173.ngrok-free.app',  // Replace with your Flask server hostname
+            port: 443,             // Replace with your Flask server port
             path: '/query',
             method: 'POST',
             headers: {
@@ -85,7 +86,7 @@ io.on('connection', (socket) => {
             }
         };
 
-        const req = http.request(options, (res) => {
+        const req = https.request(options, (res) => {
             let data = '';
 
             res.on('data', (chunk) => {
