@@ -3,6 +3,8 @@ import axios from 'axios';
 import styles from './Forums.module.css';
 import { useLocation } from 'react-router-dom';
 
+import { GoogleGenerativeAI } from "@google/generative-ai"; //for getting the story, calling gemini api
+
 
 
 const Forum = () => {
@@ -28,7 +30,29 @@ const Forum = () => {
     console.log("Username in Forums page:", username)
 
     useEffect(() => {
-        setTopic('About sea life of Andaman and Nicobar, do the sea monsters exist there...?');
+        const fetchOrGenerateTopic = async () => {
+            try {
+                const response = await axios.get(`https://ug2-team3-se-webd-1.onrender.com/api/discussion?date=${selectedDate}`);
+                if (response.data.topic !== "No topic available for this date.") {
+                    setTopic(response.data.topic);
+                } else {
+                    const genAI = new GoogleGenerativeAI('AIzaSyB060WZBPz_EswunsAdpVwQxRAI4-5wf_4');
+                    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+                    const prompt = `Give me a topic for users to discuss upon, the topic should be related to marine life`;
+                    const result = await model.generateContent(prompt);
+                    const generatedTopic = result.response.text();
+                    setTopic(generatedTopic);
+                    await axios.post(`https://ug2-team3-se-webd-1.onrender.com/api/discussion/topic`, {
+                        date: selectedDate,
+                        topic: generatedTopic,
+                    });
+                }
+            } catch (error) {
+                console.error('Error fetching or generating topic:', error);
+            }
+        };
+
+        fetchOrGenerateTopic();
         fetchDiscussion(selectedDate);
     }, [selectedDate]);
 
