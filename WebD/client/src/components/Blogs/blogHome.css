@@ -33,6 +33,20 @@
     opacity: 1; /* Loop back to the first image */
   }
 }
+.bloghome-container {
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-size: cover;
+}
+.no-posts-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: rgba(243, 230, 230, 0.971);
+  margin-top: 20px;
+}
+
 
 .create-btn {
   padding: 10px 20px;
@@ -67,6 +81,7 @@
     align-items: center;
     padding-top: 5px;
     padding-bottom: 20px;
+    padding-left: 65px;
     display: flex;
     justify-content: center;
   }
