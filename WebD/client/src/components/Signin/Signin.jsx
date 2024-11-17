@@ -16,7 +16,7 @@ const Signin = () => {
   const handleSubmit = (e) => {
    e.preventDefault()
    console.log("sucess")
-   Axios.post('http://localhost:3001/auth/signup',
+   Axios.post('https://ug2-team3-se-webd-1.onrender.com/auth/signup',
        {username , email, password}).then(response => {
          if (response.data.status){
             console.log("sucess")

@@ -16,7 +16,7 @@ const Resetpassword = () => {
   const handleSubmit = (e) => {
    e.preventDefault()
    console.log("sucess")
-   Axios.post('http://localhost:3001/auth/reset-password/'+token,
+   Axios.post('https://ug2-team3-se-webd-1.onrender.com/auth/reset-password/'+token,
        {password}).then(response => {
         console.log(password)
          if (response.data.status){

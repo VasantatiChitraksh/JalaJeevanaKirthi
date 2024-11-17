@@ -77,7 +77,7 @@ function Home() {
         console.log("Email from localStorage:", email);
         
         if (email) {
-            Axios.get(`http://localhost:3001/auth/user?email=${email}`)
+            Axios.get(`https://ug2-team3-se-webd-1.onrender.com/auth/user?email=${email}`)
               .then((response) => {
                 console.log("Response data:", response.data); // Log the response to check the structure
                 setUsername(response.data.username); // Update the username in state
