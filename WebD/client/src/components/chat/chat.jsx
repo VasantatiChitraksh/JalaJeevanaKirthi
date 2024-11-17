@@ -3,7 +3,7 @@ import { FaPaperPlane } from 'react-icons/fa';
 import io from 'socket.io-client';
 import './chat.css';
 
-const socket = io.connect("http://localhost:3001`");
+const socket = io.connect("http://localhost:3001");
 
 function Chat() {
     const [messages, setMessages] = useState([]);

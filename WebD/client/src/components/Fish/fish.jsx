@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./fish.css";
 
-const Fish = () => {
+function Fishes(){
   const [eyePosition, setEyePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -56,4 +56,4 @@ const calculateEyeStyle = (cursorPosition, side) => {
   
   
   
-export default Fish;
+export default Fishes;

@@ -18,6 +18,7 @@ import marine from '../assets/MarineBiodiveristy.jpg'
 import ocean from '../assets/Proj_Image1.jpg'
 import './style.css';
 import { Fish } from '../../../server/models/MarineData.js';
+import Fishes from '../components/Fish/fish.jsx';
 
 function Home() {
     const images = [
@@ -216,7 +217,7 @@ function Home() {
         </div>
     </div>
     <button className="nav-button" onClick={handleRightClick}>&gt;</button>
-    <Fish/>
+    
 </div>
 
             <div className="spacer">
@@ -260,6 +261,7 @@ We believe that even the smallest actions can have a profound effect on our envi
                     <p>Also please read the blogs written by other marine enthuaists and participate in forums. Share valuable information to help the marine industry by writing blogging or uploapding datasets or files, research papers or your findings.</p>
                 </div>
             </div>
+            <Fishes />
             <div className='chat'>
                 <button className="chatbot" onClick={toggleChat}>
                 🤖ChatBot
