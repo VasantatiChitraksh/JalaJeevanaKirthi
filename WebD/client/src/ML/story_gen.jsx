@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import Chat from '../components/chat/chat.jsx';
 import './story_gen.css'; // Importing the CSS file
-import { GoogleGenerativeAI } from "@google/generative-ai"; //for getting the story, calling gemini api
+
+// Importing icons
+import fishIcon from '../assets/fish_icon.png';
+import fishermanIcon from '../assets/fisherman_icon.png';
+import marineBiologistIcon from '../assets/marine_biologist_icon.png';
 
 const StoryGen = () => {
   const [isBoxVisible, setIsBoxVisible] = useState(false);
   const [boxHeading, setBoxHeading] = useState('');
-  const [storyData, setStoryData] = useState('')
+  const [storyData, setStoryData] = useState('');
 
   const handleButtonClick = (heading) => {
     try {
@@ -17,32 +21,23 @@ const StoryGen = () => {
       console.error('Error while handling button click:', error);
     }
   };
-  
+
   const [isChatOpen, setIsChatOpen] = useState(false);
 
   const toggleChat = () => {
-    setIsChatOpen(prevState => !prevState);
- };
- 
+    setIsChatOpen((prevState) => !prevState);
+  };
+
   const getStoryData = async () => {
-    const genAI = new GoogleGenerativeAI('AIzaSyB060WZBPz_EswunsAdpVwQxRAI4-5wf_4');
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
-    const prompt = `Write a story from the point of view of a ${boxHeading}. The story shod describe the day-to-day challenges they face due to overfishing, pollution, climate change, and habitat destruction. Make the story informative, emotional, and educational, helping readers understand the impact of human activity on marine life and the ocean ecosystem. Include details about how these challenges affect the ${boxHeading} and what actions can be taken to improve the situation in 300 words`;
-
-    const result = await model.generateContent(prompt);
-    
-    const story = result.response.text();
+    // Placeholder for AI-generated story retrieval
+    const prompt = `Write a story from the point of view of a ${boxHeading}.`;
+    const story = `This is a sample story about a ${boxHeading}.`;
     setStoryData(story);
-
 
     const synth = window.speechSynthesis;
     const utterance = new SpeechSynthesisUtterance(story);
     synth.speak(utterance);
-
-
-
-  }
+  };
 
   return (
     <div className={`story-gen ${isBoxVisible ? 'box-open' : ''}`}>
@@ -50,13 +45,13 @@ const StoryGen = () => {
       <nav className="nav-bar">
         <ul>
           <li>
-            <a href="/" >Home</a>
+            <a href="/">Home</a>
           </li>
           <li>
-            <a href="https://example.com/blogs" >Blogs</a>
+            <a href="https://example.com/blogs">Blogs</a>
           </li>
           <li className="right">
-            <a href="/login" >Login</a>
+            <a href="/login">Login</a>
           </li>
         </ul>
       </nav>
@@ -65,17 +60,23 @@ const StoryGen = () => {
       <div className="content">
         <div className="option-list">
           <div className="option" onClick={() => handleButtonClick('Fish')}>
-            <div className="circle"></div>
+            <div className="circle">
+              <img src={fishIcon} alt="Fish Icon" />
+            </div>
             <span>Fish</span>
           </div>
 
           <div className="option" onClick={() => handleButtonClick('Fisherman')}>
-            <div className="circle"></div>
+            <div className="circle">
+              <img src={fishermanIcon} alt="Fisherman Icon" />
+            </div>
             <span>Fisherman</span>
           </div>
 
           <div className="option" onClick={() => handleButtonClick('Marine Biologist')}>
-            <div className="circle"></div>
+            <div className="circle">
+              <img src={marineBiologistIcon} alt="Marine Biologist Icon" />
+            </div>
             <span>Marine Biologist</span>
           </div>
         </div>
@@ -84,20 +85,20 @@ const StoryGen = () => {
       {/* Right Box with Heading */}
       {isBoxVisible && (
         <div className="side-box">
-          <h2>{boxHeading}</h2> 
+          <h2>{boxHeading}</h2>
           <p>{storyData}</p>
         </div>
       )}
 
       {/* Chat Bot Button */}
-      <div className='chat'>
-          <button className="chatbot" onClick={toggleChat}>
-            ChatBot
-          </button>
-          {isChatOpen && <Chat toggleChat={toggleChat} />}
+      <div className="chat">
+        <button className="chatbot" onClick={toggleChat}>
+          ChatBot
+        </button>
+        {isChatOpen && <Chat toggleChat={toggleChat} />}
       </div>
     </div>
   );
-}
+};
 
 export default StoryGen;
