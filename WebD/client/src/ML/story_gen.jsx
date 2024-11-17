@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import Chat from '../components/chat/chat.jsx';
 import './story_gen.css'; // Importing the CSS file
+import { GoogleGenerativeAI } from "@google/generative-ai"; //for getting the story, calling gemini api
 
 // Importing icons
 import fishIcon from '../assets/fish_icon.png';
 import fishermanIcon from '../assets/fisherman_icon.png';
 import marineBiologistIcon from '../assets/marine_biologist_icon.png';
+import Fishes from '../components/Fish/fish.jsx';
 
 const StoryGen = () => {
   const [isBoxVisible, setIsBoxVisible] = useState(false);
   const [boxHeading, setBoxHeading] = useState('');
   const [storyData, setStoryData] = useState('');
+  const [synth, setSynth] = useState(window.speechSynthesis); // SpeechSynthesis instance
 
   const handleButtonClick = (heading) => {
     try {
@@ -28,22 +31,26 @@ const StoryGen = () => {
     setIsChatOpen((prevState) => !prevState);
   };
 
-   const getStoryData = async () => {
-    const genAI = new GoogleGenerativeAI('AIzaSyB060WZBPz_EswunsAdpVwQxRAI4-5wf_4');
+  const getStoryData = async () => {
+    const genAI = new GoogleGenerativeAI('AIzaSyCntb4idjgKUg8zgZRjT9QQSBsKrPXo2S4');
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    const prompt = `Write a story from the point of view of a ${boxHeading}. The story shod describe the day-to-day challenges they face due to overfishing, pollution, climate change, and habitat destruction. Make the story informative, emotional, and educational, helping readers understand the impact of human activity on marine life and the ocean ecosystem. Include details about how these challenges affect the ${boxHeading} and what actions can be taken to improve the situation in 300 words`;
+    const prompt = `Write a story from the point of view of a ${boxHeading}. The story should describe the day-to-day challenges they face due to overfishing, pollution, climate change, and habitat destruction. Make the story informative, emotional, and educational, helping readers understand the impact of human activity on marine life and the ocean ecosystem. Include details about how these challenges affect the ${boxHeading} and what actions can be taken to improve the situation in 200 words`;
 
     const result = await model.generateContent(prompt);
     
     const story = result.response.text();
     setStoryData(story);
 
-
-    const synth = window.speechSynthesis;
     const utterance = new SpeechSynthesisUtterance(story);
     synth.speak(utterance);
-  }
+  };
+
+  const stopAudio = () => {
+    if (synth.speaking) {
+      synth.cancel(); 
+    }
+  };
 
   return (
     <div className={`story-gen ${isBoxVisible ? 'box-open' : ''}`}>
@@ -59,8 +66,18 @@ const StoryGen = () => {
           <li className="right">
             <a href="/login">Login</a>
           </li>
+          {isBoxVisible && (
+          <div className="side-box">
+            <h2>{boxHeading}</h2>
+            <p>{storyData}</p>
+            <button className="stop-audio" onClick={stopAudio}>Stop Audio</button>
+          </div>
+          )}
         </ul>
+        
       </nav>
+
+      <Fishes />
 
       {/* Main Content */}
       <div className="content">
@@ -88,15 +105,6 @@ const StoryGen = () => {
         </div>
       </div>
 
-      {/* Right Box with Heading */}
-      {isBoxVisible && (
-        <div className="side-box">
-          <h2>{boxHeading}</h2>
-          <p>{storyData}</p>
-        </div>
-      )}
-
-      {/* Chat Bot Button */}
       <div className="chat">
         <button className="chatbot" onClick={toggleChat}>
           ChatBot

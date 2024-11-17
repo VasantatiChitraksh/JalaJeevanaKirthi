@@ -4,6 +4,7 @@ import styles from './Forums.module.css';
 import { useLocation } from 'react-router-dom';
 
 import { GoogleGenerativeAI } from "@google/generative-ai"; //for getting the story, calling gemini api
+import Fishes from '../Fish/fish';
 
 
 
@@ -36,9 +37,9 @@ const Forum = () => {
                 if (response.data.topic !== "No topic available for this date.") {
                     setTopic(response.data.topic);
                 } else {
-                    const genAI = new GoogleGenerativeAI('AIzaSyB060WZBPz_EswunsAdpVwQxRAI4-5wf_4');
+                    const genAI = new GoogleGenerativeAI('AIzaSyCntb4idjgKUg8zgZRjT9QQSBsKrPXo2S4');
                     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-                    const prompt = `Give me a topic for users to discuss upon, the topic should be related to marine life`;
+                    const prompt = `Give me only one topic for users to discuss upon, the topic should be related to marine life`;
                     const result = await model.generateContent(prompt);
                     const generatedTopic = result.response.text();
                     setTopic(generatedTopic);
@@ -144,6 +145,9 @@ const Forum = () => {
                 </div>
             ))}
         </div>
+
+        <Fishes />
+
         <footer>
         <div className={styles['comment-input']}>
             <input

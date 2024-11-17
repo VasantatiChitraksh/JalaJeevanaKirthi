@@ -4,7 +4,7 @@
     align-items: center;
     flex-direction: row;  /* Aligning arrows and the card in a row */
     min-height: 100vh;
-    background-color: #f4f4f9;
+    /* background-color: #f4f4f9; */
     padding: 20px;
     width: 100%;
   }

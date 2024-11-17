@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './dataset.css';
 import { FiUpload, FiSearch, FiFilter } from 'react-icons/fi';
 import axios from 'axios';
+import Fishes from '../Fish/fish';
 
 function Dataset() {
   const [datasets, setDatasets] = useState([]);
@@ -137,6 +138,8 @@ function Dataset() {
           </li>
         </ul>
       </nav>
+
+      <Fishes />
 
       <div className="content">
         <div className="upload-section">
