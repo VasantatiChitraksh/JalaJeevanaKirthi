@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import QuizCard from "./quizcard";
 import './quiz.css';
+import Fishes from "../Fish/fish";
 
 const Quizes = () => {
   const questions = [
@@ -45,10 +46,25 @@ const Quizes = () => {
 
   return (
     <>
+      <nav className="nav-bar">
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/roleplay">Roleplay</a>
+          </li>
+          <li className="right">
+            <a href="/login">Login</a>
+          </li>
+        </ul>
+      </nav>
       <div className="main-quiz">
         <div className="navigate-arrow" onClick={prevQuestion}> ← </div>
         <QuizCard question={questions[questionId]} flip={flip} handleFlip={handleFlip} />
         <div className="navigate-arrow" onClick={nextQuestion}> → </div>
+
+        <Fishes />
       </div>
     </>
   );
