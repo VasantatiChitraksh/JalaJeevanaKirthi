@@ -1,9 +1,5 @@
 import mongoose from "mongoose";
 
-const marineDbConnection = mongoose.createConnection('mongodb+srv://jjkweb:ug2team3@cluster0.b3naz.mongodb.net/MarineData', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
 
 const FishSchema = new mongoose.Schema({
     name: { type: String, required: true, unique: true },
@@ -17,6 +13,6 @@ const FishSchema = new mongoose.Schema({
     points: {type : Number},
 });
 
-const FishModel = marineDbConnection.model("fishes", FishSchema);
+const FishModel = mongoose.model("fishes", FishSchema);
 
 export { FishModel as Fish };

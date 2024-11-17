@@ -68,6 +68,7 @@
     top: 0;
     left: 0;
     right: 0;
+    font-family: 'Roboto', sans-serif;
     background-color: white;
     color: black;
     height: 4rem; /* 56px */
@@ -92,9 +93,10 @@
 }
 
 .topbar-button {
-    margin-left: 0rem; 
+    margin-left: -1rem; 
     margin-top: 1rem;
     background-color: white;
+    font-family: 'Roboto', sans-serif;
     color: black;
     opacity: 0.5;
     margin-bottom: 1rem;
@@ -129,6 +131,7 @@
     width: 80%;
     height: 25rem; /* 400px */
     background-color: white;
+    font-family: 'Roboto', sans-serif;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* 4px, 8px */
     border-radius: 0.625rem; /* 10px */
     margin-bottom: 2.5rem; /* 40px */
@@ -141,17 +144,19 @@
 .about-section h2 {
     font-size: 1.75rem; /* 28px */
     color: #0027ad;
+    font-family: 'Roboto', sans-serif;
 }
 
 .about-section p {
     font-size: 1.125rem; /* 18px */
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Roboto', sans-serif;
     color: #000000;
 }
 
 .icons-section {
     display: flex;
     justify-content: center;
+    font-family: 'Roboto', sans-serif;
     height: 21.875rem; /* 350px */
     gap: 1.25rem; /* 20px */
     margin-bottom: 2.5rem; /* 40px */
@@ -183,6 +188,7 @@
     background-size: 112%;
     justify-content: center;
     align-items: center;
+    font-family: 'Roboto', sans-serif;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* 4px, 8px */
     border-radius: 0.625rem; /* 10px */
     font-size: 1rem; /* 16px */
@@ -205,6 +211,7 @@
     width: 100%;
     padding: 1.25rem; /* 20px */
     width: 100vw;
+    font-family: 'Roboto', sans-serif;
     padding-left: 2%; /* 2% of the viewport width */
 }
 

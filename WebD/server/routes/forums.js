@@ -70,6 +70,32 @@ router.post('/discussion/comment/reply', async (req, res) => {
     }
 });
 
+// POST a new topic for a specific date
+router.post('/discussion/topic', async (req, res) => {
+    const { date, topic } = req.body;
+
+    if (!date || !topic) {
+        return res.status(400).json({ message: 'Date and topic are required.' });
+    }
+
+    try {
+        let existingDiscussion = await Forum.findOne({ date });
+
+        if (existingDiscussion) {
+            return res.status(400).json({ message: 'Topic for this date already exists.' });
+        }
+
+        const newDiscussion = new Forum({ date, topic, comments: [] });
+        await newDiscussion.save();
+
+        res.status(201).json({ message: 'Topic created successfully.' });
+    } catch (error) {
+        console.error('Error creating topic:', error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+});
+
+
 
 
 

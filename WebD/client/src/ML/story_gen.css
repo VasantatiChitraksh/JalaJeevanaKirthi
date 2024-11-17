@@ -29,6 +29,21 @@ body {
   flex-direction: column;
 }
 
+.stop-audio {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.stop-audio:hover {
+  background-color: #e63939;
+}
+
 .nav-bar {
   background-color: #003366;
   padding: 10px;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './weather.css';
+import Fishes from "../components/Fish/fish";
 
 const WeatherPage = () => {
   const [weatherData, setWeatherData] = useState(null);
@@ -143,6 +144,8 @@ const WeatherPage = () => {
             className="city-input"
           />
         </div>
+
+        <Fishes />
 
         {/* Current weather display */}
         <div className="weather-section">
