@@ -123,7 +123,7 @@ const WeatherPage = () => {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/forecasts">Forecasts</a>
+            <a href="/roleplay">Roleplay</a>
           </li>
           <li className="right">
             <a href="/login">Login</a>
