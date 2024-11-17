@@ -103,6 +103,8 @@
   .blog-post {
     height: 200px;
     background-color: #e0e0e0;
+    background: url('../../assets/blogpostp.jpg') no-repeat center center fixed;
+    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;

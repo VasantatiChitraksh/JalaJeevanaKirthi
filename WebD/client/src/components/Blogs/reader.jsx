@@ -10,8 +10,7 @@ function Modal({ post, onClose, onAuthorChange }) {
         <button className="close-btn" onClick={onClose}>X</button>
         <h1>{post.title}</h1>
         <div className='post-meta'>
-         <p><strong>Author:</strong>{post.username}</p>
-         <p><strong>Posted Date:</strong> {post.date}</p>
+         <p><strong>Author: </strong>{post.user}</p>
         </div>
 
 
