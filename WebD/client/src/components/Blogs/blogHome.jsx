@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Banner from './banner';
 import BlogPosts from './blogposts';
 import Modal from './reader';
 import { useNavigate } from 'react-router-dom';
 import './blogHome.css';
+import axios from 'axios';
 
 function Bloghome() {
   const navigate = useNavigate();
@@ -37,6 +38,20 @@ function Bloghome() {
       author: e.target.value
     }));
   };
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const postResponses = await axios.get('http://localhost:3001/blogs/allblogs');
+        setPosts(postResponses.data);
+
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchPosts();
+  }, []);
 
   return (
     <div className='bloghome-container'>
