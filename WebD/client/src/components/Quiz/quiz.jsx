@@ -6,24 +6,64 @@ import Fishes from "../Fish/fish";
 const Quizes = () => {
   const questions = [
     {
-      question: "What is the capital of France?",
-      answer: "Paris"
+      question: "What is the largest ocean on Earth?",
+      answer: "Pacific Ocean"
     },
     {
-      question: "Who painted the Mona Lisa?",
-      answer: "Leonardo da Vinci"
+      question: "Which ocean is known as the 'Southern Ocean'?",
+      answer: "Antarctic Ocean"
     },
     {
-      question: "What is the largest planet in our solar system?",
-      answer: "Jupiter"
+      question: "What is the deepest point in the ocean called?",
+      answer: "Mariana Trench"
     },
     {
-      question: "What is the tallest mountain in the world?",
-      answer: "Mount Everest"
+      question: "Which fish is known for its ability to generate electric shocks?",
+      answer: "Electric Eel"
     },
     {
-      question: "Who wrote 'Romeo and Juliet'?",
-      answer: "William Shakespeare"
+      question: "What causes tides in the ocean?",
+      answer: "The gravitational pull of the moon and the sun"
+    },
+    {
+      question: "What percentage of the Earth's surface is covered by oceans?",
+      answer: "About 71%"
+    },
+    {
+      question: "What is the primary cause of ocean currents?",
+      answer: "Wind and the Earth's rotation"
+    },
+    {
+      question: "What is the term for tiny marine organisms that drift with ocean currents?",
+      answer: "Plankton"
+    },
+    {
+      question: "What is the name of the ocean zone where sunlight does not reach?",
+      answer: "Aphotic Zone"
+    },
+    {
+      question: "Which ocean is the warmest?",
+      answer: "Indian Ocean"
+    },
+    {
+      question: "What is the process by which salt is removed from seawater?",
+      answer: "Desalination"
+    },
+    {
+      question: "What is the largest animal in the ocean?",
+      answer: "Blue Whale"
+    },
+    {
+      question: "What is the name of the underwater mountain range in the Atlantic Ocean?",
+      answer: "Mid-Atlantic Ridge"
+    },
+    {
+      question: "Which ocean has the most coral reefs?",
+      answer: "Pacific Ocean"
+    },
+    {
+      question: "What is the term for a circular ocean current?",
+      answer: "Gyre"
     }
   ];
 
