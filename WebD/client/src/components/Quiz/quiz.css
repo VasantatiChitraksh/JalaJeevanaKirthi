@@ -9,6 +9,9 @@
     width: 100%;
   }
   
+  *{
+    font-family: 'Roboto';
+  }
   /* Navigation arrows on the sides */
   .navigate-arrow {
     font-size: 2rem;
