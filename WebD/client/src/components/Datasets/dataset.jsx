@@ -18,15 +18,15 @@ function Dataset() {
   useEffect(() => {
     const fetchInitialData = async () => {
       try {
-        const datasetsResponse = await axios.get('http://localhost:3001/datasets/viewdatasets');
+        const datasetsResponse = await axios.get('https://ug2-team3-se-webd-1.onrender.com/datasets/viewdatasets');
         setDatasets(datasetsResponse.data);
 
-        const tagsResponse = await axios.get('http://localhost:3001/datasets/tags');
+        const tagsResponse = await axios.get('https://ug2-team3-se-webd-1.onrender.com/datasets/tags');
         setTags(tagsResponse.data);
 
         const email = localStorage.getItem('userEmail');
         if (email) {
-          const userResponse = await axios.get(`http://localhost:3001/auth/user?email=${email}`);
+          const userResponse = await axios.get(`https://ug2-team3-se-webd-1.onrender.com/auth/user?email=${email}`);
           setUsername(userResponse.data.username);
           setFormData((prev) => ({ ...prev, username: userResponse.data.username }));
         }
@@ -89,7 +89,7 @@ function Dataset() {
         }
       }
 
-      const response = await axios.post('http://localhost:3001/datasets/newdataset', {
+      const response = await axios.post('https://ug2-team3-se-webd-1.onrender.com/datasets/newdataset', {
         ...dataset,
         tags
       });
@@ -122,7 +122,7 @@ function Dataset() {
   const handleSearch = async () => {
     try {
       const tagsParam = selectedTags.join(',');
-      const response = await axios.get('http://localhost:3001/datasets/searchdataset', {
+      const response = await axios.get('https://ug2-team3-se-webd-1.onrender.com/datasets/searchdataset', {
         params: { search: searchQuery, tags: tagsParam }
       });
       setDatasets(response.data);

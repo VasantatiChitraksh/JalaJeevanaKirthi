@@ -15,7 +15,7 @@ const Forgotpassword = () => {
   const handleSubmit = (e) => {
    e.preventDefault()
    //console.log("sucess")
-   Axios.post('http://localhost:3001/auth/forgot-password',
+   Axios.post('https://ug2-team3-se-webd-1.onrender.com/auth/forgot-password',
        {email}).then(response => {
          if (response.data.status){
             alert("check your email for reset password link")

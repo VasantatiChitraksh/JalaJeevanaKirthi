@@ -18,7 +18,7 @@ function PostPage() {
       try {
         const email = localStorage.getItem('userEmail');
         if (email) {
-          const userResponse = await axios.get(`http://localhost:3001/auth/user?email=${email}`);
+          const userResponse = await axios.get(`https://ug2-team3-se-webd-1.onrender.com/auth/user?email=${email}`);
           setUsername(userResponse.data.username);
         }
       } catch (error) {
@@ -55,7 +55,7 @@ function PostPage() {
     // If validations pass, create the new post and navigate back to homepage
     const newPost = { username, title, content };
 
-    const response = await axios.post('http://localhost:3001/blogs/newblog', {
+    const response = await axios.post('https://ug2-team3-se-webd-1.onrender.com/blogs/newblog', {
       username,
       title,
       content,

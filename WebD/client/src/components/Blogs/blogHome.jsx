@@ -42,7 +42,7 @@ function Bloghome() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const postResponses = await axios.get('http://localhost:3001/blogs/allblogs');
+        const postResponses = await axios.get('https://ug2-team3-se-webd-1.onrender.com/blogs/allblogs');
         setPosts(postResponses.data);
 
       } catch (error) {

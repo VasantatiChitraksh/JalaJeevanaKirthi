@@ -46,7 +46,7 @@ function FishCatch() {
     useEffect(()=> {
         const fetchdetails = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/data/fishes'); 
+                const response = await axios.get('https://ug2-team3-se-webd-1.onrender.com/data/fishes'); 
                 console.log("Response data:", response.data);
                 const fishdata = response.data.reduce((acc, fish) => {
                     acc[fish.name] = fish; 
