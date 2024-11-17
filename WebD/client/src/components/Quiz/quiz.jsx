@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import QuizCard from "./quizcard";
 import './quiz.css'
 
-const Quiz = () => {
+const Quizes = () => {
 
     const questions = [
         {
@@ -56,4 +56,4 @@ const Quiz = () => {
     )
 }
 
-export default Quiz;
+export default Quizes;

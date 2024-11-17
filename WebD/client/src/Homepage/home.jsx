@@ -179,8 +179,6 @@ function Home() {
 
     const handleOnclick9 = (e) => {
         navigate('/quiz')
-
-       
     }
 
     return (
@@ -194,6 +192,7 @@ function Home() {
                 <button className="topbar-button" onClick={handleOnclick2}>RolePlay🎭</button>
                 <button className="topbar-button" onClick={handleOnclick6}>Datasets📑</button>
                 <button className="topbar-button" onClick={handleOnclick5}>Forums🗨️</button>
+                <button className="topbar-button" onClick={handleOnclick9}>Quiz</button>
                 <button className="topbar-button" onClick={handleLoginLogout}>
                     {loginFlag === "1" ? "Logout🏃‍♂️‍➡️" : "Login🏃‍♂️"}
                 </button>
