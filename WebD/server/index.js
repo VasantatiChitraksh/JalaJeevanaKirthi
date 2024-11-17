@@ -4,7 +4,7 @@ import cors from 'cors';
 import { Server } from 'socket.io';
 import mongoose from 'mongoose';
 import { UserRouter } from './routes/user.js';
-import { FishRouter } from './routes/marinedata.js'; 
+import { FishRouter } from './routes/marinedata.js';
 import { ForumsRouter } from './routes/forums.js';
 import { BlogsRouter } from './routes/blogs.js';
 import { DatasetRouter } from './routes/dataset.js';
@@ -16,7 +16,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "https://03d9-34-106-136-173.ngrok-free.app"],
     credentials: true,
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
@@ -41,9 +41,9 @@ const server = createServer(app);
 // Set up Socket.io
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: ["http://localhost:3000", "https://03d9-34-106-136-173.ngrok-free.app"],
         methods: ["GET", "POST"],
-        credentials: true
+        credentials: true,
     },
 });
 
