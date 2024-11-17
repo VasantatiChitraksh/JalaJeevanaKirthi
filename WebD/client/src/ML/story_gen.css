@@ -171,6 +171,8 @@ body {
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
   color: white;
   transition: width 0.3s ease;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .side-box h2 {

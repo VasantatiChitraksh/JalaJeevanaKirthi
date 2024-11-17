@@ -133,9 +133,6 @@ function Dataset() {
           <li>
             <a href="/blogs">Blogs</a>
           </li>
-          <li className="right">
-            <a href="/login">Login</a>
-          </li>
         </ul>
       </nav>
 
