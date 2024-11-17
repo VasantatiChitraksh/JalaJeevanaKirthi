@@ -60,12 +60,6 @@ const StoryGen = () => {
           <li>
             <a href="/">Home</a>
           </li>
-          <li>
-            <a href="https://example.com/blogs">Blogs</a>
-          </li>
-          <li className="right">
-            <a href="/login">Login</a>
-          </li>
           {isBoxVisible && (
           <div className="side-box">
             <h2>{boxHeading}</h2>

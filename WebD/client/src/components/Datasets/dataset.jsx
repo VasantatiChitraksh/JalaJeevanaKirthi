@@ -50,6 +50,14 @@ function Dataset() {
   // Handle input changes for form fields
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
+    if (name === 'date') {
+      const today = new Date().toISOString().split('T')[0];
+      if (value > today) {
+        alert("Please select a valid date.");
+        return;
+      }
+    }
     setFormData((prevData) => ({
       ...prevData,
       [name]: value
@@ -129,12 +137,6 @@ function Dataset() {
         <ul>
           <li>
             <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/blogs">Blogs</a>
-          </li>
-          <li className="right">
-            <a href="/login">Login</a>
           </li>
         </ul>
       </nav>
@@ -251,6 +253,7 @@ function Dataset() {
                   name="url"
                   value={formData.url}
                   onChange={handleInputChange}
+                  max={new Date().toISOString().split('T')[0]}
                   required
                 />
               </label>
