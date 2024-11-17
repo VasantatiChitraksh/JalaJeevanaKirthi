@@ -5,7 +5,8 @@
 }
 
 #home_button{
-    margin-left: -10%;
+    margin-left: -15%;
+    width: 8rem;
     margin-top: 1rem;
 }
 
@@ -53,17 +54,18 @@
     color: #333;
 }
 
-.flash-card .button-container {
+/* .flash-card .button-container {
     display: flex;
-    gap: 20px;
+    gap: 2px;
     justify-content: center;
+    border-radius: 5px;
     margin-top: 20px;
-}
+} */
 
 .flash-card button {
     padding: 10px 20px;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 15px;
     border: none;
     cursor: pointer;
 }
