@@ -6,12 +6,15 @@ import chromadb
 from concurrent.futures import ThreadPoolExecutor
 from flask import Flask, request, jsonify
 from dotenv import load_dotenv
+import google.generativeai as genai
 import os
 
 load_dotenv()
 
 # Get tokens from environment variables
-gemini_api_key = "AIzaSyB060WZBPz_EswunsAdpVwQxRAI4-5wf_4"
+gemini_api_key = "AIzaSyCntb4idjgKUg8zgZRjT9QQSBsKrPXo2S4"
+
+genai.configure(gemini_api_key)
 
 # Initialize Sentence Transformer embedder and ChromaDB client
 embedder = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
@@ -54,29 +57,18 @@ def get_related_query(query):
     return results['documents']
 
 def call_gemini_api(prompt):
-    url = "https://api.gemini.com/v1/generate"  # Hypothetical Gemini API endpoint
-    headers = {
-        "Authorization": f"Bearer {gemini_api_key}",
-        "Content-Type": "application/json"
-    }
-    payload = {
-        "prompt": prompt,
-        "max_tokens": 300,
-        "temperature": 0.7,
-        "top_p": 0.95
-    }
-    response = requests.post(url, json=payload, headers=headers)
-    response.raise_for_status()  # Raises an error for a bad response
-    return response.json().get("generated_text", "")
+    model = genai.GenerativeModel("gemini-1.5-flash")
+    response = model.generate_content(prompt)
+    print(response.text)
 
 def get_answer(query, context):
-    prompt = f"""Context: {context}
+    prompt = f"""
+        Context: {context}
+        Query: {query}
 
-Query: {query}
-
-Based on the provided context, explain the answer in detail, focusing on the key concepts and providing a comprehensive explanation.
-Answer:
-"""
+        Based on the provided context, explain the answer in detail, focusing on the key concepts and providing a comprehensive explanation.
+        Answer:
+    """
     return call_gemini_api(prompt)
 
 def answer_query(query):
@@ -90,6 +82,10 @@ def server_multiple_pdfs(pdfs):
 
 # pdf1 = PdfReader('../testing_pdf.pdf')
 # server_multiple_pdfs([pdf1])
+
+text = "Marine life is a diverse and essential part of Earth's ecosystems, encompassing a vast array of species ranging from microscopic plankton to the majestic whales. The oceans cover about 71% of the planet’s surface and play a critical role in regulating the global climate, producing oxygen, and providing resources for countless species. Marine organisms can be found in a variety of habitats, including coral reefs, deep-sea trenches, coastal estuaries, and open ocean waters. Each of these ecosystems supports unique communities of species that interact with one another and their environment in intricate ways. The oceans are home to billions of species, including fish, marine mammals like dolphins and whales, sea turtles, jellyfish, and various invertebrates like octopuses and sea stars. Phytoplankton, which are microscopic plants, form the base of the marine food web and produce a significant portion of the world’s oxygen. Fish and other marine animals are vital to global food security and are a primary source of protein for billions of people worldwide. Coral reefs, known for their breathtaking biodiversity, are often referred to as the rainforests of the sea, as they support a wide variety of species and provide essential ecosystem services, such as coastal protection and carbon sequestration. However, marine life faces numerous threats from human activities. Overfishing is depleting fish stocks, while pollution, especially plastic waste, is causing widespread harm to marine animals. Plastics and other debris are often ingested by marine creatures, leading to health problems or death. Climate change is exacerbating these issues by warming ocean waters, causing coral bleaching, and altering migration patterns for many species. Ocean acidification, caused by the absorption of excess carbon dioxide from the atmosphere, is another significant challenge for marine life, as it weakens the shells of many marine organisms and disrupts food chains. In addition, habitat destruction from practices like bottom trawling and coastal development is damaging vital ecosystems like coral reefs and mangroves. Despite these challenges, conservation efforts are underway to protect marine life. Marine protected areas (MPAs) are one of the most effective tools for preserving biodiversity, providing safe havens for marine species to thrive without the pressure of human interference. Sustainable fishing practices, such as establishing catch limits and implementing no-catch zones, help to ensure that fish populations remain healthy and that marine ecosystems are not overexploited. Efforts to reduce plastic pollution include initiatives to clean up beaches, reduce single-use plastics, and promote alternatives. Climate action, such as global agreements to reduce greenhouse gas emissions, is also crucial for maintaining ocean health. Education and awareness campaigns are essential for helping people understand the importance of protecting marine life, as well as how individual actions can make a difference, such as reducing plastic waste, supporting sustainable seafood, and advocating for stronger environmental protections. The interconnectedness of marine ecosystems means that preserving marine life benefits not only the ocean itself but also the climate, biodiversity, and the millions of people who rely on the ocean for food and livelihood. Protecting marine life is critical for the health of the planet, and through collective action, we can ensure that these ecosystems continue to thrive for future generations."
+
+store_to_db(getchunks(text))
 
 # Set up Flask app
 app = Flask(__name__)
@@ -117,6 +113,5 @@ def query_api():
 
 
 if __name__ == '__main__':
-    # Use the port specified in the PORT environment variable, default to 5000 if not set
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
 
