@@ -51,12 +51,6 @@ const Quizes = () => {
           <li>
             <a href="/">Home</a>
           </li>
-          <li>
-            <a href="/roleplay">Roleplay</a>
-          </li>
-          <li className="right">
-            <a href="/login">Login</a>
-          </li>
         </ul>
       </nav>
       <div className="main-quiz">

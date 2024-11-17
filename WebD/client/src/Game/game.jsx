@@ -419,9 +419,7 @@ function FishCatch() {
 
     const navigate = useNavigate();
 
-    const handleOnclick1 = () => {
-        navigate('/login');
-    };
+    
 
     const handleOnclick2 = () => {
         navigate('/');
@@ -434,7 +432,6 @@ function FishCatch() {
                 <img className="logo-icon" src={logo} alt="Logo" />
                 <h2 className="logo">JalaJeevanaKirthi</h2>
                 <button className="topbar-button" id="home_button" onClick={handleOnclick2}>Home</button>
-                <button className="topbar-button" id="login_button" onClick={handleOnclick1}>Login</button>
                 <div className="score-container">
                 <h3>Score: {score}</h3> {/* Displaying the current score */}
             </div>

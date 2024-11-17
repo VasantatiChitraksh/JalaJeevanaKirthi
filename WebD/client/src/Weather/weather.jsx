@@ -123,9 +123,6 @@ const WeatherPage = () => {
           <li>
             <a href="/">Home</a>
           </li>
-          <li>
-            <a href="/roleplay">Roleplay</a>
-          </li>
         </ul>
       </nav>
 

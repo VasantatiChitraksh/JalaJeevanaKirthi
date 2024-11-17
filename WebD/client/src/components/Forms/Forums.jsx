@@ -68,8 +68,16 @@ const Forum = () => {
     };
 
     const handleDateChange = (e) => {
-        setSelectedDate(e.target.value);
+        const newDate = e.target.value; // Get the selected date
+        const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+    
+        if (newDate > today) {
+            alert("Future can't be predicted!!😏 Please select a valid date."); // Show alert for future date
+        } else {
+            setSelectedDate(newDate); // Update the state if the date is valid
+        }
     };
+    
     const handleCommentSubmit = async () => {
         if (newComment.trim()) {
             try {
@@ -110,7 +118,12 @@ const Forum = () => {
         <div className={styles['discussion-container']}>
         <div className={styles['date-picker']}>
             <label>Select Date: </label>
-            <input type="date" value={selectedDate} onChange={handleDateChange} />
+            <input
+                 type="date" 
+                 value={selectedDate} 
+                 onChange={handleDateChange} 
+                 //max={new Date().toISOString().split('T')[0]} // Prevent future dates in the UI
+        /> 
         </div>
         <div className={styles['topic']}>
             <h3>{topic}</h3>
