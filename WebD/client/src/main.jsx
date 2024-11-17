@@ -16,7 +16,7 @@ import FishCatch from './Game/game.jsx'
 import Forgotpassword from './components/Forgotpassword/Forgotpassword.jsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Resetpassword from './components/Resetpassword/Resetpassword.jsx';
-import Quiz from './components/Quiz/quiz.jsx';
+// import Quiz from './components/Quiz/quiz.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -37,7 +37,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/blogs' element={<Bloghome/>}/>
         <Route path='/postPage' element={<PostPage/>}/>
         <Route path='/game'element={<FishCatch/>}/>
-        <Route path='/quiz'element={<Quiz/>}/>
+        {/* <Route path='/quiz'element={<Quiz/>}/> */}
       </Routes>
     </BrowserRouter>
     
