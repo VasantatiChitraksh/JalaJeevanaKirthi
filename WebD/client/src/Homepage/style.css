@@ -349,3 +349,7 @@
 .chatbot{
     width: 8rem;
 }
+
+.chat{
+    z-index: 100;
+}

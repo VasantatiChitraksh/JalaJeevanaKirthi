@@ -39,6 +39,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/postPage' element={<PostPage/>}/>
         <Route path='/game'element={<FishCatch/>}/>
         <Route path='/quiz'element={<Quizes/>}/>
+        <Route path='/chat'element={<Chat/>}/>
       </Routes>
     </BrowserRouter>
     

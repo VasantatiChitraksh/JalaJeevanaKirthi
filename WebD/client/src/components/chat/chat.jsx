@@ -19,6 +19,7 @@ function Chat() {
         });
 
         socket.on('chat_update', (newMessages) => {
+            console.log(newMessages)
             setMessages(newMessages);
         });
 
@@ -26,7 +27,7 @@ function Chat() {
             socket.off('chat_update');
             socket.off('connect');
         };
-    }, []);
+    }, [messages]);
 
     useEffect(() => {
         if (messagesEndRef.current) {

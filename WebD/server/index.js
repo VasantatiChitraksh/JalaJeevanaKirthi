@@ -106,6 +106,7 @@ io.on('connection', (socket) => {
                     };
 
                     rooms[room].push(botResponse);
+                    console.log(botResponse)
                     io.to(room).emit('chat_update', rooms[room]);
 
                 } catch (error) {
@@ -116,6 +117,7 @@ io.on('connection', (socket) => {
                         user: false
                     };
                     rooms[room].push(errorResponse);
+                    print(rooms[room])
                     io.to(room).emit('chat_update', rooms[room]);
                 }
             });
