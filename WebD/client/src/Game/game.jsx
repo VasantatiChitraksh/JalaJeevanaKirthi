@@ -172,14 +172,14 @@ function FishCatch() {
             const displayWasteDetails = (wasteName) => {
                 const wasteDetailContainer = this.add.container(w / 2 - 150, h / 2 - 150);
                 const wasteBackground = this.add.graphics();
-                wasteBackground.fillStyle(0xF9D57C, 1);
+                wasteBackground.fillStyle(0x0077BE, 1);
                 wasteBackground.fillRoundedRect(0, 0, 300, 300, 10);
                 wasteDetailContainer.add(wasteBackground);
             
                 const wasteText = this.add.text(20, 20, `Collected: ${wasteName}\nAvoid throwing waste into the oceans, it causes a lot of environmental damage and kills marine life. Also wastes the resources of fisherman who are trying to catch fishes and reduces thier revenue leading to a hard hit of thier life.Hopefully this point deduction simulated the negative effect it has.`, {
                     fontSize: '16px',
                     color: '#ffffff',
-                    fontFamily: 'Arial',
+                    fontFamily: 'Roboto',
                     padding: { x: 10, y: 5 },
                     wordWrap: { width: 250, useAdvancedWrap: true }
                 });
@@ -188,8 +188,8 @@ function FishCatch() {
                 const continueButton = this.add.text(w / 2 - 800, h / 2 - 180, 'CONTINUE', {
                     fontSize: '24px',
                     color: '#000000',
-                    backgroundColor: '#F9D57C',
-                    fontFamily: 'Arial',
+                    backgroundColor: '#0077BE',
+                    fontFamily: 'Roboto',
                     padding: { x: 0, y: 5 },
                 }).setOrigin(0.5).setInteractive();
                 wasteDetailContainer.add(continueButton);
@@ -215,7 +215,7 @@ function FishCatch() {
         
                         const fishDetailContainer = this.add.container(w / 2 - 350, h / 2 - 250);
                         const fishDetailBackground = this.add.graphics();
-                        fishDetailBackground.fillStyle(0xF9D57C, 1);
+                        fishDetailBackground.fillStyle(0x0077BE, 1);
                         fishDetailBackground.fillRoundedRect(0, 0, 600, 500, 10);
                         fishDetailContainer.add(fishDetailBackground);
         
@@ -236,7 +236,7 @@ function FishCatch() {
                             const text = this.add.text(20, 20 + index * lineHeight, `${detail.label} ${detail.value}`, {
                                 fontSize: '16px',
                                 color: '#ffffff',
-                                fontFamily: 'Arial',
+                                fontFamily: 'Roboto',
                                 padding: { x: 10, y: 15 },
                                 wordWrap: { width: 450, useAdvancedWrap: true }
                             });
@@ -265,14 +265,14 @@ function FishCatch() {
         const showGameOver = () => {
             const gameOverContainer = this.add.container(w / 2 - 350, h / 2 - 200);
             const gameOverBackground = this.add.graphics();
-            gameOverBackground.fillStyle(0xF9D57C, 1);
+            gameOverBackground.fillStyle(0x0077BE, 1);
             gameOverBackground.fillRoundedRect(0, 0, 600, 400, 10);
             gameOverContainer.add(gameOverBackground);
         
             const gameOverText = this.add.text(20, 20, "GAME OVER", {
                 fontSize: '36px',
                 color: '#ffffff',
-                fontFamily: 'Arial',
+                fontFamily: 'Roboto',
                 padding: { x: 10, y: 15 },
             });
             gameOverContainer.add(gameOverText);
@@ -280,8 +280,8 @@ function FishCatch() {
             const exitButton = this.add.text(w / 2 - 500, h / 2 - 100, 'EXIT', {
                 fontSize: '24px',
                 color: '#000000',
-                backgroundColor: '#F9D57C',
-                fontFamily: 'Arial',
+                backgroundColor: '#0077BE',
+                fontFamily: 'Roboto',
                 padding: { x: 10, y: 5 },
             }).setOrigin(0.5).setInteractive();
             gameOverContainer.add(exitButton);
@@ -292,7 +292,7 @@ function FishCatch() {
         const displayFishDetails = (fish, fishName, details) => {
             const detailContainer = this.add.container(w / 2 - 350, h / 2 - 250);
             const detailBackground = this.add.graphics();
-            detailBackground.fillStyle(0xF9D57C, 1);
+            detailBackground.fillStyle(0x0077BE, 1);
             detailBackground.fillRoundedRect(0, 0, 700, 500, 10);
             detailContainer.add(detailBackground);
         
@@ -314,7 +314,7 @@ function FishCatch() {
                 const text = this.add.text(20, 20 + index * lineHeight, `${detail.label} ${detail.value}`, {
                     fontSize: '16px',
                     color: '#ffffff',
-                    fontFamily: 'Arial',
+                    fontFamily: 'Roboto',
                     padding: { x: 10, y: 15 },
                     wordWrap: { width: linewidth, useAdvancedWrap: true }
                 });
@@ -326,8 +326,8 @@ function FishCatch() {
             const exitButton = this.add.text(w / 2 - 550, h / 2 , 'EXIT', {
                         fontSize: '24px',
                         color: '#000000',
-                        backgroundColor: '#F9D57C',
-                        fontFamily: 'Arial',
+                        backgroundColor: '#0077BE',
+                        fontFamily: 'Roboto',
                         padding: { x: 10, y: 5 },
             }).setOrigin(0.5).setInteractive();
             detailContainer.add(exitButton);
@@ -336,8 +336,8 @@ function FishCatch() {
             const continueButton = this.add.text(w / 2 - 800, h / 2, 'CONTINUE', {
                 fontSize: '24px',
                 color: '#000000',
-                backgroundColor: '#F9D57C',
-                fontFamily: 'Arial',
+                backgroundColor: '#0077BE',
+                fontFamily: 'Roboto',
                 padding: { x: 0, y: 5 },
             }).setOrigin(0.5).setInteractive();
             detailContainer.add(continueButton);
