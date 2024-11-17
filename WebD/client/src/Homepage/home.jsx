@@ -17,6 +17,7 @@ import coralImg from '../assets/Coral_Image.jpg';
 import marine from '../assets/MarineBiodiveristy.jpg'
 import ocean from '../assets/Proj_Image1.jpg'
 import './style.css';
+import { Fish } from '../../../server/models/MarineData.js';
 
 function Home() {
     const images = [
@@ -174,6 +175,13 @@ function Home() {
             alert("Please Create/Login into Your Account to access all our features")
         }
     }
+
+    const handleOnclick9 = (e) => {
+        navigate('/quiz')
+
+       
+    }
+
     return (
         <div className='background'>
             <div className="topbar">
@@ -208,6 +216,7 @@ function Home() {
         </div>
     </div>
     <button className="nav-button" onClick={handleRightClick}>&gt;</button>
+    <Fish/>
 </div>
 
             <div className="spacer">
