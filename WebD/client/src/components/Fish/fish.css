@@ -1,0 +1,40 @@
+.fish {
+    position: fixed;
+    top: 80%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Exact centering */
+    width: 150px;
+    height: 100px;
+    background: linear-gradient(135deg, #1cddff, #026afc); /* Gradient for a lively look */
+    border-radius: 60% 40% 40% 60%; /* Create the blob-like shape */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Add depth */
+    animation: float 3s ease-in-out infinite; /* Add a floating effect */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  } 
+  
+  .eye {
+    position: relative;
+    width: 30px; /* Slightly larger for more pupil space */
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .eye::after {
+    content: "";
+    position: absolute;
+    width: 14px; /* Size of the pupil */
+    height: 14px;
+    background: black;
+    border-radius: 50%;
+    top: 8px; /* Center the pupil */
+    left: 8px;
+    transition: transform 0.1s ease; /* Smooth eye movement */
+  }
+  
+  

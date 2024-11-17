@@ -1,0 +1,103 @@
+  .main-quiz {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;  /* Aligning arrows and the card in a row */
+    min-height: 100vh;
+    background-color: #f4f4f9;
+    padding: 20px;
+    width: 100%;
+  }
+  
+  /* Navigation arrows on the sides */
+  .navigate-arrow {
+    font-size: 2rem;
+    color: #007BFF;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    padding: 0 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+  
+  /* Hover effect for arrows */
+  .navigate-arrow:hover {
+    transform: scale(1.3);
+  }
+  
+  /* The QuizCard container */
+  .quiz-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .quiz-card-container:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Flip effect */
+  .question, .answer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  /* Question styles */
+  .question {
+    font-size: 1.25rem;
+    color: #333;
+    font-weight: 600;
+    opacity: 1;
+  }
+  
+  /* Answer styles */
+  .answer {
+    font-size: 1.25rem;
+    color: #333;
+    font-weight: 500;
+    opacity: 0;
+  }
+  
+  /* When flip happens, show the answer */
+  .quiz-card-container.flip .question {
+    opacity: 0;
+  }
+  
+  .quiz-card-container.flip .answer {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 480px) {
+    .navigate-arrow {
+      font-size: 1.5rem;
+    }
+  
+    .quiz-card-container {
+      width: 80%;
+      height: 180px;
+    }
+  
+    .question, .answer {
+      font-size: 1.2rem;
+    }
+  }
+  
