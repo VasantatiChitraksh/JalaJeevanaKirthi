@@ -1,0 +1,13 @@
+chromadb==0.5.20
+Flask==3.1.0
+huggingface_hub==0.26.2
+langchain==0.3.7
+langchain_huggingface==0.1.2
+protobuf==5.28.3
+pyngrok==7.2.1
+PyPDF2==3.0.1
+python-dotenv==1.0.1
+Requests==2.32.3
+sentence_transformers==3.3.1
+torch==2.5.1
+transformers==4.46.3
