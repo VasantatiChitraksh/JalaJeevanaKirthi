@@ -17,7 +17,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-    origin: ["https://jalajeevanakeerthi.vercel.app", "https://03d9-34-106-136-173.ngrok-free.app"],
+    origin: "https://jalajeevanakeerthi.vercel.app",
     credentials: true,
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
@@ -42,7 +42,7 @@ const server = createServer(app);
 // Set up Socket.io
 const io = new Server(server, {
     cors: {
-        origin: ["https://jalajeevanakeerthi.vercel.app", "https://03d9-34-106-136-173.ngrok-free.app"],
+        origin: "https://jalajeevanakeerthi.vercel.app",
         methods: ["GET", "POST"],
         credentials: true,
     },
