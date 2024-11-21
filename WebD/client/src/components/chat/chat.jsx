@@ -12,8 +12,6 @@ function Chat() {
     const messagesEndRef = useRef(null);
 
     useEffect(() => {
-        console.log("hello--")
-
         socket.on('connect', () => {
             console.log("connected to socket backend")
             const newRoom = socket.id;
