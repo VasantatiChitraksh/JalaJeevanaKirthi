@@ -70,6 +70,7 @@ io.on('connection', (socket) => {
         msg = { ...msg, user: true };
         console.log(msg);
         rooms[room].push(msg);
+        console.log(room)
 
         // Make a request to the Flask server
         const postData = JSON.stringify({
@@ -119,6 +120,7 @@ io.on('connection', (socket) => {
                     };
                     rooms[room].push(errorResponse);
                     console.log(error)
+                    console.log(errorResponse)
                     io.to(room).emit('chat_update', rooms[room]);
                 }
             });

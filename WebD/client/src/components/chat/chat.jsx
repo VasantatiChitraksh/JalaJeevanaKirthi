@@ -16,6 +16,7 @@ function Chat() {
             console.log("connected to socket backend")
             const newRoom = socket.id;
             setRoom(newRoom);
+            console.log(newRoom);
             socket.emit('start_chat', { room: newRoom });
         });
 

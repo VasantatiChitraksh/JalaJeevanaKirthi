@@ -180,6 +180,9 @@ function Home() {
     const handleOnclick9 = (e) => {
         navigate('/quiz')
     }
+    const handleOnclick10 = (e) => {
+        navigate('/chat')
+    }
 
     return (
         <div className='background'>
@@ -262,7 +265,7 @@ We believe that even the smallest actions can have a profound effect on our envi
             </div>
             <Fishes />
             <div className='chat'>
-                <button className="chatbot" onClick={toggleChat}>
+                <button className="chatbot" onClick={handleOnclick10}>
                 🤖ChatBot
                 </button>
                 {isChatOpen && <Chat toggleChat={toggleChat} />}
