@@ -78,7 +78,7 @@ io.on('connection', (socket) => {
         });
 
         const options = {
-            hostname: '6a1b-34-106-136-173.ngrok-free.app',  // Replace with your Flask server hostname
+            hostname: 'ab7d-35-247-70-239.ngrok-free.app',  // Replace with your Flask server hostname
             port: 443,             // Replace with your Flask server port
             path: '/query',
             method: 'POST',
