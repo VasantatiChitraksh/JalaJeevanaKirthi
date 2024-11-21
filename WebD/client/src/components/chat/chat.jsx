@@ -13,6 +13,7 @@ function Chat() {
 
     useEffect(() => {
         socket.on('connect', () => {
+            console.log("connected to socket backend")
             const newRoom = socket.id;
             setRoom(newRoom);
             socket.emit('start_chat', { room: newRoom });
