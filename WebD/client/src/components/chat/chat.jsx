@@ -8,7 +8,7 @@ const socket = io.connect("https://ug2-team3-se-webd-1.onrender.com");
 function Chat() {
     const [messages, setMessages] = useState([]);
     const [query, setQuery] = useState('');
-    const [room, setRoom] = useState('');
+    const [room, setRoom] = useState('null');
     const messagesEndRef = useRef(null);
 
     useEffect(() => {
