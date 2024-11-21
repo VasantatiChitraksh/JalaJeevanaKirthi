@@ -272,7 +272,7 @@ We believe that even the smallest actions can have a profound effect on our envi
                 <button className="chatbot" onClick={toggleChat}>
                 🤖ChatBot
                 </button>
-                {isChatOpen && <Chat />}
+                {isChatOpen && <Chat isChatOpen={isChatOpen}/>}
             </div>
             <div className='whale'>
                 <img className="whale-icon" src={whale} alt="Whale" />

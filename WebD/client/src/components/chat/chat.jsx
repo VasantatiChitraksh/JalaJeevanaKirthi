@@ -5,7 +5,7 @@ import './chat.css';
 
 const socket = io.connect("https://ug2-team3-se-webd-1.onrender.com");
 
-function Chat() {
+function Chat({isChatOpen}) {
     const [messages, setMessages] = useState([]);
     const [query, setQuery] = useState('');
     const [room, setRoom] = useState('null');
@@ -29,7 +29,7 @@ function Chat() {
             socket.off('chat_update');
             socket.off('connect');
         };
-    }, []);
+    }, [isChatOpen]);
 
     useEffect(() => {
         if (messagesEndRef.current) {
