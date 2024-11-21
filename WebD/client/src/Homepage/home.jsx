@@ -269,7 +269,7 @@ We believe that even the smallest actions can have a profound effect on our envi
             </div>
             <Fishes />
             <div className='chat'>
-                <button className="chatbot" onClick={handleOnclick10}>
+                <button className="chatbot" onClick={toggleChat}>
                 🤖ChatBot
                 </button>
                 {isChatOpen && <Chat toggleChat={toggleChat} />}
