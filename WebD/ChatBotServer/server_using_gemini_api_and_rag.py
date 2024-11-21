@@ -26,7 +26,7 @@ ngrok.set_auth_token("2l5jeNkFj6bxckYshUA36YYMTEk_2zhyVjuCejoN3yFrq1qUp")
 load_dotenv()
 
 # Get tokens from environment variables
-gemini_api_key = "AIzaSyCntb4idjgKUg8zgZRjT9QQSBsKrPXo2S4"
+gemini_api_key = "AIzaSyBzWwXToAkAlryOgoy_gwihnGQB9b9vVUQ"
 
 genai.configure(api_key=gemini_api_key)
 

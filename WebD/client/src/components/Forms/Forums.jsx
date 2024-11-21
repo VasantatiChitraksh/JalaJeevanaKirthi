@@ -37,7 +37,7 @@ const Forum = () => {
                 if (response.data.topic !== "No topic available for this date." || response.data.topic !== "Default topic for the date") {
                     setTopic(response.data.topic);
                 } else {
-                    const genAI = new GoogleGenerativeAI('AIzaSyCntb4idjgKUg8zgZRjT9QQSBsKrPXo2S4');
+                    const genAI = new GoogleGenerativeAI('AIzaSyBzWwXToAkAlryOgoy_gwihnGQB9b9vVUQ');
                     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
                     const prompt = `Give me only one topic for users to discuss upon, the topic should be related to marine life`;
                     const result = await model.generateContent(prompt);

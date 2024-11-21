@@ -32,7 +32,7 @@ const StoryGen = () => {
   };
 
   const getStoryData = async () => {
-    const genAI = new GoogleGenerativeAI('AIzaSyCntb4idjgKUg8zgZRjT9QQSBsKrPXo2S4');
+    const genAI = new GoogleGenerativeAI('AIzaSyBzWwXToAkAlryOgoy_gwihnGQB9b9vVUQ');
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     const prompt = `Write a story from the point of view of a ${boxHeading}. The story should describe the day-to-day challenges they face due to overfishing, pollution, climate change, and habitat destruction. Make the story informative, emotional, and educational, helping readers understand the impact of human activity on marine life and the ocean ecosystem. Include details about how these challenges affect the ${boxHeading} and what actions can be taken to improve the situation in 200 words`;
