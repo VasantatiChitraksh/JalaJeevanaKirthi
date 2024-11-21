@@ -5,7 +5,7 @@ import './chat.css';
 
 const socket = io.connect("https://ug2-team3-se-webd-1.onrender.com");
 
-function Chat({isChatOpen}) {
+function Chat() {
     const [messages, setMessages] = useState([]);
     const [query, setQuery] = useState('');
     const [room, setRoom] = useState('null');
@@ -50,7 +50,7 @@ function Chat({isChatOpen}) {
     };
 
     return (
-        <>
+        <>  {room === "null" && window.location.reload()}
             <div className='chatbox'>
                 <div className="header">AI Assistant</div>
                 <div className="body">
