@@ -17,11 +17,12 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-    origin: "https://jalajeevanakeerthi.vercel.app",
+    origin: "https://jalajeevanakeerthi.vercel.app", // Add your frontend URL
     credentials: true,
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+
 app.use(cookieParser());
 
 // API Routes
@@ -117,7 +118,7 @@ io.on('connection', (socket) => {
                         user: false
                     };
                     rooms[room].push(errorResponse);
-                    print(rooms[room])
+                    console.log(error)
                     io.to(room).emit('chat_update', rooms[room]);
                 }
             });
