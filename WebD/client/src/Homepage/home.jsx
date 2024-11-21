@@ -34,7 +34,7 @@ function Home() {
 
     const toggleChat = () => {
         window.location.reload();
-        setIsChatOpen(prevState => !prevState);
+        setIsChatOpen(true);
     };
     const headings = [
         'Coral reefs conservation',
