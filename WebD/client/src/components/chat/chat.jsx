@@ -49,8 +49,10 @@ function Chat() {
         }
     };
 
+    // if(room==="null") window.location.reload();
+
     return (
-        <>  {room === "null" && window.location.reload()}
+        <>
             <div className='chatbox'>
                 <div className="header">AI Assistant</div>
                 <div className="body">
