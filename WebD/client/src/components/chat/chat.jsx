@@ -49,7 +49,7 @@ function Chat() {
         }
     };
 
-    if(room==="null") window.location.reload();
+    // if(room==="null") window.location.reload();
 
     return (
         <>
