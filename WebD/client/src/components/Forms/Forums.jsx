@@ -34,7 +34,7 @@ const Forum = () => {
         const fetchOrGenerateTopic = async () => {
             try {
                 const response = await axios.get(`https://ug2-team3-se-webd-1.onrender.com/api/discussion?date=${selectedDate}`);
-                if (response.data.topic !== "No topic available for this date." || response.data.topic !== "Default topic for the date") {
+                if (response.data.topic !== "No topic available for this date." && response.data.topic !== "Default topic for the date") {
                     setTopic(response.data.topic);
                 } else {
                     console.log("inside gmenini api else")
