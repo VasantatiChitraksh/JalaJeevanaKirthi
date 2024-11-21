@@ -94,7 +94,10 @@ function Home() {
             document.removeEventListener('scroll', handleScroll); 
         };
     }, []);
-
+    
+    useEffect(() => {
+        console.log("isChatOpen state:", isChatOpen);
+    }, [isChatOpen]);
 
     useEffect(() => {
         console.log("Updated username:", username); // Logs the username after it's updated
