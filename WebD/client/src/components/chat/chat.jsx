@@ -29,7 +29,7 @@ function Chat() {
             socket.off('chat_update');
             socket.off('connect');
         };
-    }, [isChatOpen]);
+    }, []);
 
     useEffect(() => {
         if (messagesEndRef.current) {
